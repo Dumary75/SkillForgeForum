@@ -1,0 +1,60 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background-color: rgb(46, 46, 46);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* --> DESKTOP BEREICH <-- */
+
+@media (min-width: 450px) {
+
+        /* Navbar Bereich */
+
+    	.bg_top {
+            height: 3rem;
+            background-color: rgb(37, 37, 37);
+            border-bottom: #000 solid 1px;
+        }
+
+        .bg_top ul {
+            display: flex;
+        }
+
+        .bg_top button {
+            margin-right: 1rem;
+            width: 120px;
+            height: 30px;
+            transition: background-color 0.3s, font-weight 0.3s;
+        }
+
+        .bg_top button:hover {
+            cursor: pointer;
+            background-color: #1b1b1b;
+            font-weight: bold;
+        }
+
+        .bg_top ul {
+            top: -0.5rem;
+            margin-left: 25%;
+        }
+
+        /* Die H1 Schrift */
+
+        h1 {
+            display: inline-block;
+            margin-left: 40%;
+            color: #FFF;
+            border: 1px solid #0f0f0f;
+            padding: 4px;
+        }
+
+};
