@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background-color: rgb(46, 46, 46);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* --> MOBIL BEREICH <-- */
+/* Navibar Bereich */
+
+.bg_top ul {
+    display: block;
+    position: absolute;
+    top: 5rem;
+}
+
+.bg_top li {
+    list-style-type: none;
+}
+
+/* Die Seitenbuttons im Navibarbereich */
+.bg_top button {
+    background-color: rgb(148, 96, 0);
+    color: antiquewhite;
+    border: 1px solid #FFF;
+    border-radius: 14%;
+    width: 210px;
+    height: 85px;
+    margin-bottom: 1rem;
+}
+
+.bg_top ul{
+    margin-left: 10%;
+}
+
+.bg_top ul li button a{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.bg_top ul li button a:visited {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+h1 {
+    display: none;
+}
