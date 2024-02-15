@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt_Mobil</title>
+    <title>Login</title>
     <!-- Hier werden mehrere CSS-Dateien eingebunden, wegen der Übersicht des responsiven Verhalten -->
-    <link rel="stylesheet" type="text/css" href="./mobil_css/login_mobil.css">
-    <link rel="stylesheet" type="text/css" href="./desktop_css/login_desktop.css">
-    <script src="main_mobil.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../Css_files/mobil_css/login_mobil.css">
+    <link rel="stylesheet" type="text/css" href="../Css_files/desktop_css/login_desktop.css">
+    <script src="../Javascript_files/main_mobil.js" defer></script>
+    <script src="../Javascript_files/login_page.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +22,17 @@
                 <li><a href="create_mobil.html"><button>Erstellen</button></a></li>
                 <li><a href="login_mobil.html"><button class="momentan">Login</button></a></li>
                 <li><a href="forum_mobil.html"><button>Forum</button></a></li>
+                <li><a href="quiz_mobil.html"><button>Quiz</button></a></li>
             </ul>
+        </div>  
+
+        <!-- Profil_Login_Box -->
+        <button class="profil_ul"></button>
+        <div class="ausklap_menu">
+            <!-- Logik in JS muss noch umgesetzt werden -->
+            <button class="switchButton_left">L</button>
+            <button class="switchButton_right">R</button>
+            <button class="logout"></button>
         </div>
     </header>
 

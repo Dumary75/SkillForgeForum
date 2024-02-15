@@ -33,7 +33,7 @@ html {
 }
 
 .bg_top ul{
-    margin-left: 36%;
+    margin-left: 25%;
     margin-right: auto;
 }
 
@@ -57,7 +57,7 @@ body {
     padding: 0px;
 }
 
-h3 {
+.h3_oben {
     color: #FFF;
     position: relative;
     left: 25px;
@@ -76,10 +76,24 @@ h3 {
     width: 182px;
 }
 
-#passwort_login {
+#passwort {
     height: 25px;
+    text-align: right;
     border: 1px solid #000;
     font-weight: bold;
+}
+
+/* Der PW-Generator */
+#generator {
+    position: absolute;
+    width: 87px;
+    height: 25px;
+    border-right: 2px solid #000;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    background-color: orange;
+    transition: background-color 0.3s, font-weight 0.3s, text-shadow 0.3s;
 }
 
 /* Der neu erstelle Auslogknopf in JS wegen dem trainsition angesprochen */
@@ -92,7 +106,7 @@ h3 {
 @media screen and (min-width: 600px) {
 
 /* Der Erstellbutton */
-#login {
+#erstellen {
     position: absolute;
     margin-bottom: 5px;
     margin-top: 15px;
@@ -101,7 +115,7 @@ h3 {
     left: 15px;
     background-color: #181818;
     color: #FFF;
-    transition: background-color 0.3s, font-weight 0.3s, width 0.3s, height 0.3s;;
+    transition: background-color 0.3s, font-weight 0.3s, width 0.3s, height 0.3s;
 }
 
 #create {
@@ -111,12 +125,21 @@ h3 {
     margin-right: 50%;
 } 
 
-#login:hover {
+#erstellen:hover {
     cursor: pointer;
     background-color: #5e0606;
     font-weight: bold;
     width: 180px;
     height: 30px;
+}
+
+
+#generator:hover{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: red;
+    color: #FFF;
+    text-shadow: 0 0 0.5px rgb(255, 255, 255);
 }
 
 .bg_top button:hover {
@@ -134,19 +157,12 @@ h3 {
 /* BG Switcher */
 
 .bg_switcher{
-    background-color: #FFF;
     border-radius: 30%;
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 160px;
     height: 30px;
-}
-
-.bg_switcher:hover{
-    cursor: pointer;
-    background-color: #000;
-    color: #FFF;
 }
 
 }
