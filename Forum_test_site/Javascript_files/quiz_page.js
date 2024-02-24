@@ -42,41 +42,59 @@ function quizrendern() {
 
 let wahl = 0;
 
+// Funktioniert soweit! Aber muss noch bei drücken von Nextbutton mit Antwort gegengeprüft werden //
 function antwortenrendern() {
        let antwort_index = 0;
        antworten.innerHTML = '';
                 testantworten.forEach(function(antwortText) {
                     if(antwort_index < 4){
                         const liElement = document.createElement('button');
-                        liElement.style.backgroundColor = '#FFF';
-                        liElement.value = Quizdata[frage_index].options;
+                        liElement.value = Quizdata[frage_index].options[antwort_index];
                         liElement.textContent = Quizdata[frage_index].options[antwort_index];
+                        liElement.dataset.index = index;
                         antwort_index++;
                         liElement.classList.add('antwortknopf');
                         antworten.appendChild(liElement);
 
                         liElement.addEventListener('click', (event) => {
                             event.preventDefault();
-                            console.log(wahl);
-                            if(wahl === 0){
-                                liElement.style.backgroundColor = 'yellow';
-                            } else{
-                                liElement.style.backgroundColor = '#fff';
-                            };
-                            if(liElement.style.backgroundColor = 'yellow'){
-                                wahl = 1;
-                            };
+                            auswahlen(index);          
                         });
                     };
                 });
             };
+
+// Test wegen dem selektieren von Antwort, mit BG_color
+
+function auswahlen(event){
+    const markierte_buttons = document.querySelectorAll('.markiert');
+    markierte_buttons.forEach(button => button.classList.remove('markiert'));
+
+    const button_momentan = event.target;
+    button_momentan.classList.add('markiert');
+};
             
 
 let counter = 30;
 let abgelaufen_alarm = 0;
+let wahltest = document.querySelector('.ausgewahlt');
 
 // Next_Button //
 next_button.addEventListener('click', () => {
+
+    let markiert = document.querySelector('.markiert');
+    if(markiert){
+        const fragesache = Quizdata[frage_index].antwort;
+        const antwortwert = parseInt(markiert.dataset.index);
+        console.log(fragesache);
+        console.log(antwortwert);
+        // if(parseInt(markiert.dataset.index) === fragesache){
+        //     alert("Richtig!");
+        // } else {
+        //     alert("Nope!");
+        // };
+    };
+
     frage_index++;
     quizrendern();
     antwortenrendern();
