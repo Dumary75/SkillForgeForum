@@ -27,12 +27,6 @@ const Quizdata = [
         frage: "Was ist 5*5?",
         options: [11,23,25,32],
         antwort: 25
-    },
-
-    {
-        frage: "Welches Haustier haben die Simens?",
-        options: ["Hund", "Katze", "Fisch", "Schlange"],
-        antwort: "Hund"
     }
 ];
 
@@ -53,18 +47,18 @@ function antwortenrendern() {
        let antwort_index = 0;
        antworten.innerHTML = '';
                 testantworten.forEach(function(antwortText) {
-                    // Die Erzerzeung hier dynmisch gestalten anstatt nur <4 //
                     if(antwort_index < 4){
                         const liElement = document.createElement('button');
                         liElement.value = Quizdata[frage_index].options[antwort_index];
                         liElement.textContent = Quizdata[frage_index].options[antwort_index];
+                        liElement.dataset.index = index;
                         antwort_index++;
                         liElement.classList.add('antwortknopf');
                         antworten.appendChild(liElement);
 
                         liElement.addEventListener('click', (event) => {
                             event.preventDefault();
-                            auswahlen(event);          
+                            auswahlen(index);          
                         });
                     };
                 });
@@ -88,28 +82,19 @@ let wahltest = document.querySelector('.ausgewahlt');
 // Next_Button //
 next_button.addEventListener('click', () => {
 
-    // Frage_value mit ausgewählten Antwort_value gegenprüfen //
     let markiert = document.querySelector('.markiert');
     if(markiert){
-        const fragesache = Quizdata[frage_index].antwort.toString();
-        const antwort_wert = document.querySelector(".markiert").value;
-        
-        if(antwort_wert === fragesache){
-            alert("Richtig!");
-        } else {
-            alert("Nope!");
-        };
-    } else {
-        alert("Es wurde nichts gewählt, nochmal anfangen!");
-        location.reload();
+        const fragesache = Quizdata[frage_index].antwort;
+        const antwortwert = parseInt(markiert.dataset.index);
+        console.log(fragesache);
+        console.log(antwortwert);
+        // if(parseInt(markiert.dataset.index) === fragesache){
+        //     alert("Richtig!");
+        // } else {
+        //     alert("Nope!");
+        // };
     };
 
-    /* Das redern begrenzen, das quasi am Array von Quiz.length es aufhört,
-        momentan wirft er einen Fehler aus, anstatt zu stoppen,
-        später dann noch Auswertung einfügen und addieren von Punkten zu gesamter Punktzahl,
-        falls mehr Punkte in Quiz erreicht wurden als davor nur hinzufügen,
-        wie in Games mit dem Highscore_System */
-        
     frage_index++;
     quizrendern();
     antwortenrendern();
@@ -123,9 +108,9 @@ function runtergehen() {
         question_timer.innerText = counter;
     }
     else if(abgelaufen_alarm === 0){
-        // alert("Du bist zu langsam!");
-        // abgelaufen_alarm = 1;
-        // location.reload();
+        alert("Du bist zu langsam!");
+        abgelaufen_alarm = 1;
+        location.reload();
     };
 
     let interval = setTimeout(runtergehen, 1000);

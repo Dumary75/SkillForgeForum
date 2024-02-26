@@ -24,22 +24,25 @@
 
     - Drag and Drop Funktion testen
 
+    - Quizbereich noch einfügen, sobald eingeloggt ist.
+      Das Quiz als solches auf etxtra JS Datei einfügen.
+      Gesamte Quizpage muss noch erstellt werden!
+      Also noch Überprüfung einbauen dazu...
+      
+    - In Quizbereich auch Time_counter einfügen,
+      sobald Zeit ausgelaufen, soll eine Prompt auftauchen,
+      die die Funktion stoppt oder anfragt, das eine neue Runde gestarten werden soll +
+      während Prompt erscheint, soll Rest Blurrie wie bei Bankmenü stehen.
+
+    - Seitenspezifische Funktionen auf extra JS-Dateien auslaggern.
+      Aber man muss vor allem auf die Selektoren achten...
+      Wie: Quiz Fehlt noch komplett aber Forum buggt völlig! <!-- AKUTELL IN BEARBEITUNG --!>
+
     - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
 
     - Punktesystem einbbauen, allgemeinen Score in Profil_Leiste rechts oben anzeigen,
       jeder Forum_Eintrag gibt einen Punkt, Quiz bringt pro beantworte Frage einen.
       Könnte das ganze in Localstorage speichern und damit Seitenübergreifend gestalten?
-
-    ---- QUIZ_TEIL ----
-
-    - In Quiz_Page einbauen, das die Antworten dynmisch je nach Länge der Options geladen werden
-      und nicht nur auf <4 begrenzt werden.
-
-    - In Quiz_page noch dafür sorgen, das Fragen_rendering begrenzt wird,
-      siehe dazu Notizen bei Next_Button!
-
-    - Falls Frage 2 zeilig, Antworten nach unten verschieben,
-      dynamisch anpassen können.
 
     ---- FORUM_TEIL ----
 

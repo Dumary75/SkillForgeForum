@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de" class="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!-- MOBILE CSS MUSS NOCH FÜR QUIZ ERSTELLT WERDEN -->
+    <!-- <link rel="stylesheet" type="text/css" href="../Css_files/mobil_css/login_mobil.css"> -->
+    <link rel="stylesheet" type="text/css" href="../Css_files/desktop_css/quiz_desktop.css">
+    <!-- JS Dateien -->
+    <script src="../Javascript_files/main_mobil.js" defer></script>
+    <script src="../Javascript_files/quiz_page.js" defer></script>
+</head>
+
+<body>
+    
+    <!-- Seiten Liste -->
+    <header>
+        <div class="bg_top">
+            <!-- <button type="button" id="display_knopf">Display</button> -->
+            <ul>
+                <li><a href="create_mobil.html"><button>Erstellen</button></a></li>
+                <li><a href="login_mobil.html"><button>Login</button></a></li>
+                <li><a href="forum_mobil.html"><button>Forum</button></a></li>
+                <li><a href="quiz_mobil.html"><button class="momentan">Quiz</button></a></li>
+            </ul>
+        </div>  
+
+        <!-- Profil_Login_Box -->
+        <button class="profil_ul"></button>
+        <div class="ausklap_menu">
+            <!-- Logik in JS muss noch umgesetzt werden -->
+            <button class="switchButton_left">L</button>
+            <button class="switchButton_right">R</button>
+            <button class="logout"></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- QUIZ ABER NOCH IM TESTMODI -->
+        <div class="quiz_container">
+            <div class="oberer_bereich">
+                <h3 class="h3_oben">Quiz</h3>
+                <div class="quiz_timer_box">
+                    <p class="quiz_timer"></p>
+                </div>
+            </div>
+            <div class="mittlerer_bereich">
+                <p class="fragen"></p>
+                <form class="antworten"></form>
+            </div>
+            <div class="unterer_bereich">
+                <p class="quiz_anzahl_counter"></p>
+                <button class="next">Next</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

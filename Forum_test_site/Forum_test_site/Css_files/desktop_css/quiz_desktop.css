@@ -332,10 +332,10 @@ h3 {
     position: absolute;
     top: -16px;
     left: 44px;
-    margin-bottom: 5px;
 }
 
 .antworten{
+    margin-top: 0px;
     color: #FFF;
     position: absolute;
     width: 100px;
