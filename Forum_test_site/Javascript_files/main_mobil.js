@@ -39,7 +39,8 @@
       siehe dazu Notizen bei Next_Button!
 
     - Falls Frage 2 zeilig, Antworten nach unten verschieben,
-      dynamisch anpassen können.
+      dynamisch anpassen können. Ist derzeit in Px angegeben, 
+      auf Margin Abstand oder % Angabe umstellen?
 
     ---- FORUM_TEIL ----
 

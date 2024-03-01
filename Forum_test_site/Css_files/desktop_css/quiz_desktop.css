@@ -320,10 +320,11 @@ h3 {
 /* Mittlerer Bereich */
 .mittlerer_bereich{
     width: 196px;
-    height: 120px;
+    /* height: 120px; */
     background-color: rgb(0, 85, 241);
     position: relative;
     border-bottom: 0.5px solid #000;
+    padding-bottom: 5px;
 }
 
 .fragen{
@@ -331,7 +332,7 @@ h3 {
     font-size: 1.2em;
     position: absolute;
     top: -16px;
-    left: 44px;
+    /* left: 44px; */
     margin-bottom: 5px;
 }
 
