@@ -57,7 +57,7 @@ const testantworten = [1,2,3,4];
 let frage_index = 0;
 // Umbruch erzwingen, falls Text zu lange ist //
 const maximallang = 12;
-const maximallang_großer = 38;
+const maximallang_großer = 24;
 
 // Test -> Selektor //
 const mittlerer_bereich = document.querySelector('.mittlerer_bereich');
