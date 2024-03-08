@@ -30,6 +30,8 @@
       jeder Forum_Eintrag gibt einen Punkt, Quiz bringt pro beantworte Frage einen.
       Könnte das ganze in Localstorage speichern und damit Seitenübergreifend gestalten?
 
+    - Neben Login wieder das Auge wegen Sichtbarkeit von PW rechts daneben generieren lassen.
+
     ---- QUIZ_TEIL ----
 
     - In Quiz_Page einbauen, das die Antworten dynmisch je nach Länge der Options geladen werden

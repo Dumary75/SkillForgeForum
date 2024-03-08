@@ -39,16 +39,23 @@ const Quizdata = [
     },
 
     {
-        frage: "Zwei sachen können stimmen \n aber stimmen sie?",
+        frage: "Zwei sachen \n können stimmen \n aber stimmen sie?",
         options: ["eins", "zwei", "ja", "nein"],
         antwort: ["eins", "ja"]
     },
 
-        {
+    {
         frage: "Was ist 5*5?",
         options: [11,23,25,32],
         antwort: 25
+    },
+
+    {
+        frage: "Wie geht der ewig lange Satz hier zuende?",
+        options: ["so","ne oder", "lalala","aufkeinen"],
+        antwort: "so"
     }
+
 ];
 
 const testantworten = [1,2,3,4];
@@ -68,19 +75,6 @@ function quizrendern() {
     quiz_box.innerText = frageText;
     question_counter.innerText = `${frage_index + 1} / ${Quizdata.length}`;
     multiple_ausgewahlt = [];
-    
-    if (frageText.length > maximallang) {
-        quiz_box.style.left = '22px';
-        mittlerer_bereich.style.height = '144px';
-        unterer_bereich.style.border = 'border: 0.5px solid #000';
-    } else if(frageText.length > maximallang_großer){
-        quiz_box.style.left = '11px';
-        mittlerer_bereich.style.height = '168px';
-    } else {
-        quiz_box.style.left = '51px';
-        mittlerer_bereich.style.height = '120px';
-        // unterer_bereich.style.border = 'none';
-    };
 }
 
 
@@ -97,7 +91,7 @@ function antwortenrendern() {
                         liElement.value = Quizdata[frage_index].options[antwort_index];
                         liElement.textContent = Quizdata[frage_index].options[antwort_index];
                         antwort_index++;
-                        liElement.classList.add('antwortknopf');
+                        // liElement.classList.add('antwortknopf');
                         antworten.appendChild(liElement);
 
                         liElement.addEventListener('click', (event) => {
@@ -122,9 +116,13 @@ function auswahlen(event){
             multiple_ausgewahlt.push(button_momentan.value);
         } else {
             button_momentan.classList.remove('markiert');
-            // Entfernen funktioniert noch nicht //
-            // multiple_ausgewahlt.remove(button_momentan);
-            // console.log(multiple_ausgewahlt);
+    // Finde den Index des Elements im Array
+    const index = multiple_ausgewahlt.indexOf(button_momentan.value);
+
+    // Entferne das Element, wenn es im Array ist
+    if (index !== -1) {
+        multiple_ausgewahlt.splice(index, 1);
+    }
         };
 
     } else {
@@ -186,9 +184,9 @@ function runtergehen() {
         question_timer.innerText = counter;
     }
     else if(abgelaufen_alarm === 0){
-        // alert("Du bist zu langsam!");
-        // abgelaufen_alarm = 1;
-        // location.reload();
+        alert("Du bist zu langsam!");
+        abgelaufen_alarm = 1;
+        location.reload();
     };
 
     let interval = setTimeout(runtergehen, 1000);
