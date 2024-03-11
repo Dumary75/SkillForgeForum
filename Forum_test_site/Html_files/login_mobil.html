@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Hier werden mehrere CSS-Dateien eingebunden, wegen der Übersicht des responsiven Verhalten -->
+    <!-- Hier werden mehrere CSS-Dateien eingebunden, 
+        wegen der Übersicht des responsiven Verhalten -->
     <link rel="stylesheet" type="text/css" href="../Css_files/mobil_css/login_mobil.css">
     <link rel="stylesheet" type="text/css" href="../Css_files/desktop_css/login_desktop.css">
     <script src="../Javascript_files/main_mobil.js" defer></script>
@@ -39,13 +40,16 @@
     <!-- USER Liste -->
     <main>
 
-    <!-- Das Formular zum User erstellen -->
+    <!-- Das Formular zum User einloggen -->
     <h3 class="h3_oben">User Login</h3>
     <form action="#" id="create">
     <label for="name" class="name_label">Username:</label> 
     <input type="text" id="name" placeholder="Usereingabe" autocomplete="off"> 
     <label for="passwort_login" class="pw_label">Passwort:</label>
-    <input type="password" id="passwort_login" placeholder="Passworteingabe">
+    <div class="pw_eingabe_auge_container">
+        <input type="password" id="passwort_login" placeholder="Passworteingabe">
+        <button type="button" class="pw_auge"></button>
+    </div>
     <button type="button" id="login">Login</button>
     </form>
 

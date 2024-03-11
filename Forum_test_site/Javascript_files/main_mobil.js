@@ -19,8 +19,7 @@
       -- Erst später / am Ende fixxen --
 
 // NEUE FEATURES //
-/*  
-    - Github updaten.    
+/*   
 
     - Drag and Drop Funktion testen
 
@@ -30,8 +29,6 @@
       jeder Forum_Eintrag gibt einen Punkt, Quiz bringt pro beantworte Frage einen.
       Könnte das ganze in Localstorage speichern und damit Seitenübergreifend gestalten?
 
-    - Neben Login wieder das Auge wegen Sichtbarkeit von PW rechts daneben generieren lassen.
-
     ---- QUIZ_TEIL ----
 
     - In Quiz_Page einbauen, das die Antworten dynmisch je nach Länge der Options geladen werden
@@ -39,10 +36,6 @@
 
     - In Quiz_page noch dafür sorgen, das Fragen_rendering begrenzt wird,
       siehe dazu Notizen bei Next_Button!
-
-    - Falls Frage 2 zeilig, Antworten nach unten verschieben,
-      dynamisch anpassen können. Ist derzeit in Px angegeben, 
-      auf Margin Abstand oder % Angabe umstellen?
 
     ---- FORUM_TEIL ----
 

@@ -194,10 +194,33 @@ h3 {
     width: 182px;
 }
 
+/* Der Container für die PW eingabe + das Auge daneben */
+
+.pw_eingabe_auge_container{
+    display: flex;
+    width: 400px;
+}
+
 #passwort_login {
     height: 25px;
     border: 1px solid #000;
     font-weight: bold;
+    margin-right: 0.5em;
+}
+
+/* Eigentliche BG_Coller == background-color: #940808;, wenn PW nicht mehr angezeigt werden soll */
+.pw_auge{
+    background-color: #08940f;
+    width: 30px;
+    height: 25px;
+    border: 0.5px solid #000;
+    filter: brightness(60%);
+    transition: filter 0.4s;
+}
+
+.pw_auge:hover{
+    cursor: pointer;
+    filter: brightness(100%);
 }
 
 /* Der neu erstelle Auslogknopf in JS wegen dem trainsition angesprochen */

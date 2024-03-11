@@ -4,6 +4,7 @@
 let knopf_login = document.querySelector("#login");
 let passwort_login = document.querySelector("#passwort_login");
 let username_new = document.querySelector("#name");
+let pw_auge = document.querySelector(".pw_auge");
 
 /* -- Die Funktion der Seite -- */
 
@@ -38,3 +39,21 @@ if(knopf_login !== null) {
         };
     });
     }
+
+    // Die Funktion von PW Auge, zum sichtbar / unsichtbar schalten //
+
+    let auge_status = 0;
+
+    if(pw_auge !== null){
+        pw_auge.addEventListener('click', () => {
+            if(auge_status == 0){
+                auge_status = 1;
+                pw_auge.style.backgroundColor = '#8d0808';
+                passwort_login.type = 'text';
+            } else {
+                auge_status = 0;
+                pw_auge.style.backgroundColor = '#08940f';
+                passwort_login.type = 'password';
+            }
+        });
+    };
