@@ -169,7 +169,7 @@ next_button.addEventListener('click', () => {
         if(quiz_aktutell_score > quiz_score){
             quiz_score += quiz_aktutell_score;
             localStorage.setItem('quiz_score', quiz_score);
-            console.log(quiz_score);
+            score_system_page.innerText = `${quiz_score}`;
         };
         let quiz_again_question = prompt('Nochmal eine Runde?');
         if(quiz_again_question !== null){
@@ -193,9 +193,9 @@ function runtergehen() {
         question_timer.innerText = counter;
     }
     else if(abgelaufen_alarm === 0){
-        alert("Du bist zu langsam!");
-        abgelaufen_alarm = 1;
-        location.reload();
+        // alert("Du bist zu langsam!");
+        // abgelaufen_alarm = 1;
+        // location.reload();
     };
 
     let interval = setTimeout(runtergehen, 1000);

@@ -310,6 +310,21 @@ if(auslog_knopf !== null){
 };
 
 
+// -- Setting beim laden der Page zusätzlich automatisch laden -- //
+// Score Punkte //
+let score_system_page = document.querySelector('.score_on_page');
+
+window.addEventListener('load', () => {
+    if(localStorage.getItem("zahl") !== null){
+        let quiz_score = localStorage.getItem('quiz_score');
+        if(quiz_score === null){
+            quiz_score = 0; };
+        score_system_page.innerText = `${quiz_score}`;
+    } else {
+        score_system_page.innerText = 'X';
+    };
+
+});
 
 
 

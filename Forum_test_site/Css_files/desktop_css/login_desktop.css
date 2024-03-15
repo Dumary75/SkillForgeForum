@@ -25,7 +25,7 @@ html {
     position: absolute;
     z-index: 2;
     top: 17px;
-    right: 10px;
+    right: 20px;
     width: 60px;
     height: 40px;
     background-color: rgb(145, 160, 12);
@@ -46,7 +46,7 @@ html {
     height: 0px;
     border: 2px solid #000;
     background-color: yellow;
-    right: 10px;
+    right: 20px;
     top: 52px;
 }
 
@@ -150,7 +150,7 @@ html {
 }
 
 .bg_top ul{
-    margin-left: 25%;
+    margin-left: 18%;
     margin-right: auto;
 }
 
@@ -231,6 +231,21 @@ h3 {
 
 /* Die responsive Funktion sobald Desktopgröße erreicht wurde */
 @media screen and (min-width: 600px) {
+
+/* Das Score_System auf der Page */
+.score_on_page{
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    right: 100px;
+    width: 60px;
+    height: 40px;
+    background-color: purple;
+    border: 0.5px solid #000;
+    font-size: 2em;
+    color: #FFF;
+    text-align: center;
+}
 
 /* Der Erstellbutton */
 #login {

@@ -34,6 +34,10 @@ if(knopf_login !== null) {
             let profil_box = document.querySelector('.profil_ul');
             profil_box.style.backgroundColor = 'rgb(145, 160, 12)';
             profil_box.innerHTML = "";
+            let quiz_score = localStorage.getItem('quiz_score');
+            if(quiz_score === null){
+                quiz_score = 0; };
+            score_system_page.innerText = `${quiz_score}`;
         }} else {
             alert("Falsche Logindaten!");
         };
