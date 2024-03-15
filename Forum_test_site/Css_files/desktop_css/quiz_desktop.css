@@ -355,6 +355,7 @@ h3 {
     display: flex;
     justify-content: space-between; /* Platziert die Elemente gleichmäßig horizontal */
     align-items: center; /* Zentriert den Inhalt vertikal */
+    padding: 10px;
 }
 
 .quiz_anzahl_counter {

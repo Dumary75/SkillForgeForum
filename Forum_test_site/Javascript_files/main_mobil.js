@@ -29,13 +29,12 @@
       jeder Forum_Eintrag gibt einen Punkt, Quiz bringt pro beantworte Frage einen.
       Könnte das ganze in Localstorage speichern und damit Seitenübergreifend gestalten?
 
+    - 'Extras' Page einbauen mit: -> Calculator -> Weather display -> To-do List
+
     ---- QUIZ_TEIL ----
-
-    - In Quiz_Page einbauen, das die Antworten dynmisch je nach Länge der Options geladen werden
-      und nicht nur auf <4 begrenzt werden.
-
-    - In Quiz_page noch dafür sorgen, das Fragen_rendering begrenzt wird,
-      siehe dazu Notizen bei Next_Button!
+    
+    - Das der User eigene Fragen erstellen kann,
+      welche in einem extra für den User erstellten Array hinterlegt werden?
 
     ---- FORUM_TEIL ----
 
@@ -248,23 +247,18 @@ if(switch_left !== null){
         switch(user) {
             case 0:
                 profil_box.style.backgroundColor = 'rgb(229, 255, 0)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(229, 255, 0)';
                 break;
             case 1:
                 profil_box.style.backgroundColor = 'rgb(0, 0, 253)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(0, 0, 253)';
                 break;
             case 2:
                 profil_box.style.backgroundColor = 'rgb(122, 4, 4)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(122, 4, 4)';
                 break;
             case 3:
                 profil_box.style.backgroundColor = 'rgb(60, 255, 0)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(60, 255, 0)';
                 break;
             case 4:
                 profil_box.style.backgroundColor = 'rgb(241, 0, 189)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(241, 0, 189)';
                 break;
         };
     });
@@ -279,23 +273,18 @@ if(switch_right !== null){
         switch(user) {
             case 0:
                 profil_box.style.backgroundColor = 'rgb(229, 255, 0)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(229, 255, 0)';
                 break;
             case 1:
                 profil_box.style.backgroundColor = 'rgb(0, 0, 253)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(0, 0, 253)';
                 break;
             case 2:
                 profil_box.style.backgroundColor = 'rgb(122, 4, 4)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(122, 4, 4)';
                 break;
             case 3:
                 profil_box.style.backgroundColor = 'rgb(60, 255, 0)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(60, 255, 0)';
                 break;
             case 4:
                 profil_box.style.backgroundColor = 'rgb(241, 0, 189)';
-                ausgabe_knopf.style.backgroundColor = 'rgb(241, 0, 189)';
                 break;
         };
     });

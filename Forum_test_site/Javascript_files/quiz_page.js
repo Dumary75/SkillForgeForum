@@ -14,29 +14,12 @@ let multiple_ausgewahlt = [];
 
 /* -- Die Funktion der Seite -- */
 const Quizdata = [
-    // {
-    //     frage: "Was ist 1+1?", 
-    //     options: [1,2,3,4],
-    //     antwort: 2
-    // },
 
     // {
-    //     frage: "Was ist 3*3?",
-    //     options: [3,6,9,12],
-    //     antwort: 9
+    //     frage: "Welche Haustiere \n haben die Simpsons?",
+    //     options: ["Hund", "Katze", "Fisch", "Schlange"],
+    //     antwort: ["Hund", "Katze"]
     // },
-
-    // {
-    //     frage: "Was ist 5*5?",
-    //     options: [11,23,25,32],
-    //     antwort: 25
-    // },
-
-    {
-        frage: "Welche Haustiere \n haben die Simpsons?",
-        options: ["Hund", "Katze", "Fisch", "Schlange"],
-        antwort: ["Hund", "Katze"]
-    },
 
     {
         frage: "Zwei sachen \n können stimmen \n aber stimmen sie?",
@@ -48,13 +31,13 @@ const Quizdata = [
         frage: "Was ist 5*5?",
         options: [11,23,25,32],
         antwort: 25
-    },
-
-    {
-        frage: "Wie geht der ewig lange Satz hier zuende?",
-        options: ["so","ne oder", "lalala","aufkeinen"],
-        antwort: "so"
     }
+
+    // {
+    //     frage: "Wie geht der ewig lange Satz hier zuende?",
+    //     options: ["so","ne oder", "lalala","aufkeinen"],
+    //     antwort: "so"
+    // }
 
 ];
 
@@ -80,13 +63,13 @@ function quizrendern() {
 
 let wahl = 0;
 
-// Funktioniert soweit! Aber muss noch bei drücken von Nextbutton mit Antwort gegengeprüft werden //
+// Hier werden die Antworten, je nach ersteller Anzahl gerendert //
 function antwortenrendern() {
        let antwort_index = 0;
        antworten.innerHTML = '';
                 testantworten.forEach(function(antwortText) {
                     // Die Erzerzeung hier dynmisch gestalten anstatt nur <4 //
-                    if(antwort_index < 4){
+                    if(antwort_index < Quizdata[frage_index].options.length){
                         const liElement = document.createElement('button');
                         liElement.value = Quizdata[frage_index].options[antwort_index];
                         liElement.textContent = Quizdata[frage_index].options[antwort_index];
@@ -135,6 +118,7 @@ function auswahlen(event){
 let counter = 30;
 let abgelaufen_alarm = 0;
 let wahltest = document.querySelector('.ausgewahlt');
+let quiz_aktutell_score = 0;
 
 // Next_Button //
 next_button.addEventListener('click', () => {
@@ -150,12 +134,14 @@ next_button.addEventListener('click', () => {
         if(multiple_choice){
             if(JSON.stringify(multiple_ausgewahlt) === JSON.stringify(richtig_antwort)){
                 alert("Richtig!");
+                quiz_aktutell_score++;
             } else {
                 alert('nope!');
             }
         } else {
             if(antwort_wert === fragesache){
                 alert("Richtig!");
+                quiz_aktutell_score++;
             } else {
                 alert("Nope!");
             };
@@ -165,16 +151,39 @@ next_button.addEventListener('click', () => {
         location.reload();
     };
 
-    /* Das redern begrenzen, das quasi am Array von Quiz.length es aufhört,
-        momentan wirft er einen Fehler aus, anstatt zu stoppen,
-        später dann noch Auswertung einfügen und addieren von Punkten zu gesamter Punktzahl,
-        falls mehr Punkte in Quiz erreicht wurden als davor nur hinzufügen,
-        wie in Games mit dem Highscore_System */
+    // Das ganze rendern begrenzen, das sobald max Anzahl erreicht wurde, es nicht rendert //
+    let Quizdata_gesamt = Quizdata.length - 1
+
+    if(frage_index < Quizdata_gesamt){
+        frage_index++;
+        quizrendern();
+        antwortenrendern();
+        counter = 30;
+    // Der Abschlusstext samt score Anzeige, Score wird überschrieben sobald mehr pkt als davor //
+    } else {
+        alert(`Das war es! \n Du hast ${quiz_aktutell_score} von ${Quizdata.length} Fragen \n  richtig beantwortet!`);
+        let quiz_score = localStorage.getItem('score');
+        if(quiz_score === null){
+            quiz_score = 0;
+                          };
+        if(quiz_aktutell_score > quiz_score){
+            quiz_score += quiz_aktutell_score;
+            localStorage.setItem('quiz_score', quiz_score);
+            console.log(quiz_score);
+        };
+        let quiz_again_question = prompt('Nochmal eine Runde?');
+        if(quiz_again_question !== null){
+            let again_antwort = quiz_again_question.toLowerCase;
+            if(quiz_again_question == "ja"){
+                alert("SUPER!");
+                // Funktioniert soweit, ist auch im Localstorage hinterlegt
+                location.reload();
+            } else {
+                alert("Schade!")
+            };
+        };
+    };
         
-    frage_index++;
-    quizrendern();
-    antwortenrendern();
-    counter = 30;
 });
 
 // Timer der herunterzählt //
