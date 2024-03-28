@@ -42,7 +42,7 @@
     </header>
 
     <main>
-        <!-- QUIZ ABER NOCH IM TESTMODI -->
+        <!-- QUIZ_fertige_Fragen -->
         <div class="quiz_container">
             <div class="oberer_bereich">
                 <h3 class="h3_oben">Quiz</h3>
@@ -58,6 +58,31 @@
                 <p class="quiz_anzahl_counter"></p>
                 <button class="next">Next</button>
             </div>
+        </div>
+
+        <!-- QUIZ_user_Fragen -->
+
+        <p class="user_fragen"></p>
+
+        <div id="frageEingabe">
+            <label for="frage">Frage:</label> <br>
+            <input type="text" id="frage" placeholder="Gib deine Frage ein"> <br>
+        
+            <label for="antworten">Antworten:</label> <br>
+            <input type="text" id="antwort1" class="antwort" placeholder="Antwort 1"> <br>
+            <input type="text" id="antwort2" class="antwort" placeholder="Antwort 2"> <br>
+            <input type="text" id="antwort3" class="antwort" placeholder="Antwort 3"> <br>
+            <input type="text" id="antwort4" class="antwort" placeholder="Antwort 4"> <br>
+        
+            <label for="korrekteAntwort">Korrekte Antwort:</label> <br>
+            <select id="korrekteAntwort">
+                <option value="1">Antwort 1</option>
+                <option value="2">Antwort 2</option>
+                <option value="3">Antwort 3</option>
+                <option value="4">Antwort 4</option>
+            </select>
+        
+            <button onclick="frageHinzufuegen()">Frage hinzufügen</button>
         </div>
     </main>
 

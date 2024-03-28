@@ -16,20 +16,40 @@
       Switch_Button noch fixxen, sobald Stufe auf 0 gesetzt wurde,
       bleibt die BG_color auf #000 stehen, Hover_Effekt greift dann nicht mehr.
       Auf 0 sollte es auch stehen bleiben aber Hover_Effekt noch greifen.
-      -- Erst später / am Ende fixxen --
+    
+    - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
+      muss nur in JS überprüft werden.
 
 // NEUE FEATURES //
 /*   
 
+    - In Dropwdown Menü von Profilbild,
+      einbauen, das Switch erst mit weiterem klicken,
+      einer neuen "Switch" Funktion in ausgeklappter leiste geht.
+      So wie in YT ist, nicht direkt per klick in Leiste
+      sondern extra verpacken.
+      
     - Drag and Drop Funktion testen
+
+    - Auch ? Syntax testen, anstatt per if() Anweisung mal:
+      ? Xy : cbb schreiben, dass das Argument schon in dem Satz enthalten ist.
+
+    - Per input_type: "file" möglich machen, das man sein Profilbild hochlädt
+      aber wie nach file upload die Datei weiter verarbeiten?
 
     - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
 
-    - Punktesystem einbbauen, allgemeinen Score in Profil_Leiste rechts oben anzeigen,
-      jeder Forum_Eintrag gibt einen Punkt, Quiz bringt pro beantworte Frage einen.
-      Könnte das ganze in Localstorage speichern und damit Seitenübergreifend gestalten?
-
     - 'Extras' Page einbauen mit: -> Calculator -> Weather display -> To-do List
+
+    ---- INDEX_TEIL ----
+
+    - Anstatt die Ul_Leiste oben stehen zu haben,
+      für Auswahl 4+ Kästchen einbauen, mit verschiedenen Bereichen.
+      das Kästchen mit grey filter versehen und erst bei drüber hovern,
+      wird der Filter auf 0 gesetzt + das Video im Kästchen startet dann erst.
+      Auch wird der Inhalt dann per degree etwas "gedreht" und das Kästchen etwas größer.
+      
+      Muss verschiedene Versionen davon testen...
 
     ---- QUIZ_TEIL ----
     
@@ -42,12 +62,12 @@
       gerade das erstellen von Text_box muss an die kleine Version
       angepasst werden.
 
-    - Ebenfalls Buttons in Mitte / Ul-Leiste anpassen,
-      sind warum auch immer deutlich größer als auf anderen pages
-      Aber nur auf Forum_Seite 
-
     - Bankmenü und Textbox_menü noch anpassen,
        buggt ab 4ten Eintrag, danach zu verschoben.
+       // LÖSUNG?
+       Mögliche Lösung: Klassen vergeben und mit vorgefertigtem CSS weiter arbeiten.
+       So wie mit Quiz gelöst? Das nur auf dem angeklicktem die Klasse erstellt wird,
+       auf dem es sichtbar wird, der Rest mit der anderen Klasse wird blurry?
 
     !--> Grundsätzlich alles gescheit auf Mobilversion anpassen <--!
 

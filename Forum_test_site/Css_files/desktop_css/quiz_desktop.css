@@ -348,3 +348,29 @@ h3 {
 .markiert{
     background-color: yellow;
 }
+
+/* USER_FRAGEN */
+
+#frageEingabe {
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 0.5px solid #b66d0d;
+    left: 940px;
+    top: -90px;
+    color: #FFF;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    margin-bottom: 10px;
+}
+
+.user_fragen{
+    position: relative;
+    right: -650px;
+}

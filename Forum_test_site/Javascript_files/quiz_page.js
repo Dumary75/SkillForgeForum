@@ -186,6 +186,49 @@ next_button.addEventListener('click', () => {
         
 });
 
+// User_Fragen_Test //
+
+let userfragen_gesammelt = document.querySelector('.user_fragen');
+let userfragen_box = [];
+
+function frageHinzufuegen() {
+    const frage = document.getElementById("frage").value;
+    const antworten = [];
+    document.querySelectorAll(".antwort").forEach(input => {
+        antworten.push(input.value);
+    });
+    const korrekteAntwortIndex = document.getElementById("korrekteAntwort").value - 1; 
+    // -1, da die Indexe bei 0 beginnen
+
+    const neueFrage = {
+        frage: frage,
+        antworten: antworten,
+        korrekteAntwortIndex: korrekteAntwortIndex
+    };
+
+    userfragen_box.push(neueFrage);
+
+    userfragen_box.forEach(objekt => {
+        let neue_user_frage = document.createElement("div");
+        neue_user_frage.style.display = 'inline-block';
+        neue_user_frage.style.padding = '8px';
+        neue_user_frage.style.color = '#FFF';
+        neue_user_frage.style.border = '0.2px solid #000';
+        neue_user_frage.style.marginBottom = '5px';
+        neue_user_frage.textContent = `Frage: ${neueFrage.frage}`;
+        userfragen_box.forEach(antworten => {
+            // let user_antworten_knopf = document.createElement('button');
+            // user_antworten_knopf.textContent = `${neueFrage.antworten}`;
+            // userfragen_box.push(user_antworten_knopf);
+            console.log(antworten);
+        });
+        userfragen_gesammelt.appendChild(neue_user_frage);
+    });
+
+
+    console.log(userfragen_box);
+}
+
 // Timer der herunterzählt //
 function runtergehen() {
     if(counter >0){
