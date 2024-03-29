@@ -176,8 +176,8 @@ next_button.addEventListener('click', () => {
             let again_antwort = quiz_again_question.toLowerCase;
             if(quiz_again_question == "ja"){
                 alert("SUPER!");
-                // Funktioniert soweit, ist auch im Localstorage hinterlegt
-                location.reload();
+                frage_index = 0;
+                seiteladen();
             } else {
                 alert("Schade!")
             };
@@ -188,9 +188,8 @@ next_button.addEventListener('click', () => {
 
 // --> User_Fragen hinzufügen <-- //
 
-let userfragen_gesammelt = document.querySelector('.user_fragen');
-let userfragen_box = [];
 let user_erstellen_fragen = document.querySelector('.user_input_question');
+let placeholder_zahl = 3;
 
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
@@ -201,50 +200,28 @@ function frageHinzufuegen() {
 
     const neueFrage = {
         frage: frage,
-        antworten: antworten,
+        options: antworten,
+        antwort: antworten
     };
-        
-    userfragen_box.push(neueFrage);
 
-    userfragen_box.forEach(objekt => {
-        let neue_user_frage = document.createElement("div");
-        neue_user_frage.style.display = 'inline-block';
-        neue_user_frage.style.padding = '8px';
-        neue_user_frage.style.color = '#FFF';
-        neue_user_frage.style.border = '0.2px solid #000';
-        neue_user_frage.style.marginBottom = '5px';
-        neue_user_frage.textContent = `Frage: ${neueFrage.frage}`;
-
-    neueFrage.antworten.forEach(antwort => {
-        const user_antworten_knopf = document.createElement('button');
-        user_antworten_knopf.textContent = antwort;
-        user_antworten_knopf.style.display = 'block';
-        user_antworten_knopf.style.margin = '5px';
-        // Hover_Effekt
-        user_antworten_knopf.addEventListener('mouseenter', (event) => {
-            event.target.style.cursor = 'pointer';
-            event.target.style.color = '#FFF';
-            event.target.style.backgroundColor = 'grey';
-        });
-        user_antworten_knopf.addEventListener('mouseleave', (event) => {
-            event.target.style.color = '#000';
-            event.target.style.backgroundColor = 'rgb(240, 240, 240)';
-        });
-        neue_user_frage.appendChild(user_antworten_knopf);
-    });
-        userfragen_gesammelt.appendChild(neue_user_frage);
-    });
+    Quizdata.push(neueFrage);
+    alert('Neue Frage wurde hinzugefügt!');
+    frage_index = 0;
+    seiteladen();
+    };
 // } else{
 //     alert('Es wurde nichts eingegeben!')
 // };
-}
 
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
     let weitere_antwort = document.createElement('input');
     weitere_antwort.type = 'text';
     weitere_antwort.classList.add('antwort');
+    weitere_antwort.placeholder = `Antwort ${placeholder_zahl}`;
+    weitere_antwort.style.color = '#000';
     user_erstellen_fragen.appendChild(weitere_antwort);
+    placeholder_zahl++;
 };
 
 // Timer der herunterzählt //
@@ -254,9 +231,10 @@ function runtergehen() {
         question_timer.innerText = counter;
     }
     else if(abgelaufen_alarm === 0){
-        // alert("Du bist zu langsam!");
-        // abgelaufen_alarm = 1;
-        // location.reload();
+        /* alert("Du bist zu langsam!");
+           abgelaufen_alarm = 1;
+           frage_index = 0;
+           seiteladen(); */
     };
 
     let interval = setTimeout(runtergehen, 1000);

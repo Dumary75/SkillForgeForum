@@ -364,6 +364,10 @@ h3 {
     height: 14rem;
 }
 
+#frage {
+    text-align: center;
+}
+
 .user_input_question{
     position: absolute;
     left: 40px;
@@ -392,6 +396,8 @@ input, select {
     background-color: #b66d0d;
 }
 
+/* Knopf um User_antworten überhaupt zu erstellen */
+
 .answer_add_button{
     cursor: pointer;
 }
@@ -399,3 +405,10 @@ input, select {
 .answer_add_button:hover{
     background-color: #b66d0d;
 }
+
+/* Antwortfelder von User */
+
+.antwort{
+    text-align: center;
+}
+
