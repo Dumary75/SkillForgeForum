@@ -186,10 +186,11 @@ next_button.addEventListener('click', () => {
         
 });
 
-// User_Fragen_Test //
+// --> User_Fragen hinzufügen <-- //
 
 let userfragen_gesammelt = document.querySelector('.user_fragen');
 let userfragen_box = [];
+let user_erstellen_fragen = document.querySelector('.user_input_question');
 
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
@@ -197,15 +198,12 @@ function frageHinzufuegen() {
     document.querySelectorAll(".antwort").forEach(input => {
         antworten.push(input.value);
     });
-    const korrekteAntwortIndex = document.getElementById("korrekteAntwort").value - 1; 
-    // -1, da die Indexe bei 0 beginnen
 
     const neueFrage = {
         frage: frage,
         antworten: antworten,
-        korrekteAntwortIndex: korrekteAntwortIndex
     };
-
+        
     userfragen_box.push(neueFrage);
 
     userfragen_box.forEach(objekt => {
@@ -216,18 +214,38 @@ function frageHinzufuegen() {
         neue_user_frage.style.border = '0.2px solid #000';
         neue_user_frage.style.marginBottom = '5px';
         neue_user_frage.textContent = `Frage: ${neueFrage.frage}`;
-        userfragen_box.forEach(antworten => {
-            // let user_antworten_knopf = document.createElement('button');
-            // user_antworten_knopf.textContent = `${neueFrage.antworten}`;
-            // userfragen_box.push(user_antworten_knopf);
-            console.log(antworten);
+
+    neueFrage.antworten.forEach(antwort => {
+        const user_antworten_knopf = document.createElement('button');
+        user_antworten_knopf.textContent = antwort;
+        user_antworten_knopf.style.display = 'block';
+        user_antworten_knopf.style.margin = '5px';
+        // Hover_Effekt
+        user_antworten_knopf.addEventListener('mouseenter', (event) => {
+            event.target.style.cursor = 'pointer';
+            event.target.style.color = '#FFF';
+            event.target.style.backgroundColor = 'grey';
         });
+        user_antworten_knopf.addEventListener('mouseleave', (event) => {
+            event.target.style.color = '#000';
+            event.target.style.backgroundColor = 'rgb(240, 240, 240)';
+        });
+        neue_user_frage.appendChild(user_antworten_knopf);
+    });
         userfragen_gesammelt.appendChild(neue_user_frage);
     });
-
-
-    console.log(userfragen_box);
+// } else{
+//     alert('Es wurde nichts eingegeben!')
+// };
 }
+
+// User_Antworten hinzufügen //
+function antwortHinzufuegen() {
+    let weitere_antwort = document.createElement('input');
+    weitere_antwort.type = 'text';
+    weitere_antwort.classList.add('antwort');
+    user_erstellen_fragen.appendChild(weitere_antwort);
+};
 
 // Timer der herunterzählt //
 function runtergehen() {

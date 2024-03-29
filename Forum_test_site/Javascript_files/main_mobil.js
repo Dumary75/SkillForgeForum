@@ -20,6 +20,8 @@
     - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
       muss nur in JS überprüft werden.
 
+    - Eigene User_fragen funktionieren nicht, auch Überprüfungen nicht 
+
 // NEUE FEATURES //
 /*   
 
