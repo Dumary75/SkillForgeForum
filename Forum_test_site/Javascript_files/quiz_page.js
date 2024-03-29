@@ -189,7 +189,9 @@ next_button.addEventListener('click', () => {
 // --> User_Fragen hinzufügen <-- //
 
 let user_erstellen_fragen = document.querySelector('.user_input_question');
+let user_fragen_container = document.querySelector('#frageEingabe');
 let placeholder_zahl = 3;
+let antwort_anzahl = 2;
 
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
@@ -215,13 +217,36 @@ function frageHinzufuegen() {
 
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
-    let weitere_antwort = document.createElement('input');
-    weitere_antwort.type = 'text';
-    weitere_antwort.classList.add('antwort');
-    weitere_antwort.placeholder = `Antwort ${placeholder_zahl}`;
-    weitere_antwort.style.color = '#000';
-    user_erstellen_fragen.appendChild(weitere_antwort);
-    placeholder_zahl++;
+    if(antwort_anzahl < 4){
+        let weitere_antwort = document.createElement('input');
+        antwort_anzahl++;
+        weitere_antwort.type = 'text';
+        weitere_antwort.classList.add('antwort');
+        weitere_antwort.placeholder = `Antwort ${placeholder_zahl}`;
+        weitere_antwort.style.color = '#000';
+        placeholder_zahl++;
+        let user_fragen_container_height = user_fragen_container.offsetHeight;
+        let new_user_fragen_height = user_fragen_container_height + 30;
+        user_fragen_container.style.height = `${new_user_fragen_height}px`;
+        user_erstellen_fragen.appendChild(weitere_antwort);
+    } else {
+        alert('Nicht mehr als 4 Möglichkeiten zugelassen!');
+    }
+};
+
+function antwortentfernen(){
+    const fragen_sammlung = user_erstellen_fragen;
+    const neuste_antwort = fragen_sammlung.lastElementChild;
+    if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
+        fragen_sammlung.removeChild(neuste_antwort);
+        antwort_anzahl--;
+        placeholder_zahl--;
+        let user_fragen_container_height = user_fragen_container.offsetHeight;
+        let new_user_fragen_height = user_fragen_container_height - 30;
+        user_fragen_container.style.height = `${new_user_fragen_height}px`;
+    } else{
+        alert('Es gibt keine neu erstellte Antworten!');
+    };
 };
 
 // Timer der herunterzählt //

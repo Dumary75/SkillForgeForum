@@ -20,7 +20,7 @@
     - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
       muss nur in JS überprüft werden.
 
-    - Eigene User_fragen funktionieren nicht, auch Überprüfungen nicht 
+    - Eigene User_fragen, die Labels müssen noch mittig zentriert werden.
 
 // NEUE FEATURES //
 /*   

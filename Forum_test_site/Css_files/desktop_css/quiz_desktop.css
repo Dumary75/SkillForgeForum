@@ -355,13 +355,14 @@ h3 {
     position: relative;
     margin-bottom: 20px;
     display: inline-block;
+    background-color: rgb(41, 41, 41);
     border: 0.5px solid #b66d0d;
-    left: 800px;
+    left: 700px;
     top: -90px;
     color: #FFF;
     padding: 10px;
     width: 250px;
-    height: 14rem;
+    height: 23rem;
 }
 
 #frage {
@@ -388,7 +389,12 @@ input, select {
 }
 
 .question_add_button{
-    margin-bottom: 5px;
+    position: absolute;
+    bottom: -45px;
+    border-radius: 15%;
+    width: 120px;
+    height: 40px;
+    margin-left: 30px;
 }
 
 .question_add_button:hover{
@@ -396,13 +402,33 @@ input, select {
     background-color: #b66d0d;
 }
 
-/* Knopf um User_antworten überhaupt zu erstellen */
+/* Knopf um User_antworten überhaupt zu erstellen - löschen */
 
 .answer_add_button{
-    cursor: pointer;
+    position: absolute;
+    bottom: -90px;
+    border-radius: 15%;
+    width: 120px;
+    height: 40px;
+    margin-left: 30px;
 }
 
 .answer_add_button:hover{
+    cursor: pointer;
+    background-color: #b66d0d;
+}
+
+.answer_delete_button{
+    position: absolute;
+    bottom: -135px;
+    border-radius: 15%;
+    width: 120px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.answer_delete_button:hover{
+    cursor: pointer;
     background-color: #b66d0d;
 }
 
