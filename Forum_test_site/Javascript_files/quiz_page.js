@@ -190,6 +190,7 @@ next_button.addEventListener('click', () => {
 
 let user_erstellen_fragen = document.querySelector('.user_input_question');
 let user_fragen_container = document.querySelector('#frageEingabe');
+let checkbox_container = document.querySelector('.checkbox_container');
 let placeholder_zahl = 3;
 let antwort_anzahl = 2;
 
@@ -224,26 +225,55 @@ function antwortHinzufuegen() {
         weitere_antwort.classList.add('antwort');
         weitere_antwort.placeholder = `Antwort ${placeholder_zahl}`;
         weitere_antwort.style.color = '#000';
+        // Checkboxen erstellen zur Antwort
+        let weitere_checkbox = document.createElement('input');
+        weitere_checkbox.type = 'checkbox';
+        let label_neue_checkbox = document.createElement('label');
+        label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
+        let kunstlich_br = document.createElement('br');
+
         placeholder_zahl++;
+        // Höhe von gesamen Userfragen Container vergrößern //
         let user_fragen_container_height = user_fragen_container.offsetHeight;
-        let new_user_fragen_height = user_fragen_container_height + 30;
+        let new_user_fragen_height = user_fragen_container_height + 40;
         user_fragen_container.style.height = `${new_user_fragen_height}px`;
+
+        let checkbox_container_height = checkbox_container.offsetHeight;
+        let new_checkbox_container_height = checkbox_container_height - 5;
+        checkbox_container.style.height = `${new_checkbox_container_height}px`;
+
+
         user_erstellen_fragen.appendChild(weitere_antwort);
+        checkbox_container.appendChild(weitere_checkbox);
+        checkbox_container.appendChild(label_neue_checkbox);
+        checkbox_container.appendChild(kunstlich_br);
+
     } else {
         alert('Nicht mehr als 4 Möglichkeiten zugelassen!');
     }
 };
 
+
 function antwortentfernen(){
     const fragen_sammlung = user_erstellen_fragen;
     const neuste_antwort = fragen_sammlung.lastElementChild;
+    // const checkbox_container = checkbox_container;
+    const neuste_checkbox = checkbox_container.lastElementChild;
+    // Abfrage der Antworten_box + Checkboxen //
     if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
         fragen_sammlung.removeChild(neuste_antwort);
+        checkbox_container.removeChild(neuste_checkbox);
         antwort_anzahl--;
         placeholder_zahl--;
+        // Gröse des Containers anpassen //
         let user_fragen_container_height = user_fragen_container.offsetHeight;
         let new_user_fragen_height = user_fragen_container_height - 30;
         user_fragen_container.style.height = `${new_user_fragen_height}px`;
+
+        let checkbox_container_height = checkbox_container.offsetHeight;
+        let new_checkbox_container_height = checkbox_container_height + 5;
+        checkbox_container.style.height = `${new_checkbox_container_height}px`;
+
     } else{
         alert('Es gibt keine neu erstellte Antworten!');
     };

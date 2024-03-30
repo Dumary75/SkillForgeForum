@@ -312,6 +312,10 @@ h3 {
     flex-direction: column;
 }
 
+.antworten button:hover{
+    background-color: yellow;
+}
+
 /* Unterer Bereich */
 .unterer_bereich {
     width: 100%;
@@ -339,6 +343,7 @@ h3 {
 
 .next:hover {
     cursor: pointer;
+    background-color: yellow;
 }
 
 .antworten button:hover{
@@ -362,7 +367,7 @@ h3 {
     color: #FFF;
     padding: 10px;
     width: 250px;
-    height: 23rem;
+    height: 28rem;
 }
 
 #frage {
@@ -390,7 +395,7 @@ input, select {
 
 .question_add_button{
     position: absolute;
-    bottom: -45px;
+    bottom: -135px;
     border-radius: 15%;
     width: 120px;
     height: 40px;
@@ -406,7 +411,7 @@ input, select {
 
 .answer_add_button{
     position: absolute;
-    bottom: -90px;
+    bottom: -180px;
     border-radius: 15%;
     width: 120px;
     height: 40px;
@@ -420,7 +425,7 @@ input, select {
 
 .answer_delete_button{
     position: absolute;
-    bottom: -135px;
+    bottom: -225px;
     border-radius: 15%;
     width: 120px;
     height: 40px;
@@ -436,5 +441,10 @@ input, select {
 
 .antwort{
     text-align: center;
+}
+
+.checkbox_container{
+    position: absolute;
+    bottom: -75px;
 }
 

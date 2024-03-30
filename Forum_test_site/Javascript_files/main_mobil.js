@@ -20,7 +20,14 @@
     - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
       muss nur in JS überprüft werden.
 
+    - Bei eigenen User_fragen muss sowas wie eine Checklist erstellt werden,
+      damit man ersichtlich markieren kann, was die Lösung der eigenen Frage ist.
+
     - Eigene User_fragen, die Labels müssen noch mittig zentriert werden.
+      Ebenfalls changen, das User auswählen kann, ob "multiple-choice" 
+      oder Single-answer zählt.
+      Und Checkbox-System einbauen, das User Lösung bestimmen kann.
+      Auch muss gechekt werden, ob alle Felder vor absenden ausgefüllt sind.
 
 // NEUE FEATURES //
 /*   
@@ -33,15 +40,14 @@
       
     - Drag and Drop Funktion testen
 
-    - Auch ? Syntax testen, anstatt per if() Anweisung mal:
-      ? Xy : cbb schreiben, dass das Argument schon in dem Satz enthalten ist.
-
     - Per input_type: "file" möglich machen, das man sein Profilbild hochlädt
       aber wie nach file upload die Datei weiter verarbeiten?
 
     - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
 
     - 'Extras' Page einbauen mit: -> Calculator -> Weather display -> To-do List
+
+    - Scoring_System wieder löschen, macht keinen Sinn. Nadine Fragen?
 
     ---- INDEX_TEIL ----
 
@@ -55,8 +61,12 @@
 
     ---- QUIZ_TEIL ----
     
-    - Das der User eigene Fragen erstellen kann,
-      welche in einem extra für den User erstellten Array hinterlegt werden?
+    - Das bevor Quiz / Eigene Fragen starten,
+       man einen bg auf dem Container hat, bg color?
+       Und einen Button "Quiz-Starten", erst bei Klick darauf,
+       verschwindet die BG_color und Timer beginnt zu zählen.
+       Bei Quiz Blauer BG und Weisse Schrift
+       und bei Fragen Orange BG und Black font.
 
     ---- FORUM_TEIL ----
 

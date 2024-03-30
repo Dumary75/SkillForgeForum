@@ -71,22 +71,22 @@
                     <input type="text" id="frage" 
                     placeholder="Gib deine Frage ein" autocomplete="off"> <br>
                 
+                    <!-- Answers and the option to add some -->
                     <label for="antworten">Antworten:</label> <br>
                     <input type="text" id="antwort1" class="antwort" 
                     placeholder="Antwort 1" autocomplete="off"> <br>
                     <input type="text" id="antwort2" class="antwort" 
                     placeholder="Antwort 2" autocomplete="off"> <br>
-                    <!-- <input type="text" id="antwort3" class="antwort" placeholder="Antwort 3"> <br>
-                    <input type="text" id="antwort4" class="antwort" placeholder="Antwort 4"> <br> -->
 
-        
-            <!-- <label for="korrekteAntwort">Korrekte Antwort:</label> <br>
-            <select id="korrekteAntwort">
-                <option value="1">Antwort 1</option>
-                <option value="2">Antwort 2</option>
-                <option value="3">Antwort 3</option>
-                <option value="4">Antwort 4</option>
-            </select> -->
+            <!-- Set the correct solution of the answers -->
+            <div class="checkbox_container">
+                <label for="Antwort_1">Korrekte Antwort(en):</label> <br>
+                <input type="checkbox" id="Antwort_1" name="correct_answer" value="1">
+                <label for="Antwort_2">Antwort 1</label><br>
+                <input type="checkbox" id="Antwort_2" name="correct_answer" value="2">
+                <label for="Antwort_2">Antwort 2</label><br>
+            </div>
+
         
                     <button onclick="frageHinzufuegen()" class="question_add_button">
                         Frage hinzufügen</button>
