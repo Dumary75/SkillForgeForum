@@ -87,7 +87,7 @@ html {
     background-color: blue;
     filter: brightness(70%);
     transition: filter 0.3s;
-    color: #000;
+    color: #FFF;
 }
 
 /* Test mit dem rausfahren von Menü */
