@@ -21,11 +21,11 @@ const Quizdata = [
     //     antwort: ["Hund", "Katze"]
     // },
 
-    {
-        frage: "Zwei sachen \n können stimmen \n aber stimmen sie?",
-        options: ["eins", "zwei", "ja", "nein"],
-        antwort: ["eins", "ja"]
-    },
+    // {
+    //     frage: "Zwei sachen \n können stimmen \n aber stimmen sie?",
+    //     options: ["eins", "zwei", "ja", "nein"],
+    //     antwort: ["eins", "ja"]
+    // },
 
     {
         frage: "Was ist 5*5?",
@@ -191,24 +191,39 @@ next_button.addEventListener('click', () => {
 let user_erstellen_fragen = document.querySelector('.user_input_question');
 let user_fragen_container = document.querySelector('#frageEingabe');
 let checkbox_container = document.querySelector('.checkbox_container');
+let checkbox_user_solution = document.querySelector('.user_solution_checkbox');
 let placeholder_zahl = 3;
 let antwort_anzahl = 2;
 
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
     const antworten = [];
+    const user_losung = [];
+    // Die Optionen was man als Antwort auswählen kann pushen
     document.querySelectorAll(".antwort").forEach(input => {
         antworten.push(input.value);
     });
+    
+    // Die korrekten Antwort(en) unten pushen
+    document.querySelectorAll(".XXZYXX").forEach(input => {
+        user_losung.push(input);
+    });
 
+    /* Irgendwie muss ich den Text aus der Checkbox oder dem Label
+    welches dazu gehört rausfiltern um es in die korrenten Antworten pushen zu können,
+    sollte mir dazu das bisherige Verfahren ansehen?
+    Den irgendwie muss ich vorher auch den Text vom Value rausgezogen haben..
+    */
+   
     const neueFrage = {
         frage: frage,
         options: antworten,
-        antwort: antworten
+        antwort: user_losung
     };
 
     Quizdata.push(neueFrage);
     alert('Neue Frage wurde hinzugefügt!');
+    console.log(neueFrage.antwort);
     frage_index = 0;
     seiteladen();
     };
@@ -228,9 +243,14 @@ function antwortHinzufuegen() {
         // Checkboxen erstellen zur Antwort
         let weitere_checkbox = document.createElement('input');
         weitere_checkbox.type = 'checkbox';
+        weitere_checkbox.classList.add(".user_solution_checkbox");
+        weitere_checkbox.value = placeholder_zahl;
         let label_neue_checkbox = document.createElement('label');
         label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
         let kunstlich_br = document.createElement('br');
+        weitere_checkbox.addEventListener('click', function(event) {
+            event.target.classList.toggle('XXZYXX');
+        });
 
         placeholder_zahl++;
         // Höhe von gesamen Userfragen Container vergrößern //
@@ -253,16 +273,24 @@ function antwortHinzufuegen() {
     }
 };
 
+// GPT Toggle Funktion?
+checkbox_container.addEventListener('click', function(event) {
+    // Überprüfen, ob das ausgelöste Event von einer Checkbox stammt
+    if (event.target.matches('.user_solution_checkbox')) {
+        // Neuer Klasse hinzufügen, wenn auf eine Checkbox geklickt wird
+        event.target.classList.toggle('XXZYXX');
+    }
+});
 
 function antwortentfernen(){
     const fragen_sammlung = user_erstellen_fragen;
     const neuste_antwort = fragen_sammlung.lastElementChild;
-    // const checkbox_container = checkbox_container;
-    const neuste_checkbox = checkbox_container.lastElementChild;
     // Abfrage der Antworten_box + Checkboxen //
     if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
         fragen_sammlung.removeChild(neuste_antwort);
-        checkbox_container.removeChild(neuste_checkbox);
+        for(let i = 0; i < 3; i++){
+            checkbox_container.removeChild(checkbox_container.lastElementChild);
+        };
         antwort_anzahl--;
         placeholder_zahl--;
         // Gröse des Containers anpassen //
