@@ -196,6 +196,15 @@ let placeholder_zahl = 3;
 let antwort_anzahl = 2;
 const user_losung = [];
 
+// Auf vorgertigte Antwortfelder reagieren, auch die vorgfertigten Labels dazu
+let definedUserAnswerFields = document.querySelectorAll('input[type="text"]');
+definedUserAnswerFields.forEach(inputField => {
+    inputField.addEventListener('input', function(event) {
+        const label = document.querySelector(`label[for="${event.target.id}"]`);
+        label.textContent = event.target.value;
+    });
+});
+
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
     const antworten = [];
@@ -241,15 +250,15 @@ function antwortHinzufuegen() {
         weitere_checkbox.value = placeholder_zahl;
         weitere_checkbox.id = (`Antwort_${placeholder_zahl}`);
         checkbox_container.appendChild(weitere_checkbox);
-                // Labeltext direkt ändern mit Antwort_text sobald geändert
-                weitere_antwort.addEventListener('input',function(event) {
-                    label_neue_checkbox.textContent = weitere_antwort.value;
-                });
-                user_erstellen_fragen.appendChild(weitere_antwort);
+        user_erstellen_fragen.appendChild(weitere_antwort);
         let label_neue_checkbox = document.createElement('label');
         label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
         label_neue_checkbox.id = (`Antwort_${placeholder_zahl}`);
         checkbox_container.appendChild(label_neue_checkbox);
+        // Labeltext direkt ändern mit Antwort_text sobald geändert
+           weitere_antwort.addEventListener('input',function(event) {
+              label_neue_checkbox.textContent = weitere_antwort.value;
+                });
         let kunstlich_br = document.createElement('br');
         checkbox_container.appendChild(kunstlich_br);
         /* Inhalt von Label für zugehörige Antwort abfangen 
@@ -293,18 +302,29 @@ function antwortHinzufuegen() {
 //     }
 // };
 
-// GPT Toggle Funktion?
+// GPT Toggle Funktion zum adden der Lösung mit der Klasse
 checkbox_container.addEventListener('change', function(event) {
+            // Textinhalt des zugehörigen Labels abrufen
+            const label = document.querySelector(`label[for="${event.target.id}"]`);
+            const labelInhalt = label.textContent;
     // Überprüfen, ob das ausgelöste Event von einer Checkbox stammt
     if (event.target.matches('.user_solution_checkbox')) {
         // Neuer Klasse hinzufügen, wenn auf eine Checkbox geklickt wird
         event.target.classList.toggle('XXZYXX');
-
-        // Textinhalt des zugehörigen Labels abrufen
-        const label = document.querySelector(`label[for="${event.target.id}"]`);
-        const labelInhalt = label.textContent;
-        console.log(labelInhalt);
-        // Hier kannst du den Textinhalt weiterverarbeiten
+        if (event.target.classList.contains('XXZYXX')) {
+            // Inhalt des zugehörigen Labels in das Array pushen
+            user_losung.push(labelInhalt);
+            console.log('Inhalt hinzugefügt:', labelInhalt);
+            console.log(`Die Lösungen: ${user_losung}`);
+        } else {
+            // Inhalt des zugehörigen Labels aus dem Array entfernen
+            const index = user_losung.indexOf(labelInhalt);
+            if (index !== -1) {
+                labelInhalte.splice(index, 1);
+                console.log('Inhalt entfernt:', labelInhalt);
+                console.log(`Die Lösungen: ${user_losung}`);
+            }
+        }
     }
 });
 
