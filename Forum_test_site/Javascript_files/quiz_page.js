@@ -194,26 +194,15 @@ let checkbox_container = document.querySelector('.checkbox_container');
 let checkbox_user_solution = document.querySelector('.user_solution_checkbox');
 let placeholder_zahl = 3;
 let antwort_anzahl = 2;
+const user_losung = [];
 
 function frageHinzufuegen() {
     const frage = document.getElementById("frage").value;
     const antworten = [];
-    const user_losung = [];
     // Die Optionen was man als Antwort auswählen kann pushen
     document.querySelectorAll(".antwort").forEach(input => {
         antworten.push(input.value);
     });
-    
-    // Die korrekten Antwort(en) unten pushen
-    document.querySelectorAll(".XXZYXX").forEach(input => {
-        user_losung.push(input);
-    });
-
-    /* Irgendwie muss ich den Text aus der Checkbox oder dem Label
-    welches dazu gehört rausfiltern um es in die korrenten Antworten pushen zu können,
-    sollte mir dazu das bisherige Verfahren ansehen?
-    Den irgendwie muss ich vorher auch den Text vom Value rausgezogen haben..
-    */
    
     const neueFrage = {
         frage: frage,
@@ -223,7 +212,7 @@ function frageHinzufuegen() {
 
     Quizdata.push(neueFrage);
     alert('Neue Frage wurde hinzugefügt!');
-    console.log(neueFrage.antwort);
+    // console.log(neueFrage.antwort);
     frage_index = 0;
     seiteladen();
     };
@@ -231,6 +220,11 @@ function frageHinzufuegen() {
 //     alert('Es wurde nichts eingegeben!')
 // };
 
+/* !!-- Die Reihenfolge für das pushen noch ändern und das pushen
+        weiter optimieren, funktioniert soweit aber nicht gut 
+        Lösung wird richtig erkannt! */
+
+let antwort_drinnen = 0;
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
     if(antwort_anzahl < 4){
@@ -245,13 +239,42 @@ function antwortHinzufuegen() {
         weitere_checkbox.type = 'checkbox';
         weitere_checkbox.classList.add(".user_solution_checkbox");
         weitere_checkbox.value = placeholder_zahl;
+        weitere_checkbox.id = (`Antwort_${placeholder_zahl}`);
+        checkbox_container.appendChild(weitere_checkbox);
+                // Labeltext direkt ändern mit Antwort_text sobald geändert
+                weitere_antwort.addEventListener('input',function(event) {
+                    label_neue_checkbox.textContent = weitere_antwort.value;
+                });
+                user_erstellen_fragen.appendChild(weitere_antwort);
         let label_neue_checkbox = document.createElement('label');
         label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
+        label_neue_checkbox.id = (`Antwort_${placeholder_zahl}`);
+        checkbox_container.appendChild(label_neue_checkbox);
         let kunstlich_br = document.createElement('br');
-        weitere_checkbox.addEventListener('click', function(event) {
+        checkbox_container.appendChild(kunstlich_br);
+        /* Inhalt von Label für zugehörige Antwort abfangen 
+        und das in das Array der Lösungen pushen */
+        weitere_checkbox.addEventListener('change', function(event) {
+            // Neuer Klasse hinzufügen, wenn auf eine Checkbox geklickt wird
             event.target.classList.toggle('XXZYXX');
+            const labelInhalt = label_neue_checkbox.textContent;
+            if (event.target.classList.contains('XXZYXX')) {
+                // Inhalt des zugehörigen Labels in das Array pushen
+                user_losung.push(labelInhalt);
+                console.log('Inhalt hinzugefügt:', labelInhalt);
+                console.log(`Die Lösungen: ${user_losung}`);
+            } else {
+                // Inhalt des zugehörigen Labels aus dem Array entfernen
+                const index = labelInhalte.indexOf(labelInhalt);
+                if (index !== -1) {
+                    labelInhalte.splice(index, 1);
+                    console.log('Inhalt entfernt:', labelInhalt);
+                    console.log(`Die Lösungen: ${user_losung}`);
+                }
+            }
         });
-
+    }
+}
         placeholder_zahl++;
         // Höhe von gesamen Userfragen Container vergrößern //
         let user_fragen_container_height = user_fragen_container.offsetHeight;
@@ -263,22 +286,25 @@ function antwortHinzufuegen() {
         checkbox_container.style.height = `${new_checkbox_container_height}px`;
 
 
-        user_erstellen_fragen.appendChild(weitere_antwort);
-        checkbox_container.appendChild(weitere_checkbox);
-        checkbox_container.appendChild(label_neue_checkbox);
-        checkbox_container.appendChild(kunstlich_br);
 
-    } else {
-        alert('Nicht mehr als 4 Möglichkeiten zugelassen!');
-    }
-};
+
+//     } else {
+//         alert('Nicht mehr als 4 Möglichkeiten zugelassen!');
+//     }
+// };
 
 // GPT Toggle Funktion?
-checkbox_container.addEventListener('click', function(event) {
+checkbox_container.addEventListener('change', function(event) {
     // Überprüfen, ob das ausgelöste Event von einer Checkbox stammt
     if (event.target.matches('.user_solution_checkbox')) {
         // Neuer Klasse hinzufügen, wenn auf eine Checkbox geklickt wird
         event.target.classList.toggle('XXZYXX');
+
+        // Textinhalt des zugehörigen Labels abrufen
+        const label = document.querySelector(`label[for="${event.target.id}"]`);
+        const labelInhalt = label.textContent;
+        console.log(labelInhalt);
+        // Hier kannst du den Textinhalt weiterverarbeiten
     }
 });
 
