@@ -388,56 +388,40 @@ input, select {
     margin-bottom: 10px;
 }
 
-.user_fragen{
+/* Die 3 Buttons für die User_eigenen_Fragen */
+.user_knopfe_container{
     position: relative;
-    right: -650px;
+    bottom: 480px;
+    left: 960px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid red;
+    background-color: rgb(41, 41, 41);
+    display: flex;
+    flex-direction: column;
+    padding-left: 14px;
+    padding-top: 12px;
 }
 
-.question_add_button{
-    position: absolute;
-    bottom: -135px;
+.user_knopfe_container button{
     border-radius: 15%;
     width: 120px;
     height: 40px;
-    margin-left: 30px;
+    margin-bottom: 3px;
 }
 
-.question_add_button:hover{
-    cursor: pointer;
+.user_knopfe_container button:hover{
     background-color: #b66d0d;
-}
-
-/* Knopf um User_antworten überhaupt zu erstellen - löschen */
-
-.answer_add_button{
-    position: absolute;
-    bottom: -180px;
-    border-radius: 15%;
-    width: 120px;
-    height: 40px;
-    margin-left: 30px;
-}
-
-.answer_add_button:hover{
     cursor: pointer;
-    background-color: #b66d0d;
-}
-
-.answer_delete_button{
-    position: absolute;
-    bottom: -225px;
-    border-radius: 15%;
-    width: 120px;
-    height: 40px;
-    margin-left: 30px;
-}
-
-.answer_delete_button:hover{
-    cursor: pointer;
-    background-color: #b66d0d;
 }
 
 /* Antwortfelder von User */
+
+.user_fragen{
+    position: relative;
+    right: -650px;
+    display: inline-block;
+}
 
 .antwort{
     text-align: center;
@@ -445,6 +429,17 @@ input, select {
 
 .checkbox_container{
     position: absolute;
-    bottom: -75px;
+    bottom: -95px;
+}
+
+.checkbox_container input{
+    height: 20px;
+    width: 20px;
+}
+
+.checkbox_container input:hover{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
 }
 

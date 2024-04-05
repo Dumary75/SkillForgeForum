@@ -194,7 +194,7 @@ let user_erstellen_fragen = document.querySelector('.user_input_question');
 let user_fragen_container = document.querySelector('#frageEingabe');
 let checkbox_container = document.querySelector('.checkbox_container');
 let checkbox_user_solution = document.querySelector('.user_solution_checkbox');
-let placeholder_zahl = 3;
+let placeholder_zahl = 2;
 let antwort_anzahl = 2;
 const user_losung = [];
 
@@ -242,6 +242,7 @@ let antwort_drinnen = 0;
 function antwortHinzufuegen() {
     if(antwort_anzahl < 4){
         let weitere_antwort = document.createElement('input');
+        placeholder_zahl++;
         antwort_anzahl++;
         weitere_antwort.type = 'text';
         weitere_antwort.classList.add('antwort');
@@ -274,15 +275,11 @@ function antwortHinzufuegen() {
             if (event.target.classList.contains('XXZYXX')) {
                 // Inhalt des zugehörigen Labels in das Array pushen
                 user_losung.push(labelInhalt);
-                console.log('Inhalt hinzugefügt:', labelInhalt);
-                console.log(`Die Lösungen: ${user_losung}`);
             } else {
                 // Inhalt des zugehörigen Labels aus dem Array entfernen
                 const index = user_losung.indexOf(labelInhalt);
                 if (index !== -1) {
                     user_losung.splice(index, 1);
-                    console.log('Inhalt entfernt:', labelInhalt);
-                    console.log(`Die Lösungen: ${user_losung}`);
                 }
             }
         });
@@ -290,7 +287,6 @@ function antwortHinzufuegen() {
         alert("Nicht mehr als 4 Antworten zugelassen!");
     };
 };
-        placeholder_zahl++;
         // Höhe von gesamen Userfragen Container vergrößern //
         let user_fragen_container_height = user_fragen_container.offsetHeight;
         let new_user_fragen_height = user_fragen_container_height + 40;
@@ -299,14 +295,6 @@ function antwortHinzufuegen() {
         let checkbox_container_height = checkbox_container.offsetHeight;
         let new_checkbox_container_height = checkbox_container_height - 5;
         checkbox_container.style.height = `${new_checkbox_container_height}px`;
-
-
-
-
-//     } else {
-//         alert('Nicht mehr als 4 Möglichkeiten zugelassen!');
-//     }
-// };
 
 // GPT Toggle Funktion zum adden der Lösung mit der Klasse
 checkbox_container.addEventListener('change', function(event) {
@@ -322,15 +310,11 @@ checkbox_container.addEventListener('change', function(event) {
             if (event.target.classList.contains('XXZYXX')) {
                 // Inhalt des zugehörigen Labels in das Array pushen
                 user_losung.push(labelInhalt);
-                console.log('Inhalt hinzugefügt:', labelInhalt);
-                console.log(`Die Lösungen: ${user_losung}`);
             } else {
                 // Inhalt des zugehörigen Labels aus dem Array entfernen
                 const index = user_losung.indexOf(labelInhalt);
                 if (index !== -1) {
                     user_losung.splice(index, 1);
-                    console.log('Inhalt entfernt:', labelInhalt);
-                    console.log(`Die Lösungen: ${user_losung}`);
                 };
             };
         };
