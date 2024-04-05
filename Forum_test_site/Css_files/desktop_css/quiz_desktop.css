@@ -312,6 +312,10 @@ h3 {
     flex-direction: column;
 }
 
+.antworten button{
+    transition: 0.2s;
+}
+
 .antworten button:hover{
     background-color: yellow;
 }
@@ -339,6 +343,7 @@ h3 {
     border-radius: 15%;
     width: 42px;
     height: 22px;
+    transition: all 0.4s;
 }
 
 .next:hover {
@@ -408,6 +413,7 @@ input, select {
     width: 120px;
     height: 40px;
     margin-bottom: 3px;
+    transition: all 0.2s;
 }
 
 .user_knopfe_container button:hover{
@@ -435,6 +441,7 @@ input, select {
 .checkbox_container input{
     height: 20px;
     width: 20px;
+    transition: all 0.2s;
 }
 
 .checkbox_container input:hover{
