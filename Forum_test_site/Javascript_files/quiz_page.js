@@ -2,6 +2,8 @@
 
 // QUIZ IST NOCH IM TESTMODI //
 
+// !--- VORDEFINIERTE ANTWORTEN KLAPPEN ABER DIE ANDEREN NICHT + das Entfernen buggt !--//
+
 /* Die ganzen Selektoren */ 
 let quiz_box = document.querySelector('.fragen');
 let antworten = document.querySelector('.antworten');
@@ -201,7 +203,9 @@ let definedUserAnswerFields = document.querySelectorAll('input[type="text"]');
 definedUserAnswerFields.forEach(inputField => {
     inputField.addEventListener('input', function(event) {
         const label = document.querySelector(`label[for="${event.target.id}"]`);
-        label.textContent = event.target.value;
+        if(label){
+            label.textContent = event.target.value;
+        };
     });
 });
 
@@ -274,16 +278,18 @@ function antwortHinzufuegen() {
                 console.log(`Die Lösungen: ${user_losung}`);
             } else {
                 // Inhalt des zugehörigen Labels aus dem Array entfernen
-                const index = labelInhalte.indexOf(labelInhalt);
+                const index = user_losung.indexOf(labelInhalt);
                 if (index !== -1) {
-                    labelInhalte.splice(index, 1);
+                    user_losung.splice(index, 1);
                     console.log('Inhalt entfernt:', labelInhalt);
                     console.log(`Die Lösungen: ${user_losung}`);
                 }
             }
         });
-    }
-}
+    }else{
+        alert("Nicht mehr als 4 Antworten zugelassen!");
+    };
+};
         placeholder_zahl++;
         // Höhe von gesamen Userfragen Container vergrößern //
         let user_fragen_container_height = user_fragen_container.offsetHeight;
@@ -304,28 +310,31 @@ function antwortHinzufuegen() {
 
 // GPT Toggle Funktion zum adden der Lösung mit der Klasse
 checkbox_container.addEventListener('change', function(event) {
-            // Textinhalt des zugehörigen Labels abrufen
-            const label = document.querySelector(`label[for="${event.target.id}"]`);
-            const labelInhalt = label.textContent;
     // Überprüfen, ob das ausgelöste Event von einer Checkbox stammt
     if (event.target.matches('.user_solution_checkbox')) {
         // Neuer Klasse hinzufügen, wenn auf eine Checkbox geklickt wird
         event.target.classList.toggle('XXZYXX');
-        if (event.target.classList.contains('XXZYXX')) {
-            // Inhalt des zugehörigen Labels in das Array pushen
-            user_losung.push(labelInhalt);
-            console.log('Inhalt hinzugefügt:', labelInhalt);
-            console.log(`Die Lösungen: ${user_losung}`);
-        } else {
-            // Inhalt des zugehörigen Labels aus dem Array entfernen
-            const index = user_losung.indexOf(labelInhalt);
-            if (index !== -1) {
-                labelInhalte.splice(index, 1);
-                console.log('Inhalt entfernt:', labelInhalt);
+        
+        // Textinhalt des zugehörigen Labels abrufen
+        const label = document.querySelector(`label[for="${event.target.id}"]`);
+        if (label) {
+            const labelInhalt = label.textContent;
+            if (event.target.classList.contains('XXZYXX')) {
+                // Inhalt des zugehörigen Labels in das Array pushen
+                user_losung.push(labelInhalt);
+                console.log('Inhalt hinzugefügt:', labelInhalt);
                 console.log(`Die Lösungen: ${user_losung}`);
-            }
-        }
-    }
+            } else {
+                // Inhalt des zugehörigen Labels aus dem Array entfernen
+                const index = user_losung.indexOf(labelInhalt);
+                if (index !== -1) {
+                    user_losung.splice(index, 1);
+                    console.log('Inhalt entfernt:', labelInhalt);
+                    console.log(`Die Lösungen: ${user_losung}`);
+                };
+            };
+        };
+    };
 });
 
 function antwortentfernen(){
