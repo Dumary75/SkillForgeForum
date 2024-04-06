@@ -233,14 +233,15 @@ function frageHinzufuegen() {
 //     alert('Es wurde nichts eingegeben!')
 // };
 
-/* !!-- Die Reihenfolge für das pushen noch ändern und das pushen
-        weiter optimieren, funktioniert soweit aber nicht gut 
-        Lösung wird richtig erkannt! */
-
 let antwort_drinnen = 0;
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
     if(antwort_anzahl < 4){
+                // Höhe von gesamen Userfragen Container vergrößern //
+                let user_fragen_container_height = user_fragen_container.offsetHeight;
+                let new_user_fragen_height = user_fragen_container_height + 60;
+                user_fragen_container.style.height = `${new_user_fragen_height}px`;
+
         let weitere_antwort = document.createElement('input');
         placeholder_zahl++;
         antwort_anzahl++;
@@ -248,6 +249,7 @@ function antwortHinzufuegen() {
         weitere_antwort.classList.add('antwort');
         weitere_antwort.placeholder = `Antwort ${placeholder_zahl}`;
         weitere_antwort.style.color = '#000';
+        weitere_antwort.style.marginBottom = '10px';
         // Checkboxen erstellen zur Antwort
         let weitere_checkbox = document.createElement('input');
         weitere_checkbox.type = 'checkbox';
@@ -287,14 +289,7 @@ function antwortHinzufuegen() {
         alert("Nicht mehr als 4 Antworten zugelassen!");
     };
 };
-        // Höhe von gesamen Userfragen Container vergrößern //
-        let user_fragen_container_height = user_fragen_container.offsetHeight;
-        let new_user_fragen_height = user_fragen_container_height + 40;
-        user_fragen_container.style.height = `${new_user_fragen_height}px`;
 
-        let checkbox_container_height = checkbox_container.offsetHeight;
-        let new_checkbox_container_height = checkbox_container_height - 5;
-        checkbox_container.style.height = `${new_checkbox_container_height}px`;
 
 // GPT Toggle Funktion zum adden der Lösung mit der Klasse
 checkbox_container.addEventListener('change', function(event) {
@@ -336,11 +331,6 @@ function antwortentfernen(){
         let user_fragen_container_height = user_fragen_container.offsetHeight;
         let new_user_fragen_height = user_fragen_container_height - 30;
         user_fragen_container.style.height = `${new_user_fragen_height}px`;
-
-        let checkbox_container_height = checkbox_container.offsetHeight;
-        let new_checkbox_container_height = checkbox_container_height + 5;
-        checkbox_container.style.height = `${new_checkbox_container_height}px`;
-
     } else{
         alert('Es gibt keine neu erstellte Antworten!');
     };

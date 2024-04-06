@@ -349,6 +349,8 @@ h3 {
 .next:hover {
     cursor: pointer;
     background-color: yellow;
+    width: 44px;
+    height: 24px;
 }
 
 .antworten button:hover{
@@ -372,7 +374,11 @@ h3 {
     color: #FFF;
     padding: 10px;
     width: 250px;
-    height: 28rem;
+    height: 21rem;
+}
+
+#frageEingabe h3{
+    margin-top: 3px;
 }
 
 .frage {
@@ -396,7 +402,7 @@ input, select {
 /* Die 3 Buttons für die User_eigenen_Fragen */
 .user_knopfe_container{
     position: relative;
-    bottom: 480px;
+    bottom: 447px;
     left: 960px;
     width: 150px;
     height: 150px;
