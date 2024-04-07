@@ -29,6 +29,9 @@
       Und Checkbox-System einbauen, das User Lösung bestimmen kann.
       Auch muss gechekt werden, ob alle Felder vor absenden ausgefüllt sind.
 
+      - User Fragen erstellen muss der input geleert werden,
+        sobald Quiz neu gerendert wurde.
+
 // NEUE FEATURES //
 /*   
 
@@ -67,6 +70,8 @@
        verschwindet die BG_color und Timer beginnt zu zählen.
        Bei Quiz Blauer BG und Weisse Schrift
        und bei Fragen Orange BG und Black font.
+
+    - User Fragen erstellen: Fragenbox größer machen, Autoumbruch
 
     ---- FORUM_TEIL ----
 
