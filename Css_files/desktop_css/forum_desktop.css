@@ -1,0 +1,292 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background-color: rgb(46, 46, 46);
+}
+
+/* --> DESKTOP BEREICH <-- */
+
+.bg_top {
+    height: 4.5rem;
+    width: 100%;
+    background-color: rgb(37, 37, 37);
+    border-bottom: 1px solid #000;
+}
+
+.bg_top li {
+    list-style-type: none;
+}
+
+/* Profil_Button */
+.profil_ul{
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    right: 20px;
+    width: 60px;
+    height: 40px;
+    background-color: rgb(229, 255, 0);
+    border: 2px solid #000;
+    filter: brightness(90%);
+    transition: filter 0.3s;
+}
+
+.profil_ul:hover{
+    cursor: pointer;
+    filter: brightness(110%);
+}
+
+/* Ausklapp Menu unter Profil_Button */
+.ausklap_menu{
+    position: absolute;
+    width: 60px;
+    height: 0px;
+    border: 2px solid #000;
+    background-color: yellow;
+    right: 20px;
+    top: 52px;
+}
+
+/* Test ob das Menü langsam rausgefahren wird */
+
+.profil_sichtbar{
+    height: 90px;
+    transition: height 1s;
+}
+
+.profil_unsichtbar{
+    height: 0px;
+    transition: height 1s;
+}
+
+
+
+.logout{
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    width: 40px;
+    height: 20px;
+    background-color: red;
+    filter: brightness(80%);
+    transition: filter 0.3s;
+}
+
+.logout:hover{
+    cursor: pointer;
+    filter: brightness(100%);
+}
+
+.switchButton_left{
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    width: 40px;
+    height: 20px;
+    background-color: blue;
+    filter: brightness(70%);
+    transition: filter 0.3s;
+    color: #FFF;
+}
+
+/* Test mit dem rausfahren von Menü */
+
+/* Die Klassen werde für den ausfahr / einfahr Effekt vom Menü benötigt */
+.switch_left_sichtbar{
+    top: 5px;
+    transition: top 0.5s;
+}
+
+.switch_left_unsichtbar{
+    top: -20px;
+    transition: top 0.5s;
+}
+
+.switchButton_left:hover{
+    cursor: pointer;
+    filter: brightness(100%);
+}
+
+.switchButton_right{
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    width: 40px;
+    height: 20px;
+    background-color: pink;
+    filter: brightness(70%);
+    transition: filter 0.3s;
+    color: #000;
+}
+
+.switchButton_right:hover{
+    cursor: pointer;
+    filter: brightness(100%);
+}
+
+.switch_right_sichtbar{
+    top: 35px;
+    transition: top 1s;
+}
+
+.switch_right_unsichtbar{
+    top: -20px;
+    transition: top 0.7s;
+}
+
+/* Die Seitenbuttons im Navibarbereich */
+.bg_top button {
+    background-color: rgb(148, 96, 0);
+    color: antiquewhite;
+    border: 1px solid #FFF;
+    border-radius: 14%;
+    width: 120px;
+    height: 30px;
+    margin-left: 10px;
+    transition: background-color 0.3s, font-weight 0.3s;
+}
+
+.bg_top ul{
+    margin-left: 18%;
+    margin-right: auto;
+}
+
+.bg_top button.momentan {
+    background-color: red;
+}
+
+.bg_top ul li button a{
+    list-style-type: none;
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+
+.bg_top ul li button a:visited {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+h3 {
+    color: #FFF;
+    position: relative;
+    left: 25px;
+    display: inline-block;
+}
+
+/* Der Text zum absenden */
+.container_absenden{
+    width: 35%;
+    border-bottom: 1px solid #FFF;
+    margin-left: 36%;
+    margin-right: auto;
+}
+
+.forum_text{
+    margin-left: 10%;
+    border: 1px solid orange;
+}
+
+/* Knopf zum abfeuern von neuen Forum_Eintrag */
+.forum_knopf{
+    margin-top: 2px;
+    margin-bottom: 8px;
+    color: #000;
+    font-weight: bold;
+    border: 1px solid rgb(0, 41, 0);
+    transition: background-color 0.5s, text-shadow 0.5s;
+}
+
+/* .forum_delete {
+    color: #FFF;
+    font-weight: bold;
+    transition: background-color 0.5s, text-shadow 0.5s;
+} */
+
+/* Der Teil, der den abgefeuerten Text einspeichert */
+.container_sammler{
+    margin-left: 37%;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+/* Der neu erstelle Auslogknopf in JS wegen dem trainsition angesprochen */
+
+.auslog_knopf_css {
+    transition: width 0.2s, font-size 0.2s, color 0.2s, background-color 0.2s;
+}
+
+/* Die responsive Funktion sobald Desktopgröße erreicht wurde */
+@media screen and (min-width: 600px) {
+
+    /* Das Score_System auf der Page */
+    .score_on_page  {
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    right: 100px;
+    width: 60px;
+    height: 40px;
+    background-color: purple;
+    border: 0.5px solid #000;
+    font-size: 2em;
+    color: #FFF;
+    text-align: center;
+    }
+
+    .bg_top button:hover {
+        background-color: #000;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    .bg_top ul {
+        display: flex;
+        position: absolute;
+        top: 0.5rem;
+    }
+
+    .forum_knopf{
+        width: 110px;
+        height: 33px;
+        background-color: rgb(229, 255, 0);
+        filter: brightness(70%);
+        margin-left: 30%;
+        transition: filter 0.3s;
+    }
+
+    .forum_knopf:hover{
+        cursor: pointer;
+        text-transform: uppercase;
+        filter: brightness(100%);
+    }
+
+    /* BG Switcher */
+
+    .bg_switcher{
+    background-color: #FFF;
+    border-radius: 30%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 160px;
+    height: 30px;
+    }
+
+    .bg_switcher:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: #FFF;
+    }
+    
+    }
+    
