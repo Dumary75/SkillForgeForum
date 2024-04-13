@@ -203,11 +203,14 @@ definedUserAnswerFields.forEach(inputField => {
 });
 
 function frageHinzufuegen() {
+    // !---- Nach dem pushen von neuer Frage, diese leeren, das die Felder geleert sind ----! //
     const frage = document.getElementById("frage").value;
     const antworten = [];
     // Die Optionen was man als Antwort auswählen kann pushen
     document.querySelectorAll(".antwort").forEach(input => {
         antworten.push(input.value);
+        // Die Antwort_felder nach dem pushen leeren //
+        input.value = '';
     });
    
     const neueFrage = {
@@ -221,12 +224,21 @@ function frageHinzufuegen() {
     // console.log(neueFrage.antwort);
     frage_index = 0;
     seiteladen();
+    // Das User_Frage_feld nach dem pushen leeren //
+    let reine_frage = document.getElementById("frage");
+    reine_frage.value = '';
+    // Die Checkboxen nach dem pushen wieder "ungekickt" machen, klappt halbwegs //
+    const checkboxes = document.querySelectorAll('.user_solution_checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
     };
 // } else{
 //     alert('Es wurde nichts eingegeben!')
 // };
 
 let antwort_drinnen = 0;
+let user_answer_box = document.querySelector('.user_answer_box');
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
     if(antwort_anzahl < 4){
@@ -234,8 +246,16 @@ function antwortHinzufuegen() {
                 let user_fragen_container_height = user_fragen_container.offsetHeight;
                 let new_user_fragen_height = user_fragen_container_height + 60;
                 user_fragen_container.style.height = `${new_user_fragen_height}px`;
+                // Höhe von gesamten Checkbox_div verschieben //
+                // checkbox_container //
+                if(antwort_anzahl < 3){
+                checkbox_container.style.bottom = '-120px';
+                } else {
+                    checkbox_container.style.bottom = '-160px';
+                };
 
         let weitere_antwort = document.createElement('input');
+        let kunstlich_br = document.createElement('br');
         placeholder_zahl++;
         antwort_anzahl++;
         weitere_antwort.type = 'text';
@@ -249,8 +269,8 @@ function antwortHinzufuegen() {
         weitere_checkbox.classList.add(".user_solution_checkbox");
         weitere_checkbox.value = placeholder_zahl;
         weitere_checkbox.id = (`Antwort_${placeholder_zahl}`);
+        user_answer_box.appendChild(weitere_antwort);
         checkbox_container.appendChild(weitere_checkbox);
-        user_erstellen_fragen.appendChild(weitere_antwort);
         let label_neue_checkbox = document.createElement('label');
         label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
         label_neue_checkbox.id = (`Antwort_${placeholder_zahl}`);
@@ -259,7 +279,6 @@ function antwortHinzufuegen() {
            weitere_antwort.addEventListener('input',function(event) {
               label_neue_checkbox.textContent = weitere_antwort.value;
                 });
-        let kunstlich_br = document.createElement('br');
         checkbox_container.appendChild(kunstlich_br);
         /* Inhalt von Label für zugehörige Antwort abfangen 
         und das in das Array der Lösungen pushen */
@@ -311,21 +330,31 @@ checkbox_container.addEventListener('change', function(event) {
 
 function antwortentfernen(){
     const fragen_sammlung = user_erstellen_fragen;
-    const neuste_antwort = fragen_sammlung.lastElementChild;
+    const neuste_antwort = user_answer_box.lastElementChild;
     // Abfrage der Antworten_box + Checkboxen //
     if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
-        fragen_sammlung.removeChild(neuste_antwort);
-        for(let i = 0; i < 3; i++){
-            checkbox_container.removeChild(checkbox_container.lastElementChild);
+        // Zusätzliche Prüfung, damit wirklich nur neuste Antorten > 2 nach Vorgabe gelöscht werden /
+        if(antwort_anzahl > 2){
+            // Höhe bei entfernen von Checkbox_container anpassen //
+            // HÖHE MUSS NOCH RICHTIG EINGESTELLT WERDEN !! //
+            if(antwort_anzahl >= 3){
+                checkbox_container.style.bottom = '-95px';
+                } else {
+                    checkbox_container.style.bottom = '-120px';
+                };
+            user_answer_box.removeChild(neuste_antwort);
+            for(let i = 0; i < 3; i++){
+                checkbox_container.removeChild(checkbox_container.lastElementChild);
+            };
+            antwort_anzahl--;
+            placeholder_zahl--;
+            // Gröse des Containers anpassen //
+            let user_fragen_container_height = user_fragen_container.offsetHeight;
+            let new_user_fragen_height = user_fragen_container_height - 30;
+            user_fragen_container.style.height = `${new_user_fragen_height}px`;
+        } else{
+            alert('Es gibt keine neu erstellte Antworten!');
         };
-        antwort_anzahl--;
-        placeholder_zahl--;
-        // Gröse des Containers anpassen //
-        let user_fragen_container_height = user_fragen_container.offsetHeight;
-        let new_user_fragen_height = user_fragen_container_height - 30;
-        user_fragen_container.style.height = `${new_user_fragen_height}px`;
-    } else{
-        alert('Es gibt keine neu erstellte Antworten!');
     };
 };
 
@@ -336,11 +365,12 @@ function runtergehen() {
         question_timer.innerText = counter;
         setTimeout(runtergehen,1000);
     }
-    else { // Den Timer neustarten //
-        frage_index = 0;
-        counter = 30;
-        seiteladen();
-        alert("Du bist zu langsam!");
+    // !--> WIRD GERADE WEGEN TESTS BLOCKIERT <--! //
+    else { // Den Timer neustarten // 
+        // frage_index = 0;
+        // counter = 30;
+        // seiteladen();
+        // alert("Du bist zu langsam!");
  };
 };
 

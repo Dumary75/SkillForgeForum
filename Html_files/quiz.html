@@ -72,24 +72,24 @@
                     placeholder="Gib deine Frage ein" autocomplete="off"> <br>
                 
                     <!-- Answers and the option to add some -->
-                    <label for="antworten">Antworten:</label> <br>
-                    <input type="text" id="Antwort_1" class="antwort" 
-                    placeholder="Antwort 1" autocomplete="off"> 
-                    <input type="text" id="Antwort_2" class="antwort" 
-                    placeholder="Antwort 2" autocomplete="off"> 
+                    <div class="user_answer_box">
+                        <label for="antworten">Antworten:</label> <br>
+                        <input type="text" id="Antwort_1" class="antwort" 
+                        placeholder="Antwort 1" autocomplete="off"> 
+                        <input type="text" id="Antwort_2" class="antwort" 
+                        placeholder="Antwort 2" autocomplete="off"> 
+                    </div> 
 
+                    <p class="Label_User_Checkboxen">Korrekte Antwort(en):</p> <br>
             <!-- Set the correct solution of the answers -->
             <div class="checkbox_container">
-                <label for="Antworten">Korrekte Antwort(en):</label> <br>
                 <input type="checkbox" id="Antwort_1" name="correct_answer" value="1"
                 class="user_solution_checkbox">
                 <label for="Antwort_1">Antwort 1</label><br>
                 <input type="checkbox" id="Antwort_2" name="correct_answer" value="2"
                 class="user_solution_checkbox">
                 <label for="Antwort_2">Antwort 2</label><br>
-            
              </div>
-           
          </div>
     
     </div>
