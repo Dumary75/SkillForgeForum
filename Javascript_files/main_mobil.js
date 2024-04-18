@@ -4,8 +4,6 @@
  // Am besten mit nur 2 Breakpoints - für Mobil + Laptop Desktop //
  // Breakpoint bei so 450px width setzten //
 
- // Github Branches zusammenführen //
-
 // BEKANNTE BUGS //
 /*  
     - Textcolor Generator, der sich an BG_color anpasst 
