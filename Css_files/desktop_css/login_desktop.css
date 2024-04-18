@@ -232,21 +232,6 @@ h3 {
 /* Die responsive Funktion sobald Desktopgröße erreicht wurde */
 @media screen and (min-width: 600px) {
 
-/* Das Score_System auf der Page */
-.score_on_page{
-    position: absolute;
-    z-index: 2;
-    top: 17px;
-    right: 100px;
-    width: 60px;
-    height: 40px;
-    background-color: purple;
-    border: 0.5px solid #000;
-    font-size: 2em;
-    color: #FFF;
-    text-align: center;
-}
-
 /* Der Erstellbutton */
 #login {
     position: absolute;

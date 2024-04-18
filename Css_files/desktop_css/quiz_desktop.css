@@ -188,21 +188,6 @@ h3 {
 /* Die responsive Funktion sobald Desktopgröße erreicht wurde */
 @media screen and (min-width: 600px) {
 
-/* Das Score_System auf der Page */
-.score_on_page{
-    position: absolute;
-    z-index: 2;
-    top: 17px;
-    right: 100px;
-    width: 60px;
-    height: 40px;
-    background-color: purple;
-    border: 0.5px solid #000;
-    font-size: 2em;
-    color: #FFF;
-    text-align: center;
-}
-
 .bg_top button:hover {
     background-color: #000;
     cursor: pointer;
@@ -374,7 +359,7 @@ h3 {
     color: #FFF;
     padding: 10px;
     width: 250px;
-    height: 22rem;
+    height: 25.5rem;
 }
 
 #frageEingabe h3{
@@ -458,5 +443,9 @@ input, select {
     height: 24px;
     width: 24px;
     cursor: pointer;
+}
+
+.weitere_antwort_label{
+    margin-left: 3px;
 }
 

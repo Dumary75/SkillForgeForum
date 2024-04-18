@@ -238,10 +238,14 @@ function frageHinzufuegen() {
 // };
 
 let antwort_drinnen = 0;
+// Entfernen zählen wegen der Container Position
+let entfernenanzahl = 0;
+
 let user_answer_box = document.querySelector('.user_answer_box');
 // User_Antworten hinzufügen //
 function antwortHinzufuegen() {
     if(antwort_anzahl < 4){
+                entfernenanzahl++
                 // Höhe von gesamen Userfragen Container vergrößern //
                 let user_fragen_container_height = user_fragen_container.offsetHeight;
                 let new_user_fragen_height = user_fragen_container_height + 60;
@@ -272,6 +276,7 @@ function antwortHinzufuegen() {
         user_answer_box.appendChild(weitere_antwort);
         checkbox_container.appendChild(weitere_checkbox);
         let label_neue_checkbox = document.createElement('label');
+        label_neue_checkbox.classList.add('weitere_antwort_label');
         label_neue_checkbox.textContent = `Antwort  ${placeholder_zahl}`;
         label_neue_checkbox.id = (`Antwort_${placeholder_zahl}`);
         checkbox_container.appendChild(label_neue_checkbox);
@@ -302,6 +307,39 @@ function antwortHinzufuegen() {
     };
 };
 
+function antwortentfernen(){
+    const fragen_sammlung = user_erstellen_fragen;
+    const neuste_antwort = user_answer_box.lastElementChild;
+    // Abfrage der Antworten_box + Checkboxen //
+    if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
+        // Zusätzliche Prüfung, damit wirklich nur neuste Antorten > 2 nach Vorgabe gelöscht werden /
+        if(antwort_anzahl > 2){
+            // Höhe bei entfernen von Checkbox_container anpassen //
+            // HÖHE MUSS NOCH RICHTIG EINGESTELLT WERDEN !! //
+            if(entfernenanzahl === 2){
+                checkbox_container.style.bottom = '-125px';
+                user_fragen_container.style.height = '470px';
+                } 
+            if(entfernenanzahl === 1){
+                checkbox_container.style.bottom = '-95px';
+                user_fragen_container.style.height = '25.5rem';
+                };
+            user_answer_box.removeChild(neuste_antwort);
+            for(let i = 0; i < 3; i++){
+                checkbox_container.removeChild(checkbox_container.lastElementChild);
+            };
+            antwort_anzahl--;
+            placeholder_zahl--;
+            entfernenanzahl--;
+            // Gröse des Containers anpassen //
+            // let user_fragen_container_height = user_fragen_container.offsetHeight;
+            // let new_user_fragen_height = user_fragen_container_height - 30;
+            // user_fragen_container.style.height = `${new_user_fragen_height}px`;
+        } else{
+            alert('Es gibt keine neu erstellte Antworten!');
+        };
+    };
+};
 
 // GPT Toggle Funktion zum adden der Lösung mit der Klasse
 checkbox_container.addEventListener('change', function(event) {
@@ -327,36 +365,6 @@ checkbox_container.addEventListener('change', function(event) {
         };
     };
 });
-
-function antwortentfernen(){
-    const fragen_sammlung = user_erstellen_fragen;
-    const neuste_antwort = user_answer_box.lastElementChild;
-    // Abfrage der Antworten_box + Checkboxen //
-    if(neuste_antwort && neuste_antwort.classList.contains('antwort')){
-        // Zusätzliche Prüfung, damit wirklich nur neuste Antorten > 2 nach Vorgabe gelöscht werden /
-        if(antwort_anzahl > 2){
-            // Höhe bei entfernen von Checkbox_container anpassen //
-            // HÖHE MUSS NOCH RICHTIG EINGESTELLT WERDEN !! //
-            if(antwort_anzahl >= 3){
-                checkbox_container.style.bottom = '-95px';
-                } else {
-                    checkbox_container.style.bottom = '-120px';
-                };
-            user_answer_box.removeChild(neuste_antwort);
-            for(let i = 0; i < 3; i++){
-                checkbox_container.removeChild(checkbox_container.lastElementChild);
-            };
-            antwort_anzahl--;
-            placeholder_zahl--;
-            // Gröse des Containers anpassen //
-            let user_fragen_container_height = user_fragen_container.offsetHeight;
-            let new_user_fragen_height = user_fragen_container_height - 30;
-            user_fragen_container.style.height = `${new_user_fragen_height}px`;
-        } else{
-            alert('Es gibt keine neu erstellte Antworten!');
-        };
-    };
-};
 
 // Timer der herunterzählt //
 function runtergehen() {

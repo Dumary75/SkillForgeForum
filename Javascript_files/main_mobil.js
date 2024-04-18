@@ -20,18 +20,6 @@
     - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
       muss nur in JS überprüft werden.
 
-    - Bei eigenen User_fragen muss sowas wie eine Checklist erstellt werden,
-      damit man ersichtlich markieren kann, was die Lösung der eigenen Frage ist.
-
-    - Eigene User_fragen, die Labels müssen noch mittig zentriert werden.
-      Ebenfalls changen, das User auswählen kann, ob "multiple-choice" 
-      oder Single-answer zählt.
-      Und Checkbox-System einbauen, das User Lösung bestimmen kann.
-      Auch muss gechekt werden, ob alle Felder vor absenden ausgefüllt sind.
-
-      - User Fragen erstellen muss der input geleert werden,
-        sobald Quiz neu gerendert wurde.
-
 // NEUE FEATURES //
 /*   
 
@@ -49,8 +37,6 @@
     - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
 
     - 'Extras' Page einbauen mit: -> Calculator -> Weather display -> To-do List
-
-    - Scoring_System wieder löschen, macht keinen Sinn. Nadine Fragen?
 
     ---- INDEX_TEIL ----
 
@@ -70,8 +56,6 @@
        verschwindet die BG_color und Timer beginnt zu zählen.
        Bei Quiz Blauer BG und Weisse Schrift
        und bei Fragen Orange BG und Black font.
-
-    - User Fragen erstellen: Fragenbox größer machen, Autoumbruch
 
     ---- FORUM_TEIL ----
 
@@ -366,21 +350,6 @@ if(auslog_knopf !== null){
 };
 
 
-// -- Setting beim laden der Page zusätzlich automatisch laden -- //
-// Score Punkte //
-let score_system_page = document.querySelector('.score_on_page');
-
-window.addEventListener('load', () => {
-    if(localStorage.getItem("zahl") !== null){
-        let quiz_score = localStorage.getItem('quiz_score');
-        if(quiz_score === null){
-            quiz_score = 0; };
-        score_system_page.innerText = `${quiz_score}`;
-    } else {
-        score_system_page.innerText = 'X';
-    };
-
-});
 
 
 

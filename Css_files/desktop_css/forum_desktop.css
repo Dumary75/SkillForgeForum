@@ -206,12 +206,6 @@ h3 {
     transition: background-color 0.5s, text-shadow 0.5s;
 }
 
-/* .forum_delete {
-    color: #FFF;
-    font-weight: bold;
-    transition: background-color 0.5s, text-shadow 0.5s;
-} */
-
 /* Der Teil, der den abgefeuerten Text einspeichert */
 .container_sammler{
     margin-left: 37%;
@@ -219,30 +213,13 @@ h3 {
     margin-top: 10px;
 }
 
-/* Der neu erstelle Auslogknopf in JS wegen dem trainsition angesprochen */
-
 .auslog_knopf_css {
     transition: width 0.2s, font-size 0.2s, color 0.2s, background-color 0.2s;
 }
 
 /* Die responsive Funktion sobald Desktopgröße erreicht wurde */
 @media screen and (min-width: 600px) {
-
-    /* Das Score_System auf der Page */
-    .score_on_page  {
-    position: absolute;
-    z-index: 2;
-    top: 17px;
-    right: 100px;
-    width: 60px;
-    height: 40px;
-    background-color: purple;
-    border: 0.5px solid #000;
-    font-size: 2em;
-    color: #FFF;
-    text-align: center;
-    }
-
+    
     .bg_top button:hover {
         background-color: #000;
         cursor: pointer;
