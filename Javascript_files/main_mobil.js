@@ -17,8 +17,6 @@
       bleibt die BG_color auf #000 stehen, Hover_Effekt greift dann nicht mehr.
       Auf 0 sollte es auch stehen bleiben aber Hover_Effekt noch greifen.
 
-    - Auf Quizpage mit aktivem Container alles nach unten verschoben? Inline display?
-
 // NEUE FEATURES //
 /*   
 
