@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de" class="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" type="text/css" href="../Css_files/mobil_css/forum_mobil.css">
+    <link rel="stylesheet" type="text/css" href="../Css_files/desktop_css/forum_desktop.css">
+    <script src="../Javascript_files/main_mobil.js" defer></script>
+    <script src="../Javascript_files/forum_page.js" defer></script>
+</head>
+
+<body>
+    <!-- Seiten Liste -->
+    <header>
+        <div class="bg_top">
+            <button type="button" id="display_knopf">Display</button>
+                <ul>
+                    <li><a href="create.html"><button>Erstellen</button></a></li>
+                    <li><a href="login.html"><button>Login</button></a></li>
+                    <li><a href="forum.html"><button class="momentan">Forum</button></a></li>
+                    <li><a href="quiz.html"><button>Quiz</button></a></li>
+            <!-- <li><a href="extras.html"><button> WETTER KOMMT NOCH </button></a></li> -->
+                </ul>
+        </div>
+
+    <!-- Profil_Login_Box -->
+                <button class="profil_ul"></button>
+                <div class="ausklap_menu">
+                    <!-- Logik in JS muss noch umgesetzt werden -->
+                    <button class="switchButton_left">L</button>
+                    <button class="switchButton_right">R</button>
+                    <button class="logout"></button>
+                </div>
+    </header>
+
+    <!-- FORUM TEIL -->
+    <main>
+            <h3 class="h3_oben">Forum</h3>
+            <div class="container_absenden">
+                <textarea class="forum_text" cols="30" rows="10">
+                    Trage hier irgendeinen Text ein!
+                </textarea> <br>
+                <button type="button" class="forum_knopf">Absenden!</button>
+            </div>
+        <div class="container_sammler"></div>
+    </main>
+</body>
+
+<footer>
+    <!-- DER BG SWITCHER -->
+    <button type="button" class="bg_switcher">Switcher</button>
+</footer>
+
+</html>

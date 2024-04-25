@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de" class="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <!-- Hier werden mehrere CSS-Dateien eingebunden, wegen der Übersicht des responsiven Verhalten -->
+    <link rel="stylesheet" type="text/css" href="../Css_files/mobil_css/create_mobil.css">
+    <link rel="stylesheet" type="text/css" href="../Css_files/desktop_css/create_desktop.css">
+    <script src="../Javascript_files/main_mobil.js" defer></script>
+    <script src="../Javascript_files/create_page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Seiten Liste -->
+    <header>
+        <div class="bg_top">
+            <button type="button" id="display_knopf">Display</button>
+            <ul>
+                <li><a href="create.html"><button class="momentan">Erstellen</button></a></li>
+                <li><a href="login.html"><button>Login</button></a></li>
+                <li><a href="forum.html"><button>Forum</button></a></li>
+                <li><a href="quiz.html"><button>Quiz</button></a></li>
+            <!-- <li><a href="extras.html"><button> WETTER KOMMT NOCH </button></a></li> -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- USER Liste -->
+    <main>
+
+    <!-- Das Formular zum User erstellen -->
+    <h3 class="h3_oben">User erstellen</h3>
+    <form action="#" id="create">
+    <label for="name" class="name_label">Username:</label> 
+    <input type="text" id="name" placeholder="Usereingabe" autocomplete="off"> 
+    <label for="passwort" class="pw_label">Passwort:</label>
+    <button id="generator">Generieren</button>
+    <input type="text" id="passwort" readonly>
+    <button type="button" id="erstellen">Erstellen</button>
+    </form>
+
+    </main>
+</body>
+
+<footer>
+    <!-- DER BG SWITCHER -->
+    <button type="button" class="bg_switcher">Switcher</button>
+</footer>
+
+</html>
