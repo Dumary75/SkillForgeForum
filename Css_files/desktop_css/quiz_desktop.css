@@ -223,6 +223,38 @@ h3 {
 
 /* -- QUIZBEREICH -- */
 
+/* Der Blocker bevor das Quiz startet */
+.quiz_blocker{
+    display: inline-block;
+    width: 200px;
+    height: 266px;
+    position: absolute;
+    top: 220px;
+    left: 300px;
+    z-index: 2;
+    background-color: red;
+    border: 2px solid #000;
+}
+
+.quiz_start_button{
+    position: absolute;
+    height: 50px;
+    border: 1.5px solid #000;
+    left: 22%;
+    top: 40%;
+    border-radius: 15%;
+    background-color: #b66d0d;
+    transition: all 0.5s;
+}
+
+.quiz_start_button:hover{
+    cursor: pointer;
+    background-color: yellow;
+    height: 55px;
+    width: 115px;
+}
+
+/* Das eigentliche Quiz */
 .quiz_container{
     width: 200px;
     height: 220px;
@@ -280,6 +312,7 @@ h3 {
     align-items: center; /* Zentriert den Inhalt horizontal */
     padding-bottom: 10px; /* Platz am unteren Rand */
     margin: 0 auto;
+    padding-left: 5px;
 }
 
 .fragen {

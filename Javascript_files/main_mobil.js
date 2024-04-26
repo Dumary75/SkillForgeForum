@@ -4,8 +4,6 @@
  // Am besten mit nur 2 Breakpoints - für Mobil + Laptop Desktop //
  // Breakpoint bei so 450px width setzten //
 
- // Unnötige Dateien in Github löschen!!! //
-
 // BEKANNTE BUGS //
 /*  
     - Textcolor Generator, der sich an BG_color anpasst 
@@ -18,9 +16,6 @@
       Switch_Button noch fixxen, sobald Stufe auf 0 gesetzt wurde,
       bleibt die BG_color auf #000 stehen, Hover_Effekt greift dann nicht mehr.
       Auf 0 sollte es auch stehen bleiben aber Hover_Effekt noch greifen.
-    
-    - Abfeuer_Button in Forum passt sich nicht der Profik_BG Farbe an,
-      muss nur in JS überprüft werden.
 
 // NEUE FEATURES //
 /*   
@@ -30,15 +25,11 @@
       einer neuen "Switch" Funktion in ausgeklappter leiste geht.
       So wie in YT ist, nicht direkt per klick in Leiste
       sondern extra verpacken.
-      
-    - Drag and Drop Funktion testen
 
     - Per input_type: "file" möglich machen, das man sein Profilbild hochlädt
       aber wie nach file upload die Datei weiter verarbeiten?
 
     - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
-
-    - 'Extras' Page einbauen mit: -> Calculator -> Weather display -> To-do List
 
     ---- INDEX_TEIL ----
 
@@ -47,17 +38,12 @@
       das Kästchen mit grey filter versehen und erst bei drüber hovern,
       wird der Filter auf 0 gesetzt + das Video im Kästchen startet dann erst.
       Auch wird der Inhalt dann per degree etwas "gedreht" und das Kästchen etwas größer.
-      
-      Muss verschiedene Versionen davon testen...
 
     ---- QUIZ_TEIL ----
     
-    - Das bevor Quiz / Eigene Fragen starten,
-       man einen bg auf dem Container hat, bg color?
-       Und einen Button "Quiz-Starten", erst bei Klick darauf,
-       verschwindet die BG_color und Timer beginnt zu zählen.
-       Bei Quiz Blauer BG und Weisse Schrift
-       und bei Fragen Orange BG und Black font.
+    - Verschiedene Kategorien und User_Fragen in eigene hinterlegen?
+
+    - Fragen & Antworten noch im Localstorage hinterlegen.
 
     ---- FORUM_TEIL ----
 

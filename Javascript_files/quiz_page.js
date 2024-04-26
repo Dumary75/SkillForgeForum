@@ -6,6 +6,23 @@ let antworten = document.querySelector('.antworten');
 let next_button = document.querySelector('.next');
 let question_counter = document.querySelector('.quiz_anzahl_counter');
 let question_timer = document.querySelector('.quiz_timer');
+// Der Blocker //
+let quiz_start_button = document.querySelector('.quiz_start_button');
+let quiz_blocker_box = document.querySelector('.quiz_blocker');
+let seitenaufruf = 0;
+
+// Blocker bevor Quiz startet //
+quiz_start_button.addEventListener('click', () => {
+    quiz_blocker_box.style.display = 'none';
+    counter = 30;
+    if(seitenaufruf === 0){
+        seiteladen();
+        seitenaufruf++;
+    } else {
+        quizrendern();
+        antwortenrendern();
+    };
+});
 
 // Fragen_array für multiple_wahl
 let multiple_ausgewahlt = [];
@@ -25,17 +42,17 @@ const Quizdata = [
     //     antwort: ["eins", "ja"]
     // },
 
-    {
-        frage: "Was ist 5*5?",
-        options: [11,23,25,32],
-        antwort: 25
-    }
-
     // {
-    //     frage: "Wie geht der ewig lange Satz hier zuende?",
-    //     options: ["so","ne oder", "lalala","aufkeinen"],
-    //     antwort: "so"
-    // }
+    //     frage: "Was ist 5*5?",
+    //     options: [11,23,25,32],
+    //     antwort: 25
+    // },
+
+    {
+        frage: "Wie geht der ewig lange Satz hier zuende?",
+        options: ["so","ne oder", "lalala","aufkeinen"],
+        antwort: "so"
+    }
 
 ];
 
@@ -112,7 +129,7 @@ function auswahlen(event){
 };
             
 
-let counter = 30;
+let counter = 999;
 let wahltest = document.querySelector('.ausgewahlt');
 let quiz_aktutell_score = 0;
 
@@ -202,15 +219,28 @@ definedUserAnswerFields.forEach(inputField => {
     });
 });
 
+// Hizugefügte Antworten prüfen, sonst wird zu viel bei Frage erstellen gelöscht!
+let neueantort = 0;
+
 function frageHinzufuegen() {
     // !---- Nach dem pushen von neuer Frage, diese leeren, das die Felder geleert sind ----! //
     const frage = document.getElementById("frage").value;
     const antworten = [];
+    quiz_blocker_box.style.display = 'block';
+    counter = 999;
     // Die Optionen was man als Antwort auswählen kann pushen
     document.querySelectorAll(".antwort").forEach(input => {
         antworten.push(input.value);
         // Die Antwort_felder nach dem pushen leeren //
         input.value = '';
+        if(antwort_anzahl === 3){
+            for(let i = 0; i < 1; i++){
+                antwortentfernen();
+            };
+        } else if(antwort_anzahl === 4){
+            antwortentfernen();
+            antwortentfernen();
+        };
     });
    
     const neueFrage = {
@@ -223,7 +253,6 @@ function frageHinzufuegen() {
     alert('Neue Frage wurde hinzugefügt!');
     // console.log(neueFrage.antwort);
     frage_index = 0;
-    seiteladen();
     // Das User_Frage_feld nach dem pushen leeren //
     let reine_frage = document.getElementById("frage");
     reine_frage.value = '';
@@ -385,8 +414,6 @@ function runtergehen() {
 // Funktionen bei Seiten_laden diretk generieren //
 function seiteladen() {
     quizrendern();
-    runtergehen();
     antwortenrendern();
+    runtergehen();
 };
-
-window.onload = seiteladen;
