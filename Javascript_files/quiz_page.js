@@ -11,6 +11,25 @@ let quiz_start_button = document.querySelector('.quiz_start_button');
 let quiz_blocker_box = document.querySelector('.quiz_blocker');
 let seitenaufruf = 0;
 
+// QUIZ KATEGORIEN TEST //
+
+let kategorie_box = document.querySelector('.quiz_kategorien');
+let test_kategorie_button = document.querySelectorAll('.quiz_kategorien button');
+let kategorie_text = document.querySelector('.kategorie_text');
+let kategorie_gewalht = '';
+let quiz_kategorie;
+
+// User_Fragen blocken wenn keien vorhanden
+test_kategorie_button.forEach( button => {
+    button.addEventListener('click', () => {
+        kategorie_box.style.display = 'none';
+        kategorie_gewalht = button.innerText;
+        kategorie_text.innerText = ` 
+        Es wurde folgende Kategorie gewählt: ${kategorie_gewalht}`;
+        quiz_kategorie = Quizdata[kategorie_gewalht];
+    });
+});
+
 // Blocker bevor Quiz startet //
 quiz_start_button.addEventListener('click', () => {
     quiz_blocker_box.style.display = 'none';
@@ -28,33 +47,34 @@ quiz_start_button.addEventListener('click', () => {
 let multiple_ausgewahlt = [];
 
 /* -- Die Funktion der Seite -- */
-const Quizdata = [
+const Quizdata = {
 
-    // {
-    //     frage: "Welche Haustiere \n haben die Simpsons?",
-    //     options: ["Hund", "Katze", "Fisch", "Schlange"],
-    //     antwort: ["Hund", "Katze"]
-    // },
+    Dev_Fragen: [
+        {
+            frage: "Wie geht der ewig lange Satz hier zuende?",
+            options: ["so","ne oder", "lalala","aufkeinen"],
+            antwort: "so"
+        },
 
-    // {
-    //     frage: "Zwei sachen \n können stimmen \n aber stimmen sie?",
-    //     options: ["eins", "zwei", "ja", "nein"],
-    //     antwort: ["eins", "ja"]
-    // },
+        {
+            frage: "Geht das hier?",
+            options: ["ja","nein"],
+            antwort: "ja"
+        }
+    ],
 
-    // {
-    //     frage: "Was ist 5*5?",
-    //     options: [11,23,25,32],
-    //     antwort: 25
-    // },
+    User_Fragen: [
+        
+    ],
 
-    {
-        frage: "Wie geht der ewig lange Satz hier zuende?",
-        options: ["so","ne oder", "lalala","aufkeinen"],
-        antwort: "so"
-    }
-
-];
+    Test: [
+        {
+            frage: "Wie geht der ewig lange Satz hier zuende?",
+            options: ["so","ne oder", "lalala","aufkeinen"],
+            antwort: "so" 
+        }
+    ]
+};
 
 const testantworten = [1,2,3,4];
 
@@ -69,9 +89,9 @@ const mittlerer_bereich = document.querySelector('.mittlerer_bereich');
 const unterer_bereich = document.querySelector('.unterer_bereich');
 
 function quizrendern() {
-    const frageText = Quizdata[frage_index].frage;
+    const frageText = quiz_kategorie[frage_index].frage;
     quiz_box.innerText = frageText;
-    question_counter.innerText = `${frage_index + 1} / ${Quizdata.length}`;
+    question_counter.innerText = `${frage_index + 1} / ${quiz_kategorie.length}`;
     multiple_ausgewahlt = [];
 }
 
@@ -84,10 +104,10 @@ function antwortenrendern() {
        antworten.innerHTML = '';
                 testantworten.forEach(function(antwortText) {
                     // Die Erzerzeung hier dynmisch gestalten anstatt nur <4 //
-                    if(antwort_index < Quizdata[frage_index].options.length){
+                    if(antwort_index < quiz_kategorie[frage_index].options.length){
                         const liElement = document.createElement('button');
-                        liElement.value = Quizdata[frage_index].options[antwort_index];
-                        liElement.textContent = Quizdata[frage_index].options[antwort_index];
+                        liElement.value = quiz_kategorie[frage_index].options[antwort_index];
+                        liElement.textContent = quiz_kategorie[frage_index].options[antwort_index];
                         antwort_index++;
                         // liElement.classList.add('antwortknopf');
                         antworten.appendChild(liElement);
@@ -104,7 +124,7 @@ function antwortenrendern() {
 function auswahlen(event){
     const markierte_buttons = document.querySelectorAll('.markiert');
     const button_momentan = event.target;
-    const multiple_choice = Quizdata[frage_index].antwort.length > 1;
+    const multiple_choice = quiz_kategorie[frage_index].antwort.length > 1;
 
     if(multiple_choice){
         const button_momentan = event.target;
@@ -137,9 +157,9 @@ let quiz_aktutell_score = 0;
 next_button.addEventListener('click', () => {
     // Frage_value mit ausgewählten Antwort_value gegenprüfen //
     let markiert = document.querySelector('.markiert');
-    const fragesache = Quizdata[frage_index].antwort.toString();
-    const richtig_antwort = Quizdata[frage_index].antwort;
-    const multiple_choice = Quizdata[frage_index].antwort.length > 1;
+    const fragesache = quiz_kategorie[frage_index].antwort.toString();
+    const richtig_antwort = quiz_kategorie[frage_index].antwort;
+    const multiple_choice = quiz_kategorie[frage_index].antwort.length > 1;
 
     if(markiert){
         const antwort_wert = document.querySelector(".markiert").value;
@@ -164,7 +184,7 @@ next_button.addEventListener('click', () => {
     };
 
     // Das ganze rendern begrenzen, das sobald max Anzahl erreicht wurde, es nicht rendert //
-    let Quizdata_gesamt = Quizdata.length - 1
+    let Quizdata_gesamt = quiz_kategorie.length - 1
 
     if(frage_index < Quizdata_gesamt){
         frage_index++;
@@ -173,7 +193,7 @@ next_button.addEventListener('click', () => {
         counter = 30;
     // Der Abschlusstext samt score Anzeige, Score wird überschrieben sobald mehr pkt als davor //
     } else {
-        alert(`Das war es! \n Du hast ${quiz_aktutell_score} von ${Quizdata.length} Fragen \n  richtig beantwortet!`);
+        alert(`Das war es! \n Du hast ${quiz_aktutell_score} von ${quiz_kategorie.length} Fragen \n  richtig beantwortet!`);
         let quiz_score = localStorage.getItem('score');
         if(quiz_score === null){
             quiz_score = 0;
@@ -249,8 +269,9 @@ function frageHinzufuegen() {
         antwort: user_losung
     };
 
-    Quizdata.push(neueFrage);
+    Quizdata.user.push(neueFrage);
     alert('Neue Frage wurde hinzugefügt!');
+    console.log(Quizdata.user);
     // console.log(neueFrage.antwort);
     frage_index = 0;
     // Das User_Frage_feld nach dem pushen leeren //
@@ -411,7 +432,7 @@ function runtergehen() {
  };
 };
 
-// Funktionen bei Seiten_laden diretk generieren //
+// Funktionen bei Seiten_laden direkt generieren //
 function seiteladen() {
     quizrendern();
     antwortenrendern();
