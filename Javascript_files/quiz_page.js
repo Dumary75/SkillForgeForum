@@ -269,10 +269,8 @@ function frageHinzufuegen() {
         antwort: user_losung
     };
 
-    Quizdata.user.push(neueFrage);
+    Quizdata.User_Fragen.push(neueFrage);
     alert('Neue Frage wurde hinzugefügt!');
-    console.log(Quizdata.user);
-    // console.log(neueFrage.antwort);
     frage_index = 0;
     // Das User_Frage_feld nach dem pushen leeren //
     let reine_frage = document.getElementById("frage");
