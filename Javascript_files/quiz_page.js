@@ -1,10 +1,5 @@
 "use strict";
 
-/* Notlösung für Ideen:
-   -> Index überarbeiten
-   -> Questions in Localstorage ablegen 
-   -> Blur Funktion beim Hovern wie via Insta Beispiel bei Kategorien testen */
-
 /* Die ganzen Selektoren */ 
 let quiz_box = document.querySelector('.fragen');
 let antworten = document.querySelector('.antworten');
