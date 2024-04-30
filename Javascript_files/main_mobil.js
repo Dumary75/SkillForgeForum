@@ -29,8 +29,6 @@
     - Per input_type: "file" möglich machen, das man sein Profilbild hochlädt
       aber wie nach file upload die Datei weiter verarbeiten?
 
-    - BONUS: Daten in MySql Datenbank hinterlegen, anstatt nur im localstore
-
     ---- INDEX_TEIL ----
 
     - Anstatt die Ul_Leiste oben stehen zu haben,
@@ -41,9 +39,10 @@
 
     ---- QUIZ_TEIL ----
     
-    - Verschiedene Kategorien und User_Fragen in eigene hinterlegen?
-
     - Fragen & Antworten noch im Localstorage hinterlegen.
+
+    - Beim drüber hovern, dem ganzen das wie in dem Beispiel auf Insta machen,
+      mit dem "hover" und "not_hover" das der Rest blurry wird?
 
     ---- FORUM_TEIL ----
 
