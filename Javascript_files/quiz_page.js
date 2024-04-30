@@ -19,17 +19,6 @@ let kategorie_text = document.querySelector('.kategorie_text');
 let kategorie_gewalht = '';
 let quiz_kategorie;
 
-// User_Fragen blocken wenn keien vorhanden
-test_kategorie_button.forEach( button => {
-    button.addEventListener('click', () => {
-        kategorie_box.style.display = 'none';
-        kategorie_gewalht = button.innerText;
-        kategorie_text.innerText = ` 
-        Es wurde folgende Kategorie gewählt: ${kategorie_gewalht}`;
-        quiz_kategorie = Quizdata[kategorie_gewalht];
-    });
-});
-
 // Blocker bevor Quiz startet //
 quiz_start_button.addEventListener('click', () => {
     quiz_blocker_box.style.display = 'none';
@@ -75,6 +64,20 @@ const Quizdata = {
         }
     ]
 };
+
+test_kategorie_button.forEach( button => {
+        button.addEventListener('click', () => {
+            if(button.innerText === "User_Fragen" && Quizdata.User_Fragen.length < 1){
+                alert("Es wurde noch keine Frage hinzugefügt!")
+            } else {
+            kategorie_box.style.display = 'none';
+            kategorie_gewalht = button.innerText;
+            kategorie_text.innerText = ` 
+            Es wurde folgende Kategorie gewählt: ${kategorie_gewalht}`;
+            quiz_kategorie = Quizdata[kategorie_gewalht];
+            };
+        });
+    });
 
 const testantworten = [1,2,3,4];
 
