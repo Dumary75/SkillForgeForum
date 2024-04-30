@@ -7,7 +7,6 @@
  /* Akutelle Ideen:
    -> Index überarbeiten
    -> Questions in Localstorage ablegen 
-   -> Blur Funktion beim Hovern wie via Insta Beispiel bei Kategorien testen */
 
 // BEKANNTE BUGS //
 /*  
@@ -45,8 +44,6 @@
     ---- QUIZ_TEIL ----
 
     - Fragen & Antworten noch im Localstorage hinterlegen.
-
-    - Blur Funktion beim Hovern wie via Insta Beispiel bei Kategorien testen 
 
     ---- FORUM_TEIL ----
 
@@ -107,6 +104,25 @@ let anzeige_modus = 0;
 //     window.addEventListener('resize',andereBreite);
 //     andereBreite();
 // };  <--- BUGGT --->
+
+// Blurry Effekt für die Menü_leiste Buttons //
+
+let Menu_Leiste_buttons = document.querySelectorAll('.bg_top button');
+Menu_Leiste_buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        Menu_Leiste_buttons.forEach(btn => {
+            if (btn !== button) {
+                btn.style.filter = 'blur(3px)';
+            }
+        });
+    });
+
+    button.addEventListener('mouseleave', () => {
+        Menu_Leiste_buttons.forEach(btn => {
+            btn.style.filter = 'none';
+        });
+    });
+});
 
 
 // Mittels der neuen JS-Abfrage das ganze so umändern, das nur bei dieser kleinen Breite das click Event wirkt

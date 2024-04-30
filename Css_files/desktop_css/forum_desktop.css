@@ -144,7 +144,7 @@ html {
     background-color: rgb(148, 96, 0);
     color: antiquewhite;
     border: 1px solid #FFF;
-    border-radius: 14%;
+    border-radius: 5%;
     width: 120px;
     height: 30px;
     margin-left: 10px;
@@ -152,12 +152,12 @@ html {
 }
 
 .bg_top ul{
-    margin-left: 18%;
+    margin-left: 30%;
     margin-right: auto;
 }
 
 .bg_top button.momentan {
-    background-color: red;
+    background-color: #bb0000;
 }
 
 .bg_top ul li button a{
@@ -237,7 +237,7 @@ h3 {
         height: 33px;
         background-color: rgb(229, 255, 0);
         filter: brightness(70%);
-        margin-left: 30%;
+        margin-left: 20%;
         transition: filter 0.3s;
     }
 

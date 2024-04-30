@@ -11,15 +11,8 @@ let quiz_start_button = document.querySelector('.quiz_start_button');
 let quiz_blocker_box = document.querySelector('.quiz_blocker');
 let seitenaufruf = 0;
 
-// QUIZ KATEGORIEN TEST //
-
-let kategorie_box = document.querySelector('.quiz_kategorien');
-let test_kategorie_button = document.querySelectorAll('.quiz_kategorien button');
-let kategorie_text = document.querySelector('.kategorie_text');
-let kategorie_gewalht = '';
-let quiz_kategorie;
-
 // Blocker bevor Quiz startet //
+
 quiz_start_button.addEventListener('click', () => {
     quiz_blocker_box.style.display = 'none';
     counter = 30;
@@ -65,7 +58,17 @@ const Quizdata = {
     ]
 };
 
-test_kategorie_button.forEach( button => {
+
+// Die Box vor dem Blocker //
+// QUIZ KATEGORIEN //
+
+let kategorie_box = document.querySelector('.quiz_kategorien');
+let test_kategorie_buttons = document.querySelectorAll('.quiz_kategorien button');
+let kategorie_text = document.querySelector('.kategorie_text');
+let kategorie_gewalht = '';
+let quiz_kategorie;
+
+test_kategorie_buttons.forEach( button => {
         button.addEventListener('click', () => {
             if(button.innerText === "User_Fragen" && Quizdata.User_Fragen.length < 1){
                 alert("Es wurde noch keine Frage hinzugefügt!")
@@ -76,6 +79,20 @@ test_kategorie_button.forEach( button => {
             Es wurde folgende Kategorie gewählt: ${kategorie_gewalht}`;
             quiz_kategorie = Quizdata[kategorie_gewalht];
             };
+        });
+
+        button.addEventListener('mouseenter', () => {
+            test_kategorie_buttons.forEach(btn => {
+                if (btn !== button) {
+                    btn.style.filter = 'blur(3px)';
+                }
+            });
+        });
+    
+        button.addEventListener('mouseleave', () => {
+            test_kategorie_buttons.forEach(btn => {
+                btn.style.filter = 'none';
+            });
         });
     });
 
@@ -230,6 +247,26 @@ let checkbox_user_solution = document.querySelector('.user_solution_checkbox');
 let placeholder_zahl = 2;
 let antwort_anzahl = 2;
 const user_losung = [];
+
+// Blurry Effekt für die Knöpfe von User_Box mit Frage / Antwort hinzufügen //
+
+let knopfe_container_buttons = document.querySelectorAll('.user_knopfe_container button');
+
+knopfe_container_buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        knopfe_container_buttons.forEach(btn => {
+            if (btn !== button) {
+                btn.style.filter = 'blur(3px)';
+            }
+        });
+    });
+
+    button.addEventListener('mouseleave', () => {
+        knopfe_container_buttons.forEach(btn => {
+            btn.style.filter = 'none';
+        });
+    });
+});
 
 // Auf vorgertigte Antwortfelder reagieren, auch die vorgfertigten Labels dazu
 let definedUserAnswerFields = document.querySelectorAll('input[type="text"]');
