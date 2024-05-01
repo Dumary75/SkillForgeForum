@@ -6,7 +6,12 @@
 
  /* Akutelle Ideen:
    -> Index überarbeiten
-   -> User_erstellen_Fragen auch Blocker darüber einfügen
+   -> Antwort_prüfen überarbeiten
+   -> Möglichkeit bei Blocker seine Kategorie nochmal zu ändern
+   -> Bei Blocker wieder drauf machen von User_Question erstellen, Antworten wieder auf 2 reduzieren.
+   -> Bug das in Dev Fragen mehrer Antworten immer gehen fixxen
+   -> Design von Quiz_box mit blauen Farben überarbeiten und auch die Größe
+
 
 // BEKANNTE BUGS //
 /*  
@@ -43,6 +48,8 @@
     ---- QUIZ_TEIL ----
 
     - User_erstellen_Fragen auch Blocker darüber einfügen
+
+    - Fragen ausweiten, Beispieldinger aus Google nehmen.
 
     ---- FORUM_TEIL ----
 
@@ -232,7 +239,7 @@ let ausklapp_sichtbar = 0;
 // Falls User ausgloggt auf die Page geht //
 if(profil_box !== null){
     if(localStorage.getItem("zahl") == null){
-        profil_box.style.backgroundColor = 'rgb(229, 255, 0)';
+        profil_box.style.backgroundColor = '#971f1f';
         profil_box.innerHTML = "X";
         profil_box.style.color = '#FFF';
     };

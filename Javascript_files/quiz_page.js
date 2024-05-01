@@ -12,20 +12,20 @@ let quiz_blocker_box = document.querySelector('.quiz_blocker');
 let seitenaufruf = 0;
 
 // Blocker User_Fragen erstellen //
-let aktiviert = 0;
 let user_knopfe_container_allg = document.querySelector('.user_knopfe_container');
+let quiz_user_add_blocker_allg = document.querySelector('.quiz_user_add_blocker');
 let quiz_user_add_blocker_btn = document.querySelector('.quiz_user_add_blocker button');
 
 // Muss noch völlig überarbeitet werden //
 quiz_user_add_blocker_btn.addEventListener('click', () => {
-    if(aktiviert === 0){
-        aktiviert++;
         user_knopfe_container_allg.style.display = 'flex';
-    } else{
-        aktiviert--;
-        user_knopfe_container_allg.style.display = 'none';
-    }
+        quiz_user_add_blocker_allg.style.display = 'none';
 });
+
+function erstellenbeenden() {
+    user_knopfe_container_allg.style.display = 'none';
+    quiz_user_add_blocker_allg.style.display = 'inline-block';
+};
 
 
 // Blocker bevor Quiz startet //
@@ -48,36 +48,86 @@ let multiple_ausgewahlt = [];
 /* -- Die Funktion der Seite -- */
 const Quizdata = {
 
-    Dev_Fragen: [
+    Natur: [
         {
-            frage: "Wie geht der ewig lange Satz hier zuende?",
-            options: ["so","ne oder", "lalala","aufkeinen"],
-            antwort: "so"
+            frage: "Welcher Baum verliert im Herbst seine Blätter?",
+            options: ["Eiche","Kiefer","Ahorn","Fichte"],
+            antwort: "Ahorn"
         },
 
         {
-            frage: "Geht das hier?",
-            options: ["ja","nein"],
-            antwort: "ja"
+            frage: "Welches Tier ist für seine Streifen bekannt?",
+            options: ["Elefant","Giraffe","Zebra","Löwe"],
+            antwort: "Zebra"
         },
 
         {
-            frage: "Letzter Test?",
-            options: ["GRRR","ARRR"],
-            antwort: "ja"
+            frage: "Welche dieser Pflanzen ist eine Blütenpflanze?",
+            options: ["Farn","Rose","Kaktus","Fichte"],
+            antwort: "Rose"
         },
-    ],
 
-    User_Fragen: [
-        
-    ],
-
-    Test: [
         {
-            frage: "Wie geht der ewig lange Satz hier zuende?",
-            options: ["so","ne oder", "lalala","aufkeinen"],
-            antwort: "so" 
+            frage: "Welche dieser Tiere sind Insekten?",
+            options: ["Biene","Spinne","Fliege","Schmetterling"],
+            antwort: ["Biene","Fliege","Schmetterling"]
         }
+    ],
+
+    Mathematik: [
+        {
+            frage: "Wie lautet das Ergebnis von 8*5?",
+            options: ["30","35","40","45"],
+            antwort: "40"
+        },
+
+        {
+            frage: "Was ist die Quadratwurzel von 25?",
+            options: ["3","4","5","6"],
+            antwort: "5"
+        },
+
+        {
+            frage: "Was ist die Summe der ersten drei Primzahlen?",
+            options: ["6","8","10","12"],
+            antwort: "6"
+        },
+
+        {
+            frage: `Wie lautet das Ergebnis der folgenden Gleichung: \n (8x4) - (10÷2) + 3?`,
+            options: ["27","28","29","30"],
+            antwort: "28"
+        }
+    ],
+
+    Geschichte: [
+        {
+            frage: "Während welcher Ära herrschte das Römische Reich?",
+            options: ["Antike","Mittelalter","Renaissance","Neuzeit"],
+            antwort: "Antike"
+        },
+
+        {
+            frage: "Wer war der erste Präsident der Vereinigten Staaten von Amerika?",
+            options: ["Jefferson","Lincoln","Washington","Kennedy"],
+            antwort: "Washington"
+        },
+
+        {
+            frage: `Welcher berühmte deutsche Kaiser herrschte im 19. Jahrhundert?`,
+            options: ["Wilhelm I","Friedrich II","Karl der Große","Augustus"],
+            antwort: "Wilhelm I"
+        },
+
+        {
+            frage: `Wann begann der Erste Weltkrieg?`,
+            options: ["1905","1914","1923","1939"],
+            antwort: "1914"
+        }
+    ],
+
+    Eigene_Fragen: [
+        
     ]
 };
 
@@ -205,9 +255,15 @@ let quiz_aktutell_score = 0;
 next_button.addEventListener('click', () => {
     // Frage_value mit ausgewählten Antwort_value gegenprüfen //
     let markiert = document.querySelector('.markiert');
-    const fragesache = quiz_kategorie[frage_index].antwort.toString();
-    const richtig_antwort = quiz_kategorie[frage_index].antwort;
-    const multiple_choice = quiz_kategorie[frage_index].antwort.length > 1;
+    let fragesache = quiz_kategorie[frage_index].antwort.toString();
+    let richtig_antwort = quiz_kategorie[frage_index].antwort;
+    let multiple_choice = quiz_kategorie[frage_index].antwort.length > 1;
+
+    if(kategorie_gewalht !== "User_Fragen"){
+        fragesache = Quizdata[kategorie_gewalht][frage_index].antwort.toString();
+        richtig_antwort = Quizdata[kategorie_gewalht][frage_index].antwort;
+        multiple_choice = Quizdata[kategorie_gewalht][frage_index].antwort.length > 1;
+    };
 
     if(markiert){
         const antwort_wert = document.querySelector(".markiert").value;

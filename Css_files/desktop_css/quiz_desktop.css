@@ -453,6 +453,26 @@ h3 {
     z-index: 2;
 }
 
+.quiz_user_add_blocker button{
+    position: absolute;
+    height: 50px;
+    border: 1.5px solid #000;
+    left: 22%;
+    top: 35%;
+    border-radius: 5%;
+    background-color: #b66d0d;
+    transition: all 0.5s;
+}
+
+.quiz_user_add_blocker button:hover{
+    cursor: pointer;
+    background-color: yellow;
+    height: 60px;
+    font-weight: bold;
+}
+
+/* Das eigentliche System */
+
 #frageEingabe {
     position: relative;
     margin-bottom: 20px;
@@ -495,10 +515,9 @@ input, select {
     bottom: 447px;
     left: 960px;
     width: 150px;
-    height: 150px;
+    height: 200px;
     border: 3px solid #000;
     background-color: rgb(161 105 48);
-    /* display: flex; */
     display: none;
     flex-direction: column;
     padding-left: 14px;
