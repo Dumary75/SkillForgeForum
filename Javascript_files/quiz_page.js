@@ -42,7 +42,13 @@ const Quizdata = {
             frage: "Geht das hier?",
             options: ["ja","nein"],
             antwort: "ja"
-        }
+        },
+
+        {
+            frage: "Letzter Test?",
+            options: ["GRRR","ARRR"],
+            antwort: "ja"
+        },
     ],
 
     User_Fragen: [
@@ -58,7 +64,6 @@ const Quizdata = {
     ]
 };
 
-
 // Die Box vor dem Blocker //
 // QUIZ KATEGORIEN //
 
@@ -70,14 +75,14 @@ let quiz_kategorie;
 
 test_kategorie_buttons.forEach( button => {
         button.addEventListener('click', () => {
-            if(button.innerText === "User_Fragen" && Quizdata.User_Fragen.length < 1){
+            const Quizdata_localstorage = JSON.parse(localStorage.getItem('Quizdata'));
+            if(button.innerText === "User_Fragen" && Quizdata_localstorage.User_Fragen.length < 1){
                 alert("Es wurde noch keine Frage hinzugefügt!")
             } else {
             kategorie_box.style.display = 'none';
             kategorie_gewalht = button.innerText;
             kategorie_text.innerText = ` 
             Es wurde folgende Kategorie gewählt: ${kategorie_gewalht}`;
-            quiz_kategorie = Quizdata[kategorie_gewalht];
             };
         });
 
@@ -109,11 +114,17 @@ const mittlerer_bereich = document.querySelector('.mittlerer_bereich');
 const unterer_bereich = document.querySelector('.unterer_bereich');
 
 function quizrendern() {
+    const Quizdata_localstorage = JSON.parse(localStorage.getItem('Quizdata'));
+    if(kategorie_gewalht === "User_Fragen"){
+        quiz_kategorie = Quizdata_localstorage[kategorie_gewalht];
+    } else {
+        quiz_kategorie = Quizdata[kategorie_gewalht];
+    };
     const frageText = quiz_kategorie[frage_index].frage;
     quiz_box.innerText = frageText;
     question_counter.innerText = `${frage_index + 1} / ${quiz_kategorie.length}`;
     multiple_ausgewahlt = [];
-}
+};
 
 
 let wahl = 0;
@@ -309,7 +320,11 @@ function frageHinzufuegen() {
         antwort: user_losung
     };
 
+    // Local Storage abspeichern
+    let Quizdata = JSON.parse(localStorage.getItem('Quizdata')) || { User_Fragen: [] };
     Quizdata.User_Fragen.push(neueFrage);
+    localStorage.setItem('Quizdata', JSON.stringify(Quizdata));
+
     alert('Neue Frage wurde hinzugefügt!');
     frage_index = 0;
     // Das User_Frage_feld nach dem pushen leeren //
