@@ -436,6 +436,23 @@ h3 {
 
 /* USER_FRAGEN */
 
+/* Der Blocker vor den eigenen User_Fragen */
+
+.quiz_user_add_blocker{
+    position: absolute;
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: rgb(52 30 14);
+    border: 2px solid #000;
+    left: 704px;
+    top: 202px;
+    color: #FFF;
+    padding: 10px;
+    width: 250px;
+    height: 25.5rem;
+    z-index: 2;
+}
+
 #frageEingabe {
     position: relative;
     margin-bottom: 20px;
@@ -481,7 +498,8 @@ input, select {
     height: 150px;
     border: 3px solid #000;
     background-color: rgb(161 105 48);
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column;
     padding-left: 14px;
     padding-top: 12px;

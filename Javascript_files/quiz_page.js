@@ -11,6 +11,23 @@ let quiz_start_button = document.querySelector('.quiz_start_button');
 let quiz_blocker_box = document.querySelector('.quiz_blocker');
 let seitenaufruf = 0;
 
+// Blocker User_Fragen erstellen //
+let aktiviert = 0;
+let user_knopfe_container_allg = document.querySelector('.user_knopfe_container');
+let quiz_user_add_blocker_btn = document.querySelector('.quiz_user_add_blocker button');
+
+// Muss noch völlig überarbeitet werden //
+quiz_user_add_blocker_btn.addEventListener('click', () => {
+    if(aktiviert === 0){
+        aktiviert++;
+        user_knopfe_container_allg.style.display = 'flex';
+    } else{
+        aktiviert--;
+        user_knopfe_container_allg.style.display = 'none';
+    }
+});
+
+
 // Blocker bevor Quiz startet //
 
 quiz_start_button.addEventListener('click', () => {

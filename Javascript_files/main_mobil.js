@@ -6,7 +6,7 @@
 
  /* Akutelle Ideen:
    -> Index überarbeiten
-   -> Questions in Localstorage ablegen 
+   -> User_erstellen_Fragen auch Blocker darüber einfügen
 
 // BEKANNTE BUGS //
 /*  
@@ -23,7 +23,6 @@
 
 // NEUE FEATURES //
 /*   
-
     - In Dropwdown Menü von Profilbild,
       einbauen, das Switch erst mit weiterem klicken,
       einer neuen "Switch" Funktion in ausgeklappter leiste geht.
@@ -43,7 +42,7 @@
 
     ---- QUIZ_TEIL ----
 
-    - Fragen & Antworten noch im Localstorage hinterlegen.
+    - User_erstellen_Fragen auch Blocker darüber einfügen
 
     ---- FORUM_TEIL ----
 
