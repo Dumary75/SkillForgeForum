@@ -16,7 +16,7 @@ let user_knopfe_container_allg = document.querySelector('.user_knopfe_container'
 let quiz_user_add_blocker_allg = document.querySelector('.quiz_user_add_blocker');
 let quiz_user_add_blocker_btn = document.querySelector('.quiz_user_add_blocker button');
 
-// Muss noch völlig überarbeitet werden //
+// Funktion das User Fragen erstellen kann //
 quiz_user_add_blocker_btn.addEventListener('click', () => {
         user_knopfe_container_allg.style.display = 'flex';
         quiz_user_add_blocker_allg.style.display = 'none';
@@ -29,7 +29,6 @@ function erstellenbeenden() {
 
 
 // Blocker bevor Quiz startet //
-
 quiz_start_button.addEventListener('click', () => {
     quiz_blocker_box.style.display = 'none';
     counter = 30;

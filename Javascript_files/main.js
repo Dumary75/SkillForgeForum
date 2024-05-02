@@ -49,8 +49,6 @@
 
     - User_erstellen_Fragen auch Blocker darüber einfügen
 
-    - Fragen ausweiten, Beispieldinger aus Google nehmen.
-
     ---- FORUM_TEIL ----
 
     - Noch völlig überarbeiten für die Mobilversion,
@@ -84,11 +82,6 @@ let main_create_formular = document.querySelector("#create");
 let nav_bar = document.querySelector(".bg_top");
 // USER in Eingelogtbox //
 let user = 0;
-
-/* Der Knopf um wiederum Inhalt aus dem unteren Teil von Forum zu löschen,  
-   mit Prüfung von Zahl, ob eben User eingeloggt ist + ob überhaupt Inhalt drinnen ist */
-
-
 
 // Responsive Test mit dem Burger-Menu //
 let anzeige_modus = 0;
@@ -138,7 +131,6 @@ display_knopf.addEventListener('click', () => {
         anzeige_modus = 1;
         Menu_Leiste.style.display = "block";
         Menu_Leiste.style.marginLeft = "20%";
-        // knopf_new.style.marginTop = "1rem" <-- Muss noch angepasst werden, zu nah an Create_Formular dran;
         display_knopf.style.top = "160px";
         nav_bar.style.height = "14rem";
         // knopf_new.style.marginTop = "35px";
