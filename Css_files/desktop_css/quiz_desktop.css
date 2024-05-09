@@ -289,7 +289,7 @@ h3 {
     height: 50px;
     border: 1.5px solid #000;
     left: 35%;
-    top: 25%;
+    top: 10%;
     border-radius: 15%;
     background-color: #b66d0d;
     transition: all 0.5s;
@@ -303,10 +303,48 @@ h3 {
     font-weight: bold;
 }
 
+.quiz_wechseln_button{
+    position: absolute;
+    height: 50px;
+    border: 1.5px solid #000;
+    left: 25%;
+    bottom: 10%;
+    border-radius: 15%;
+    background-color: #b66d0d;
+    transition: all 0.5s;
+}
+
+.quiz_wechseln_button:hover{
+    cursor: pointer;
+    background-color: yellow;
+    height: 55px;
+    /* width: 180px; */
+    font-weight: bold;
+}
+
 .kategorie_text{
     color: #FFF;
     font-weight: bold;
     margin-left: 1rem;
+    text-align: center;
+}
+
+/* Der Blocker falls User eigene Fragen erstellt */
+
+.quiz_blocker_user_create{
+    display: inline-block;
+    width: 300px;
+    height: 266px;
+    position: absolute;
+    top: 220px;
+    left: 300px;
+    z-index: 3;
+    background-color: red;
+    border: 0.5px solid #FFF;
+    padding: 10px;
+    padding-top: 9%;  
+    display: none;
+    color: #FFF;
     text-align: center;
 }
 

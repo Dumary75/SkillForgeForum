@@ -15,17 +15,29 @@ let seitenaufruf = 0;
 let user_knopfe_container_allg = document.querySelector('.user_knopfe_container');
 let quiz_user_add_blocker_allg = document.querySelector('.quiz_user_add_blocker');
 let quiz_user_add_blocker_btn = document.querySelector('.quiz_user_add_blocker button');
+let quiz_blocker_user_create = document.querySelector('.quiz_blocker_user_create');
 
 // Funktion das User Fragen erstellen kann //
 quiz_user_add_blocker_btn.addEventListener('click', () => {
         user_knopfe_container_allg.style.display = 'flex';
         quiz_user_add_blocker_allg.style.display = 'none';
+        quiz_blocker_user_create.style.display = 'inline-block';
+        counter = 999;
 });
 
 function erstellenbeenden() {
     user_knopfe_container_allg.style.display = 'none';
     quiz_user_add_blocker_allg.style.display = 'inline-block';
+    quiz_blocker_user_create.style.display = 'none';
+    kategorie_box.style.display = 'inline-block';
+    quiz_blocker_box.style.display = 'inline-block';
+    counter = 999;
+    frage_index = 0;
 };
+
+function fragewechseln() {
+    kategorie_box.style.display = 'inline-block';
+}
 
 
 // Blocker bevor Quiz startet //

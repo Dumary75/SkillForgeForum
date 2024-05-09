@@ -4,14 +4,11 @@
  // Am besten mit nur 2 Breakpoints - für Mobil + Laptop Desktop //
  // Breakpoint bei so 450px width setzten //
 
- /* Akutelle Ideen:
+ /* Aktuelle Ideen:
    -> Index überarbeiten
    -> Antwort_prüfen überarbeiten
-   -> Möglichkeit bei Blocker seine Kategorie nochmal zu ändern
    -> Bei Blocker wieder drauf machen von User_Question erstellen, Antworten wieder auf 2 reduzieren.
    -> Bug das in Dev Fragen mehrer Antworten immer gehen fixxen
-   -> Design von Quiz_box mit blauen Farben überarbeiten und auch die Größe
-
 
 // BEKANNTE BUGS //
 /*  
@@ -47,8 +44,8 @@
 
     ---- QUIZ_TEIL ----
 
-    - User_erstellen_Fragen auch Blocker darüber einfügen
-
+    /////////////////
+    
     ---- FORUM_TEIL ----
 
     - Noch völlig überarbeiten für die Mobilversion,
