@@ -271,7 +271,7 @@ h3 {
 
 /* Der Blocker bevor das Quiz startet */
 .quiz_blocker{
-    display: inline-block;
+    display: inline;
     width: 300px;
     height: 266px;
     position: absolute;

@@ -5,14 +5,12 @@
  // Breakpoint bei so 450px width setzten //
 
  /* Aktuelle Ideen:
-   -> Index überarbeiten
+   -> Index überarbeiten <--
    -> Antwort_prüfen überarbeiten
-   -> Bei Blocker wieder drauf machen von User_Question erstellen, Antworten wieder auf 2 reduzieren.
-   -> Bug das in Dev Fragen mehrer Antworten immer gehen fixxen
+   -> Bug das in Dev Fragen mehrer Antworten immer gehen fixxen, hängt mit überpüfen oben zsm.
 
 // BEKANNTE BUGS //
 /*  
-    - Textcolor Generator, der sich an BG_color anpasst 
 
     - Bei Mobilversion in Createpage noch die Elemente anpassen.
       Problem ist Display von Menu-leiste bei wieder in Desktop umwandlung,
@@ -45,21 +43,6 @@
     ---- QUIZ_TEIL ----
 
     /////////////////
-    
-    ---- FORUM_TEIL ----
-
-    - Noch völlig überarbeiten für die Mobilversion,
-      gerade das erstellen von Text_box muss an die kleine Version
-      angepasst werden.
-
-    - Bankmenü und Textbox_menü noch anpassen,
-       buggt ab 4ten Eintrag, danach zu verschoben.
-       // LÖSUNG?
-       Mögliche Lösung: Klassen vergeben und mit vorgefertigtem CSS weiter arbeiten.
-       So wie mit Quiz gelöst? Das nur auf dem angeklicktem die Klasse erstellt wird,
-       auf dem es sichtbar wird, der Rest mit der anderen Klasse wird blurry?
-
-    !--> Grundsätzlich alles gescheit auf Mobilversion anpassen <--!
 
 */
 
@@ -121,7 +104,8 @@ Menu_Leiste_buttons.forEach(button => {
 });
 
 
-// Mittels der neuen JS-Abfrage das ganze so umändern, das nur bei dieser kleinen Breite das click Event wirkt
+/* Mittels der neuen JS-Abfrage das ganze so umändern, 
+   das nur bei dieser kleinen Breite das click Event wirkt */
 if(display_knopf !== null) {
 display_knopf.addEventListener('click', () => {
     if(anzeige_modus === 0) {

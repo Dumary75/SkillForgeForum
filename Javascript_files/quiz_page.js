@@ -33,12 +33,18 @@ function erstellenbeenden() {
     quiz_blocker_box.style.display = 'inline-block';
     counter = 999;
     frage_index = 0;
+    if(antwort_anzahl === 3){
+        antwortentfernen();
+    } else if(antwort_anzahl === 4){
+        antwortentfernen();
+        antwortentfernen();
+    };
 };
 
 function fragewechseln() {
     kategorie_box.style.display = 'inline-block';
+    counter = 999;
 }
-
 
 // Blocker bevor Quiz startet //
 quiz_start_button.addEventListener('click', () => {
@@ -47,6 +53,7 @@ quiz_start_button.addEventListener('click', () => {
     if(seitenaufruf === 0){
         seiteladen();
         seitenaufruf++;
+        user_fragen_container.style.top = `-134px`;
     } else {
         quizrendern();
         antwortenrendern();
@@ -186,6 +193,9 @@ let frage_index = 0;
 // Umbruch erzwingen, falls Text zu lange ist //
 const maximallang = 12;
 const maximallang_großer = 24;
+// Das ganze rendern begrenzen, das sobald max Anzahl erreicht wurde, es nicht rendert //
+// TEST ANLAUF DAS ES HIER ZUMINDEST DEFINIERT WIRD //
+let Quizdata_gesamt = 0;
 
 // Test -> Selektor //
 const mittlerer_bereich = document.querySelector('.mittlerer_bereich');
@@ -195,8 +205,10 @@ function quizrendern() {
     const Quizdata_localstorage = JSON.parse(localStorage.getItem('Quizdata'));
     if(kategorie_gewalht === "User_Fragen"){
         quiz_kategorie = Quizdata_localstorage[kategorie_gewalht];
+        Quizdata_gesamt = quiz_kategorie.length - 1
     } else {
         quiz_kategorie = Quizdata[kategorie_gewalht];
+        Quizdata_gesamt = quiz_kategorie.length - 1
     };
     const frageText = quiz_kategorie[frage_index].frage;
     quiz_box.innerText = frageText;
@@ -266,12 +278,12 @@ let quiz_aktutell_score = 0;
 next_button.addEventListener('click', () => {
     // Frage_value mit ausgewählten Antwort_value gegenprüfen //
     let markiert = document.querySelector('.markiert');
-    let fragesache = quiz_kategorie[frage_index].antwort.toString();
+    let fragesache = quiz_kategorie[frage_index].antwort;
     let richtig_antwort = quiz_kategorie[frage_index].antwort;
     let multiple_choice = quiz_kategorie[frage_index].antwort.length > 1;
 
     if(kategorie_gewalht !== "User_Fragen"){
-        fragesache = Quizdata[kategorie_gewalht][frage_index].antwort.toString();
+        fragesache = Quizdata[kategorie_gewalht][frage_index].antwort;
         richtig_antwort = Quizdata[kategorie_gewalht][frage_index].antwort;
         multiple_choice = Quizdata[kategorie_gewalht][frage_index].antwort.length > 1;
     };
@@ -279,7 +291,10 @@ next_button.addEventListener('click', () => {
     if(markiert){
         const antwort_wert = document.querySelector(".markiert").value;
         if(multiple_choice){
-            if(JSON.stringify(multiple_ausgewahlt) === JSON.stringify(richtig_antwort)){
+            // Konvertiere die ausgewählten Antworten und die richtigen Antworten in JSON-Strings
+            const ausgewahlt_string = JSON.stringify(multiple_ausgewahlt.sort());
+            const richtig_string = JSON.stringify(richtig_antwort.sort());
+            if(ausgewahlt_string === richtig_string){
                 alert("Richtig!");
                 quiz_aktutell_score++;
             } else {
@@ -297,9 +312,7 @@ next_button.addEventListener('click', () => {
         alert("Es wurde nichts gewählt, nochmal anfangen!");
         location.reload();
     };
-
-    // Das ganze rendern begrenzen, das sobald max Anzahl erreicht wurde, es nicht rendert //
-    let Quizdata_gesamt = quiz_kategorie.length - 1
+});
 
     if(frage_index < Quizdata_gesamt){
         frage_index++;
@@ -331,7 +344,6 @@ next_button.addEventListener('click', () => {
         };
     };
         
-});
 
 // --> User_Fragen hinzufügen <-- //
 
