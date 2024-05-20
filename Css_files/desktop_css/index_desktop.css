@@ -19,7 +19,7 @@ body {
 
         /* Navbar Bereich */
 
-    	.bg_top {
+    	/* .bg_top {
             height: 3rem;
             background-color: rgb(37, 37, 37);
             border-bottom: #000 solid 1px;
@@ -45,7 +45,7 @@ body {
         .bg_top ul {
             top: -0.5rem;
             margin-left: 30%;
-        }
+        } */
 
         /* Die H1 Schrift */
 
@@ -55,6 +55,36 @@ body {
             color: #FFF;
             border: 1px solid #0f0f0f;
             padding: 4px;
+        }
+
+        .page_container{
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto auto;
+            width: 400px;
+        }
+
+        .page_container a{
+            flex-basis: 50%;
+        }
+
+        .page_container a button{
+            width: 80px;
+            height: 80px;
+            border-radius: 1rem;
+            margin: 2%;
+            display: inline-block;
+        }
+
+        .create_area{
+            background-color: orange;
+            filter: grayscale(100%);
+            transition: all 0.5s;
+        }
+
+        .create_area:hover{
+            filter: grayscale(0%);
+            cursor: pointer;
         }
 
 };

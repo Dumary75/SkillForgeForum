@@ -5,7 +5,7 @@
  // Breakpoint bei so 450px width setzten //
 
  /* Aktuelle Ideen:
-   -> Index überarbeiten <--
+   -> Index überarbeiten, Items im Grid System und aufklappbar machen <--
    -> Antwort_prüfen überarbeiten
    -> Bug das in Dev Fragen mehrer Antworten immer gehen fixxen, hängt mit überpüfen oben zsm.
 
