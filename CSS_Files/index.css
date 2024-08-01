@@ -18,6 +18,7 @@ header{
     height: 4rem;
     border-bottom: 0.3rem #000 solid;
     padding-top: 0.3rem;
+    transition: all 0.8s;
 }
 
 header div{
@@ -39,6 +40,15 @@ header div p{
     text-transform: uppercase;
 }
 
+/* If the Header_Button is pressed */
+
+header.pressed{
+    height: 20rem;
+}
+
+main a div.pressed_div{
+    display: none;
+}
 
 /* Main Area */
 body {
@@ -46,7 +56,11 @@ body {
     padding: 0px;
 }
 
-main div{
+main a{
+    text-decoration: none;
+}
+
+main a div{
     width: 90%;
     height: 12rem;
     background-color: #fff;
@@ -55,17 +69,23 @@ main div{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-top: 1.5rem;
     font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
+    transition: all 0.3s;
 }
 
-main div p{
+main a div p{
     margin: 0px;
+    color: #000;
+    transition: all 0.3s;
 }
 
 .block_logo{
     font-size: 3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
 }
 
 
