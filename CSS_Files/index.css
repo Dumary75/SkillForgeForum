@@ -51,6 +51,10 @@ header div p{
     transition: all 0.7s;
 }
 
+.desktop_index{
+    display: none;
+}
+
 /* Main Area */
 body {
     margin: 0px;
@@ -131,5 +135,35 @@ main a div.pressed_div{
     margin-top: 0px;
 }
 
+/* !--- BREAKPOINT FOR LAPTOP --! */
 
+@media only screen and (min-width: 992px) {
+    header{
+        display: flex;
+    }
+
+    .header_headline{
+        display: none;
+    }
+
+    .desktop_index{
+        display: inline-block;
+    }
+
+    .header_blocks_default{
+        height: 2.8rem;
+        width: 15%;
+        margin-top: 0px;
+    }
+
+    .header_blocks_default:hover{
+        cursor: pointer;
+        background-color: rgb(201, 201, 12);
+    }
+
+    .position_website{
+        background-color: rgb(216, 149, 25);
+    }
+
+}
 

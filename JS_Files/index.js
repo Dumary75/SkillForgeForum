@@ -12,12 +12,15 @@ let footer = document.querySelector('footer');
 header_button.addEventListener('click', () => {
        header_default.classList.toggle('pressed');
        header_headline.classList.toggle('header_headline_pressed');
+
        header_blocks.forEach(header_block => {
               header_block.classList.toggle('pressed_header_blocks');
        });
+
        main_blocks.forEach(main_block => {
               main_block.classList.toggle('pressed_div');
        });
+       
        footer.classList.toggle('footer_pressed');
    });
 
