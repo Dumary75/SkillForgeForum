@@ -3,13 +3,12 @@
 // Header Click Event //
 
 let header_default = document.querySelector('header');
-let header_button = document.querySelector('header div');
-let main_blocks = document.querySelectorAll('Main a div');
+let main_blocks = document.querySelectorAll('.main_blocks');
 let header_blocks = document.querySelectorAll('.header_blocks_default');
 let header_headline = document.querySelector('.header_headline');
 let footer = document.querySelector('footer');
 
-header_button.addEventListener('click', () => {
+header_headline.addEventListener('click', () => {
        header_default.classList.toggle('pressed');
        header_headline.classList.toggle('header_headline_pressed');
 

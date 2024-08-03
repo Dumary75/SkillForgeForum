@@ -11,8 +11,6 @@ html {
 
 /* Header Area */
 header{
-    margin: 0px;
-    padding: 0px;
     background-color: #6ed7f3;
     width: 100%;
     height: 4rem;
@@ -22,33 +20,34 @@ header{
 }
 
 .header_headline{
-    transition: all 0.8s;
-}
-
-header div{
-    width: 80%;
     height: 3rem;
+    width: 80%;
     background-color: #0088f6;
-    margin-left: auto;
-    margin-right: auto;
     border: 0.1rem #FFF solid;
     text-align: center;
     padding-top: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.8s;
 }
 
-header div p{
+.header_blocks_default{
+    height: 0px;
+    width: 0%;
+    background-color: #0088f6;
+    border: 0.1rem #FFF solid;
+    text-align: center;
+    padding-top: 0.3rem;
+    margin-top: -8rem;
+    transition: all 0.7s;
+}
+
+.header_blocks_default p, .header_headline p{
     margin: 0px;
     font-size: 1.5rem;
     font-weight: bold;
     color: #FFF;
     text-transform: uppercase;
-}
-
-.header_blocks_default{
-    margin-top: -8rem;
-    width: 0%;
-    height: 0px;
-    transition: all 0.7s;
 }
 
 .desktop_index{
@@ -65,9 +64,9 @@ main a{
     text-decoration: none;
 }
 
-main a div{
-    width: 90%;
+.main_blocks{
     height: 12rem;
+    width: 90%;
     background-color: #fff;
     border: 0.1rem #000 solid;
     margin-top: 2rem;
@@ -81,27 +80,26 @@ main a div{
     transition: all 0.3s;
 }
 
-main a div p{
-    margin: 0px;
+.main_blocks p{
+    margin-bottom: 1rem;
+    margin-top: 0px;
     color: #000;
     transition: all 0.3s;
 }
 
 .block_logo{
     font-size: 3rem;
-    margin-top: 0.2rem;
-    margin-bottom: 1rem;
 }
 
 
 /* Footer Area */
 footer{
+    height: 4rem;
+    width: 100%;
+    background-color: #000000;
     margin-top: 3rem;
     padding-top: 0.7rem;
     text-align: center;
-    background-color: #000000;
-    width: 100%;
-    height: 4rem;
     border-top: 0.5rem #2e2e2e solid;
 }
 
@@ -122,9 +120,11 @@ header.pressed{
 }
 
 .pressed_header_blocks{
-    margin-top: 2rem;
-    width: 80%;
     height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main a div.pressed_div{
@@ -135,11 +135,12 @@ main a div.pressed_div{
     margin-top: 0px;
 }
 
-/* !--- BREAKPOINT FOR LAPTOP --! */
+/* !--- BREAKPOINT FOR LAPTOP_SIZE --! */
 
 @media only screen and (min-width: 992px) {
-    header{
+    .flex_container{
         display: flex;
+        justify-content: center;
     }
 
     .header_headline{
@@ -147,13 +148,15 @@ main a div.pressed_div{
     }
 
     .desktop_index{
-        display: inline-block;
+        display: inline;
     }
 
     .header_blocks_default{
         height: 2.8rem;
-        width: 15%;
+        width: 12rem;
         margin-top: 0px;
+        margin-left: 1rem;
+        text-align: center;
     }
 
     .header_blocks_default:hover{
@@ -163,6 +166,10 @@ main a div.pressed_div{
 
     .position_website{
         background-color: rgb(216, 149, 25);
+    }
+
+    .position_website p{
+        color: #000;
     }
 
 }
