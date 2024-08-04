@@ -127,12 +127,8 @@ header.pressed{
     margin-right: auto;
 }
 
-main a div.pressed_div{
-    display: none;
-}
-
-.footer_pressed{
-    margin-top: 0px;
+.main_blocks.pressed_div, .footer_pressed{
+    filter: blur(1rem);
 }
 
 /* !--- BREAKPOINT FOR LAPTOP_SIZE --! */
@@ -172,5 +168,31 @@ main a div.pressed_div{
         color: #000;
     }
 
-}
+    /* First Try for a Gridsystem */
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
 
+    /* Man braucht einen zusätzlichen Breakpoint für die width*/
+    .main_blocks{
+        width: 50%;
+    }
+
+    .block_1{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .block_2{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .block_3{
+        grid-column: 3 / 3;
+        grid-row: 3 / 3;
+        /* justify-self: center; Item 3 zentrieren */
+    }
+}
