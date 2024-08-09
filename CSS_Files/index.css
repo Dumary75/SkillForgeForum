@@ -69,9 +69,7 @@ main a{
     width: 90%;
     background-color: #fff;
     border: 0.1rem #000 solid;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2rem auto 0px;
     text-align: center;
     padding-top: 1.5rem;
     font-size: 1.5rem;
@@ -123,17 +121,16 @@ header.pressed{
     height: 3rem;
     width: 80%;
     margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2rem auto 0px;
 }
 
 .main_blocks.pressed_div, .footer_pressed{
     filter: blur(1rem);
 }
 
-/* !--- BREAKPOINT FOR LAPTOP_SIZE --! */
+/* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
     .flex_container{
         display: flex;
         justify-content: center;
@@ -144,7 +141,8 @@ header.pressed{
     }
 
     .desktop_index{
-        display: inline;
+        display: block;
+        padding-top: 0.5rem;
     }
 
     .header_blocks_default{
@@ -152,20 +150,19 @@ header.pressed{
         width: 12rem;
         margin-top: 0px;
         margin-left: 1rem;
-        text-align: center;
     }
 
     .header_blocks_default:hover{
         cursor: pointer;
-        background-color: rgb(201, 201, 12);
+        background-color: rgb(0, 0, 0);
     }
 
     .position_website{
-        background-color: rgb(216, 149, 25);
+        background-color: rgb(45, 153, 2);
     }
 
     .position_website p{
-        color: #000;
+        color: #ffffff;
     }
 
     /* First Try for a Gridsystem */
@@ -175,7 +172,6 @@ header.pressed{
         grid-template-rows: auto auto;
     }
 
-    /* Man braucht einen zusätzlichen Breakpoint für die width*/
     .main_blocks{
         width: 50%;
     }
@@ -191,8 +187,16 @@ header.pressed{
     }
 
     .block_3{
-        grid-column: 3 / 3;
+        grid-column: 1 / 1;
         grid-row: 3 / 3;
-        /* justify-self: center; Item 3 zentrieren */
+        justify-self: center; 
+    }
+}
+
+/* !--- BREAKPOINT FOR BIGGER_SIZE --! */
+
+@media (min-width: 1920px){
+    .main_blocks{
+        width: 30%;
     }
 }
