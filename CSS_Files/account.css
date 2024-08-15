@@ -166,15 +166,11 @@ header.pressed{
         color: #ffffff;
     }
 
-    /* First Try for a Gridsystem */
-    .grid-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: 
-        "block_1 block_2"
-        "block_3 block_3"
-        ;
+    .main_container{
+        display: flex;
+        justify-content: center;
+        gap: 8rem;
+        margin: 2rem;
     }
 
     .main_blocks{
@@ -182,18 +178,6 @@ header.pressed{
         height: 13rem;
     }
 
-    .block_1{
-        grid-area: block_1;
-    }
-
-    .block_2{
-        grid-area: block_2;
-    }
-
-    .block_3{
-        grid-area: block_3;
-        width: 25%;
-    }
 }
 
 /* !--- BREAKPOINT FOR BIGGER_SIZE --! */
@@ -204,7 +188,4 @@ header.pressed{
         height: 13rem;
     }
 
-    .block_3{
-        width: 15%;
-    }
 }
