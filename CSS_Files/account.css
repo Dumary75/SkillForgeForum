@@ -183,9 +183,9 @@ header.pressed{
 /* !--- BREAKPOINT FOR BIGGER_SIZE --! */
 
 @media (min-width: 1920px){
-    .main_blocks{
+    /* .main_blocks{
         width: 30%;
         height: 13rem;
-    }
+    } */
 
 }
