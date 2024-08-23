@@ -25,8 +25,12 @@ header_headline.addEventListener('click', () => {
 // ACC CREATE LOGIC //
 
 let acc_create_button = document.querySelector('.acc_create');
+let acc_create_form = document.querySelector('.create_form');
 let acc_login_button = document.querySelector('.acc_login');
+let acc_innertext_default = document.querySelector('.main_blocks p');
 
 acc_create_button.addEventListener('click', () => {
        acc_login_button.style.display = 'none';
+       acc_innertext_default.textContent = '';
+       acc_create_form.style.display = 'block';
 });

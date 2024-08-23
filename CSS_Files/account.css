@@ -66,10 +66,9 @@ a{
 
 .main_blocks{
     height: 12rem;
-    width: 90%;
     background-color: #fff;
     border: 0.1rem #000 solid;
-    margin: 2rem auto 0px;
+    margin-top: 2rem;
     text-align: center;
     padding-top: 15%;
     font-size: 2rem;
@@ -77,6 +76,25 @@ a{
     text-transform: uppercase;
     color: #000;
     transition: all 0.3s;
+}
+
+/* .main_blocks p{
+    margin: 0px;
+} */
+
+.acc_icons{
+    display: inline;
+    margin-left: 0.7rem;
+    margin-right: 0.8rem;
+}
+
+.create_form{
+    font-size: 1.1rem;
+    display: none;
+}
+
+.create_form button{
+    margin-top: 1rem;
 }
 
 /* Footer Area */
