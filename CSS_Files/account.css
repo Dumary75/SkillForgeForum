@@ -71,24 +71,13 @@ a{
     border: 0.1rem #000 solid;
     margin: 2rem auto 0px;
     text-align: center;
-    padding-top: 1.5rem;
-    font-size: 1.5rem;
+    padding-top: 15%;
+    font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-    transition: all 0.3s;
-}
-
-.main_blocks p{
-    margin-bottom: 1rem;
-    margin-top: 0px;
     color: #000;
     transition: all 0.3s;
 }
-
-.block_logo{
-    font-size: 3rem;
-}
-
 
 /* Footer Area */
 footer{
@@ -99,7 +88,6 @@ footer{
     padding-top: 0.7rem;
     text-align: center;
     border-top: 0.5rem #2e2e2e solid;
-    position: relative;
 }
 
 footer p{
@@ -125,7 +113,7 @@ header.pressed{
     margin: 2rem auto 0px;
 }
 
-.main_blocks.pressed_div, .footer_pressed{
+.main_container.pressed_div, .footer_pressed{
     filter: blur(1rem);
 }
 
@@ -174,8 +162,15 @@ header.pressed{
     }
 
     .main_blocks{
-        width: 50%;
+        width: 40%;
         height: 13rem;
+        padding-top: 8%;
+    }
+
+    .main_blocks:hover{
+        cursor: pointer;
+        background-color: #0088f6;
+        color: #FFF;
     }
 
 }
@@ -183,9 +178,10 @@ header.pressed{
 /* !--- BREAKPOINT FOR BIGGER_SIZE --! */
 
 @media (min-width: 1920px){
-    /* .main_blocks{
+    .main_blocks{
         width: 30%;
         height: 13rem;
-    } */
+        padding-top: 3%;
+    }
 
 }
