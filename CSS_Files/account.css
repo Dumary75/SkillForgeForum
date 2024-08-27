@@ -70,7 +70,7 @@ a{
     border: 0.1rem #000 solid;
     margin-top: 2rem;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 5%;
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -78,23 +78,40 @@ a{
     transition: all 0.3s;
 }
 
-/* .main_blocks p{
-    margin: 0px;
-} */
-
-.acc_icons{
-    display: inline;
-    margin-left: 0.7rem;
-    margin-right: 0.8rem;
-}
-
-.create_form{
+.acc_create_form{
     font-size: 1.1rem;
     display: none;
+    flex-direction: column; 
+    align-items: center; 
 }
 
-.create_form button{
-    margin-top: 1rem;
+.acc_create_form input{
+    width: 50%;
+    height: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#password{
+    width: 70%;
+}
+
+.pw_icons{
+    font-size: 1.3rem;
+    border: #000 solid 0.1rem;
+    padding: 0.2rem;
+}
+
+.form_create_button{
+    display: none;
+    margin: 2rem auto 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 60%;
+    height: 2.5rem;
+    background-color: #00adff;
+    color: #FFF;
+    border-radius: 0.5rem;
 }
 
 /* Footer Area */
@@ -182,7 +199,7 @@ header.pressed{
     .main_blocks{
         width: 40%;
         height: 13rem;
-        padding-top: 8%;
+        padding-top: 3%;
     }
 
     .main_blocks:hover{
@@ -199,7 +216,7 @@ header.pressed{
     .main_blocks{
         width: 30%;
         height: 13rem;
-        padding-top: 3%;
+        padding-bottom: 8%;
     }
 
 }

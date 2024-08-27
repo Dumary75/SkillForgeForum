@@ -22,15 +22,22 @@ header_headline.addEventListener('click', () => {
    });
 
 
-// ACC CREATE LOGIC //
+// ACC_create Logic //
 
-let acc_create_button = document.querySelector('.acc_create');
-let acc_create_form = document.querySelector('.create_form');
-let acc_login_button = document.querySelector('.acc_login');
-let acc_innertext_default = document.querySelector('.main_blocks p');
+let mainblocks_general =  document.querySelector('.main_blocks');
+let mainblocks_innertext_default = document.querySelector('.main_blocks p');
 
-acc_create_button.addEventListener('click', () => {
-       acc_login_button.style.display = 'none';
-       acc_innertext_default.textContent = '';
-       acc_create_form.style.display = 'block';
+let acc_create_field = document.querySelector('.acc_create');
+let acc_create_form = document.querySelector('.acc_create_form');
+let acc_create_form_button = document.querySelector('.form_create_button');
+
+let acc_login_field = document.querySelector('.acc_login');
+
+
+acc_create_field.addEventListener('click', () => {
+       acc_login_field.style.display = 'none';
+       mainblocks_innertext_default.textContent = '';
+       acc_create_form.style.display = 'flex';
+       acc_create_form_button.style.display = 'block';
+       mainblocks_general.style.height = '21rem';
 });

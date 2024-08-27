@@ -51,21 +51,27 @@
         <div class="main_blocks acc_create">
             <p>Account <br> erstellen</p>
             <!-- ACC CREATE FORM -->
-            <form action="#" class="create_form" autocomplete="off">
-                <label for="name">Name:</label>
-                <input type="text" id="name"> <br>
+            <form action="#" class="acc_create_form" autocomplete="off">
+                <label for="name">Name</label>
+                <input type="text" id="name" required> 
 
-                <p class="acc_icons">🎰</p>
-                <label for="password">passwort:</label>
-                <input type="text" id="password">
-                <p class="acc_icons">👁</p>  <br>
 
-                <button>Absenden</button>
+                <label for="password">passwort</label>
+                <div class="input-with-icons">
+                    <span class="pw_generator pw_icons">🎰</span>
+                    <input type="password"  id="password" required />
+                    <span class="pw_auge pw_icons">👁</span>
+                </div>
             </form>
+
+            <a href="account_main.html">
+                <button class="form_create_button">🔐 Erstellen</button> 
+            </a>
+
         </div>
 
         <div class="main_blocks acc_login">
-            <p>Account <br>login</p>
+            <p>Account <br> login</p>
         </div>
 </div>
 
