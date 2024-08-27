@@ -124,7 +124,7 @@ header.pressed{
     margin: 2rem auto 0px;
 }
 
-.main_blocks.pressed_div, .footer_pressed{
+.pressed_blurry_effect{
     filter: blur(1rem);
 }
 

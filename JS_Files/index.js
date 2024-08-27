@@ -17,10 +17,10 @@ header_headline.addEventListener('click', () => {
        });
 
        main_blocks.forEach(main_block => {
-              main_block.classList.toggle('pressed_div');
+              main_block.classList.toggle('pressed_blurry_effect');
        });
        
-       footer.classList.toggle('footer_pressed');
+       footer.classList.toggle('pressed_blurry_effect');
    });
 
 

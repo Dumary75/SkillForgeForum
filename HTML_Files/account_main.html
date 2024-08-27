@@ -47,6 +47,13 @@
 
 <main>
 
+<div class="info_box">
+    <h4>Informationen zu den Buttons</h4> <br>
+    <span>🎰 = Ein Passwortgenerator</span> <br>
+    <span>👁 = Sichtbarkeit ein und ausschalten</span> <br>
+    <button class="infos_checked_button">Verstanden!</button>
+</div>
+
 <div class="main_container">
         <div class="main_blocks acc_create">
             <p>Account <br> erstellen</p>
@@ -57,9 +64,11 @@
 
 
                 <label for="password">passwort</label>
-                <div class="input-with-icons">
+                <input type="password"  id="password" required />
+
+                <div class="pw_icon_container">
+                    <span class="pw_infos pw_icons">Info 📜</span>
                     <span class="pw_generator pw_icons">🎰</span>
-                    <input type="password"  id="password" required />
                     <span class="pw_auge pw_icons">👁</span>
                 </div>
             </form>
