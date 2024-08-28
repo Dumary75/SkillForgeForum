@@ -104,6 +104,7 @@ a{
     background-color: #181818;
     color: #FFF;
     border-radius: 0.5rem;
+    transition: all 0.3s;
 }
 
 .info_box_active{
@@ -250,6 +251,12 @@ header.pressed{
 
     .info_box_active{
         top: 15rem;
+    }
+
+    .infos_checked_button:hover{
+        cursor: pointer;
+        background-color: #f0f0f0;
+        color: #000;
     }
 
     .pw_icons:hover{
