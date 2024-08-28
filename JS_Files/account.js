@@ -44,7 +44,8 @@ acc_create_field.addEventListener('click', () => {
        mainblocks_innertext_default.textContent = '';
        acc_create_form.style.display = 'flex';
        acc_create_form_button.style.display = 'block';
-       mainblocks_general.style.height = '21rem';
+       mainblocks_general.classList.add('mainblocks_responsive');
+       acc_create_field.classList.remove('acc_create');
 });
 
 // Info_Icon Event //
@@ -61,6 +62,62 @@ info_checked_button.addEventListener('click', () => {
        footer.classList.toggle('pressed_blurry_effect');
        header_default.classList.toggle('pressed_blurry_effect');
        info_box.classList.toggle('info_box_active');
+});
+
+// PW Generator //
+pw_generator_icon.addEventListener('click', () => {
+       const length = 4; 
+       const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+       let password = "";
+
+            for (let i = 0, n = charset.length; i < length; ++i) {
+                password += charset.charAt(Math.floor(Math.random() * n));
+            }
+
+       document.querySelector('#password').value = password;
+});
+
+
+// PW Eye //
+
+let klicked = 0;
+pw_eye_icon.addEventListener('click', () => {
+
+       const password_input = document.querySelector('#password');
+       const currentType = password_input.type;
+
+       password_input.type = currentType === "password" ? "text" : "password";
+
+       if(klicked === 0){
+              pw_eye_icon.textContent = '👁';
+              klicked++;
+              return;
+       } else{
+              pw_eye_icon.textContent = '👁‍🗨'
+              klicked--;
+              return;
+       };
+
+});
+
+// Account create Button //
+
+acc_create_form_button.addEventListener('click', (event) => {
+
+       let username = document.querySelector('#name').value;
+       let password = document.querySelector('#password').value; 
+
+       if (!username || !password) {
+              event.preventDefault();
+              alert("Bitte Benutzername und Passwort eingeben.");
+              return;
+          } else {
+              let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+              const newAccount = { username: username, password: password };
+              accounts.push(newAccount);
+              localStorage.setItem("accounts", JSON.stringify(accounts));
+              alert("Account gespeichert!");
+          }
 });
 
 
