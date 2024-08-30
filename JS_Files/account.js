@@ -20,11 +20,19 @@ header_headline.addEventListener('click', () => {
        footer.classList.toggle('pressed_blurry_effect');
    });
 
-
 // --- ACC_create site Logic --- //
 
-let mainblocks_general =  document.querySelector('.main_blocks');
-let mainblocks_innertext_default = document.querySelector('.main_blocks p');
+let mainblocks_general =  document.querySelectorAll('.main_blocks');
+let mainblocks_innertext_default = document.querySelectorAll('.main_blocks p');
+
+// Make the Mainblocks responsive, in the login / create mode //
+mainblocks_general.forEach(element => {
+       element.addEventListener('click', () => {
+           mainblocks_general.forEach(el => {
+              el.classList.add('mainblocks_responsive')
+       });                   
+       });
+   });
 
 // > Elements on create site //
 let acc_create_field = document.querySelector('.acc_create');
@@ -41,10 +49,13 @@ let acc_create_form_button = document.querySelector('.form_create_button');
 // Event to setup the create_site //
 acc_create_field.addEventListener('click', () => {
        acc_login_field.style.display = 'none';
-       mainblocks_innertext_default.textContent = '';
+       // delete the headline //
+       let pElement = acc_create_field.querySelector('p'); 
+       if (pElement) {
+           pElement.textContent = ''; 
+       }
        acc_create_form.style.display = 'flex';
        acc_create_form_button.style.display = 'block';
-       mainblocks_general.classList.add('mainblocks_responsive');
        acc_create_field.classList.remove('acc_create');
 });
 
@@ -78,9 +89,10 @@ pw_generator_icon.addEventListener('click', () => {
 });
 
 
-// PW Eye //
+// > PW Eye < //
 
 let klicked = 0;
+// Create_page_version //
 pw_eye_icon.addEventListener('click', () => {
 
        const password_input = document.querySelector('#password');
@@ -100,29 +112,88 @@ pw_eye_icon.addEventListener('click', () => {
 
 });
 
-// Account create Button //
+// Login_page_version //
+let pw_auge_login = document.querySelector('.pw_auge_login');
+
+pw_auge_login.addEventListener('click', () => {
+
+       const password_input_login = document.querySelector('#password_login');
+       const currentType_login = password_input_login.type;
+
+       password_input_login.type = currentType_login === "password" ? "text" : "password";
+
+       if(klicked === 0){
+              pw_auge_login.textContent = '👁';
+              klicked++;
+              return;
+       } else{
+              pw_auge_login.textContent = '👁‍🗨'
+              klicked--;
+              return;
+       };
+
+});
+
+// > Account CREATE Button < //
 
 acc_create_form_button.addEventListener('click', (event) => {
 
-       let username = document.querySelector('#name').value;
-       let password = document.querySelector('#password').value; 
+       let username_create = document.querySelector('#name').value;
+       let password_create = document.querySelector('#password').value; 
 
-       if (!username || !password) {
+       if (!username_create || !password_create) {
               event.preventDefault();
               alert("Bitte Benutzername und Passwort eingeben.");
               return;
           } else {
               let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-              const newAccount = { username: username, password: password };
+              const newAccount = { username_create: username_create, password_create: password_create };
               accounts.push(newAccount);
               localStorage.setItem("accounts", JSON.stringify(accounts));
               alert("Account gespeichert!");
           }
 });
 
+// > Account LOGIN Button < //
 
-// --- Elements on login site --- //
+let acc_login_form_button = document.querySelector('.form_login_button');
+
+acc_login_form_button.addEventListener('click', (event) => {
+
+       let username_login = document.querySelector('#name_login').value;
+       let password_login = document.querySelector('#password_login').value; 
+
+       if (!username_login || !password_login) {
+              event.preventDefault();
+              alert("Bitte Benutzername und Passwort eingeben.");
+              return;
+          } else {
+              // let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+              // const newAccount = { username: username, password: password };
+              // accounts.push(newAccount);
+              // localStorage.setItem("accounts", JSON.stringify(accounts));
+              event.preventDefault();
+              alert("Account TEST!");
+          }
+});
+
+// --- ACC_login site Logic --- //
 let acc_login_field = document.querySelector('.acc_login');
+let acc_login_form = document.querySelector('.acc_login_form');
+let form_login_button = document.querySelector('.form_login_button');
 
+acc_login_field.addEventListener('click', () => {
+       acc_create_field.style.display = 'none';
+              // delete the headline //
+              let pElement = acc_login_field.querySelector('p'); 
+              if (pElement) {
+                  pElement.textContent = ''; 
+              }
+
+acc_login_form.style.display = 'flex';
+form_login_button.style.display = 'block';
+acc_login_field.classList.remove('acc_login');
+
+});
 
 

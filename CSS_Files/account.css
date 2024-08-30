@@ -72,7 +72,7 @@ a{
 .info_box{
     position: relative;
     top: 14rem;
-    left: -20rem;
+    left: -30rem;
     z-index: 2;
     width: 0px;
     height: 0px;
@@ -113,9 +113,18 @@ a{
     width: 90%;
 }
 
+.acc_create{
+    background-color: #066f8b;
+    color: #FFF;
+}
+
+.acc_login{
+    background-color: #10c3f2;
+    color: #FFF;
+}
+
 .main_blocks{
     height: 12rem;
-    background-color: #fff;
     border: 0.1rem #000 solid;
     margin-top: 2rem;
     text-align: center;
@@ -123,28 +132,29 @@ a{
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #000;
     transition: all 0.3s;
 }
 
 .mainblocks_responsive{
     height: 21rem;
+    background-color: #066f8b;
+    color: #FFF;
 }
 
-.acc_create_form{
+.acc_create_form, .acc_login_form{
     font-size: 1.1rem;
     display: none;
     flex-direction: column; 
     align-items: center;
 }
 
-.acc_create_form input{
+.acc_create_form input, .acc_login_form input{
     width: 50%;
     height: 2rem;
     margin-bottom: 1.5rem;
 }
 
-.pw_icons{
+.pw_icons, .pw_auge_login{
     font-size: 1.6rem;
     border: #000 solid 0.1rem;
     padding: 0.4rem;
@@ -152,7 +162,7 @@ a{
     transition: all 0.3s;
 }
 
-.form_create_button{
+.form_create_button, .form_login_button{
     display: none;
     margin: 2rem auto 0px;
     text-transform: uppercase;
@@ -259,13 +269,13 @@ header.pressed{
         color: #000;
     }
 
-    .pw_icons:hover{
+    .pw_icons:hover, .pw_auge_login:hover{
          cursor: pointer;
          background-color: #000;
          color: #FFF;
     }
 
-    .form_create_button:hover{
+    .form_create_button:hover, .form_login_button:hover{
         cursor: pointer;
         background-color: #000;
     }
@@ -288,7 +298,7 @@ header.pressed{
 
     .acc_create:hover, .acc_login:hover{
         cursor: pointer;
-        background-color: #0088f6;
+        background-color: #000000;
         color: #FFF;
     }
 
@@ -297,6 +307,11 @@ header.pressed{
 /* !--- BREAKPOINT FOR BIGGER_SIZE --! */
 
 @media (min-width: 1920px){
+
+    .main_blocks{
+        width: 25%;
+    }
+
     .mainblocks_responsive{
         width: 30%;
         height: 30rem;

@@ -9,7 +9,7 @@ html {
 
 /* It's Mobil-First, so i started with the smaller screens first */
 
-/* Header Area */
+/* --- Header Area --- */
 header{
     background-color: #6ed7f3;
     width: 100%;
@@ -54,7 +54,7 @@ header{
     display: none;
 }
 
-/* Main Area */
+/* --- Main Area --- */
 body {
     margin: 0px;
     padding: 0px;
@@ -90,7 +90,7 @@ a{
 }
 
 
-/* Footer Area */
+/* --- Footer Area --- */
 footer{
     height: 4rem;
     width: 100%;
@@ -180,6 +180,10 @@ header.pressed{
     .main_blocks{
         width: 50%;
         height: 13rem;
+    }
+
+    .main_blocks:hover{
+        background-color: #007396;
     }
 
     .block_1{
