@@ -19,24 +19,12 @@ header_headline.addEventListener('click', () => {
        main_container.classList.toggle('pressed_blurry_effect');
        footer.classList.toggle('pressed_blurry_effect');
    });
+//-----------------------------------------------------------------------//
 
-// --- ACC_create site Logic --- //
-
-let mainblocks_general =  document.querySelectorAll('.main_blocks');
-let mainblocks_innertext_default = document.querySelectorAll('.main_blocks p');
-
-// Make the Mainblocks responsive, in the login / create mode //
-mainblocks_general.forEach(element => {
-       element.addEventListener('click', () => {
-           mainblocks_general.forEach(el => {
-              el.classList.add('mainblocks_responsive')
-       });                   
-       });
-   });
-
-// > Elements on create site //
+// Acc_CREATE site Logic //
 let acc_create_field = document.querySelector('.acc_create');
 let acc_create_form = document.querySelector('.acc_create_form');
+
 // > Create Icons below //
 let info_icon = document.querySelector('.pw_infos');
 let info_box = document.querySelector('.info_box');
@@ -46,7 +34,6 @@ let pw_generator_icon = document.querySelector('.pw_generator');
 let pw_eye_icon = document.querySelector('.pw_auge');
 let acc_create_form_button = document.querySelector('.form_create_button');
 
-// Event to setup the create_site //
 acc_create_field.addEventListener('click', () => {
        acc_login_field.style.display = 'none';
        // delete the headline //
@@ -54,11 +41,37 @@ acc_create_field.addEventListener('click', () => {
        if (pElement) {
            pElement.textContent = ''; 
        }
+
        acc_create_form.style.display = 'flex';
        acc_create_form_button.style.display = 'block';
+       acc_create_field.classList.add('mainblocks_responsive');
+       document.querySelector('.mainblocks_responsive').style.backgroundColor = '#066f8b';
        acc_create_field.classList.remove('acc_create');
 });
 
+// Acc_LOGIN site Logic //
+let acc_login_field = document.querySelector('.acc_login');
+let acc_login_form = document.querySelector('.acc_login_form');
+let form_login_button = document.querySelector('.form_login_button');
+
+acc_login_field.addEventListener('click', () => {
+       acc_create_field.style.display = 'none';
+       // delete the headline //
+       let pElement = acc_login_field.querySelector('p'); 
+       if (pElement) {
+           pElement.textContent = ''; 
+       }
+
+       acc_login_form.style.display = 'flex';
+       form_login_button.style.display = 'block';
+       acc_login_field.classList.add('mainblocks_responsive');
+       document.querySelector('.mainblocks_responsive').style.backgroundColor = '#10c3f2';
+       acc_login_field.classList.remove('acc_login');
+
+});
+//-----------------------------------------------------------------------//
+
+// --- ICONS --- //
 // Info_Icon Event //
 
 info_icon.addEventListener('click', () => {
@@ -89,10 +102,10 @@ pw_generator_icon.addEventListener('click', () => {
 });
 
 
-// > PW Eye < //
+// > Passwort (o) Eye < //
 
 let klicked = 0;
-// Create_page_version //
+// CREATE_page_version //
 pw_eye_icon.addEventListener('click', () => {
 
        const password_input = document.querySelector('#password');
@@ -112,7 +125,7 @@ pw_eye_icon.addEventListener('click', () => {
 
 });
 
-// Login_page_version //
+// LOGIN_page_version //
 let pw_auge_login = document.querySelector('.pw_auge_login');
 
 pw_auge_login.addEventListener('click', () => {
@@ -138,16 +151,16 @@ pw_auge_login.addEventListener('click', () => {
 
 acc_create_form_button.addEventListener('click', (event) => {
 
-       let username_create = document.querySelector('#name').value;
-       let password_create = document.querySelector('#password').value; 
+       let username = document.querySelector('#name').value;
+       let password = document.querySelector('#password').value; 
 
-       if (!username_create || !password_create) {
+       if (!username || !password) {
               event.preventDefault();
               alert("Bitte Benutzername und Passwort eingeben.");
               return;
           } else {
               let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-              const newAccount = { username_create: username_create, password_create: password_create };
+              const newAccount = { username: username, password: password };
               accounts.push(newAccount);
               localStorage.setItem("accounts", JSON.stringify(accounts));
               alert("Account gespeichert!");
@@ -168,32 +181,20 @@ acc_login_form_button.addEventListener('click', (event) => {
               alert("Bitte Benutzername und Passwort eingeben.");
               return;
           } else {
-              // let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-              // const newAccount = { username: username, password: password };
-              // accounts.push(newAccount);
-              // localStorage.setItem("accounts", JSON.stringify(accounts));
-              event.preventDefault();
-              alert("Account TEST!");
+              let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+              const account = accounts.find(account => account.username === username_login && account.password === password_login);
+              if (account) {
+                     // Token für Login einbauen
+                     alert('Login erfolgreich!');
+                     return true;
+                 } else {
+                     event.preventDefault();
+                     alert('Login fehlgeschlagen: Benutzername oder Passwort ist falsch.');
+                     return false;
+                 }
           }
 });
 
-// --- ACC_login site Logic --- //
-let acc_login_field = document.querySelector('.acc_login');
-let acc_login_form = document.querySelector('.acc_login_form');
-let form_login_button = document.querySelector('.form_login_button');
 
-acc_login_field.addEventListener('click', () => {
-       acc_create_field.style.display = 'none';
-              // delete the headline //
-              let pElement = acc_login_field.querySelector('p'); 
-              if (pElement) {
-                  pElement.textContent = ''; 
-              }
-
-acc_login_form.style.display = 'flex';
-form_login_button.style.display = 'block';
-acc_login_field.classList.remove('acc_login');
-
-});
 
 
