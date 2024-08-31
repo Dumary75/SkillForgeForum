@@ -72,7 +72,7 @@ a{
 .info_box{
     position: relative;
     top: 14rem;
-    left: -30rem;
+    left: -40rem;
     z-index: 2;
     width: 0px;
     height: 0px;
@@ -112,6 +112,8 @@ a{
     height: 14rem;
     width: 90%;
 }
+
+/*---------*/
 
 .acc_create{
     background-color: #066f8b;
@@ -216,7 +218,7 @@ header.pressed{
 
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .flex_container{
         display: flex;
         justify-content: center;
@@ -247,10 +249,6 @@ header.pressed{
         background-color: rgb(0, 0, 0);
     }
 
-    .position_website p{
-        color: #ffffff;
-    }
-
     /* > Infobox and Buttons < */
     .info_box{
         top: -20rem;
@@ -268,15 +266,9 @@ header.pressed{
         color: #000;
     }
 
-    .pw_icons:hover, .pw_auge_login:hover{
+    .pw_icons:hover, .pw_auge_login:hover, .form_create_button:hover, .form_login_button:hover, .acc_create:hover, .acc_login:hover{
          cursor: pointer;
          background-color: #000;
-         color: #FFF;
-    }
-
-    .form_create_button:hover, .form_login_button:hover{
-        cursor: pointer;
-        background-color: #000;
     }
 
     .main_container{
@@ -293,12 +285,6 @@ header.pressed{
 
     .mainblocks_responsive{
         height: 25rem;
-    }
-
-    .acc_create:hover, .acc_login:hover{
-        cursor: pointer;
-        background-color: #000000;
-        color: #FFF;
     }
 
 }

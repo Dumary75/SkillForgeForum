@@ -67,12 +67,11 @@ acc_login_field.addEventListener('click', () => {
        acc_login_field.classList.add('mainblocks_responsive');
        document.querySelector('.mainblocks_responsive').style.backgroundColor = '#10c3f2';
        acc_login_field.classList.remove('acc_login');
-
 });
 //-----------------------------------------------------------------------//
 
 // --- ICONS --- //
-// Info_Icon Event //
+// Info_Icon Event 
 
 info_icon.addEventListener('click', () => {
        main_container.classList.toggle('pressed_blurry_effect');
@@ -88,7 +87,7 @@ info_checked_button.addEventListener('click', () => {
        info_box.classList.toggle('info_box_active');
 });
 
-// PW Generator //
+// PW Generator 
 pw_generator_icon.addEventListener('click', () => {
        const length = 4; 
        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
@@ -105,7 +104,7 @@ pw_generator_icon.addEventListener('click', () => {
 // > Passwort (o) Eye < //
 
 let klicked = 0;
-// CREATE_page_version //
+// CREATE_page_version 
 pw_eye_icon.addEventListener('click', () => {
 
        const password_input = document.querySelector('#password');
@@ -125,7 +124,7 @@ pw_eye_icon.addEventListener('click', () => {
 
 });
 
-// LOGIN_page_version //
+// LOGIN_page_version 
 let pw_auge_login = document.querySelector('.pw_auge_login');
 
 pw_auge_login.addEventListener('click', () => {
@@ -181,12 +180,20 @@ acc_login_form_button.addEventListener('click', (event) => {
               alert("Bitte Benutzername und Passwort eingeben.");
               return;
           } else {
+              // check if the datas are correct 
               let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
               const account = accounts.find(account => account.username === username_login && account.password === password_login);
               if (account) {
-                     // Token für Login einbauen
-                     alert('Login erfolgreich!');
-                     return true;
+                     // check if the login-token already exists
+                     if (!isAlreadyLoggedIn(username_login)) {
+                         alert('Login erfolgreich!');
+                         setLoginToken(username_login);
+                         return true;
+                     } else {
+                         event.preventDefault();
+                         alert('Dieser Benutzer ist bereits eingeloggt.');
+                         return false;
+                     }
                  } else {
                      event.preventDefault();
                      alert('Login fehlgeschlagen: Benutzername oder Passwort ist falsch.');
@@ -195,6 +202,20 @@ acc_login_form_button.addEventListener('click', (event) => {
           }
 });
 
+// Account LOGIN-TOKEN logic //
+function setLoginToken(username_login) {
+       const token = {
+              username: username_login,
+       };
+   
+       // will be saved in localstorage for the other pages 
+       localStorage.setItem('loginToken', JSON.stringify(token));
+       console.log('Token gesetzt:', token);
+   }
 
+//------------
 
-
+   function isAlreadyLoggedIn(username_login) {
+       const token = JSON.parse(localStorage.getItem('loginToken'));
+       return token && token.username === username_login;
+   }

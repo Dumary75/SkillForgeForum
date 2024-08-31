@@ -130,7 +130,7 @@ header.pressed{
 
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .flex_container{
         display: flex;
         justify-content: center;
@@ -159,10 +159,6 @@ header.pressed{
 
     .position_website{
         background-color: rgb(0, 0, 0);
-    }
-
-    .position_website p{
-        color: #ffffff;
     }
 
     /* GRIDSYSTEM */
