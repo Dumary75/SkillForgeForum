@@ -65,7 +65,7 @@ acc_login_field.addEventListener('click', () => {
        acc_login_form.style.display = 'flex';
        form_login_button.style.display = 'block';
        acc_login_field.classList.add('mainblocks_responsive');
-       document.querySelector('.mainblocks_responsive').style.backgroundColor = '#10c3f2';
+       document.querySelector('.mainblocks_responsive').style.backgroundColor = '#10a2f2';
        acc_login_field.classList.remove('acc_login');
 });
 //-----------------------------------------------------------------------//
