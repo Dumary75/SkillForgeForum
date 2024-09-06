@@ -47,6 +47,7 @@ acc_create_field.addEventListener('click', () => {
        acc_create_field.classList.add('mainblocks_responsive');
        document.querySelector('.mainblocks_responsive').style.backgroundColor = '#066f8b';
        acc_create_field.classList.remove('acc_create');
+       acc_create_field.classList.remove('hover_effect');
 });
 
 // Acc_LOGIN site Logic //
@@ -67,6 +68,7 @@ acc_login_field.addEventListener('click', () => {
        acc_login_field.classList.add('mainblocks_responsive');
        document.querySelector('.mainblocks_responsive').style.backgroundColor = '#10a2f2';
        acc_login_field.classList.remove('acc_login');
+       acc_login_field.classList.remove('hover_effect');
 });
 //-----------------------------------------------------------------------//
 

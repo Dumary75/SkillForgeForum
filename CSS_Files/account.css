@@ -241,6 +241,8 @@ header.pressed{
     }
 
     .header_blocks_default:hover{
+        height: 3rem;
+        width: 13rem;
         cursor: pointer;
         background-color: rgb(0, 0, 0);
     }
@@ -266,7 +268,12 @@ header.pressed{
         color: #000;
     }
 
-    .pw_icons:hover, .pw_auge_login:hover, .form_create_button:hover, .form_login_button:hover, .acc_create:hover, .acc_login:hover{
+    .pw_icons:hover, 
+    .pw_auge_login:hover, 
+    .form_create_button:hover, 
+    .form_login_button:hover, 
+    .acc_create:hover, 
+    .acc_login:hover{
          cursor: pointer;
          background-color: #000;
     }
@@ -281,6 +288,12 @@ header.pressed{
     .main_blocks{
         width: 40%;
         padding-top: 3%;
+    }
+
+    .hover_effect:hover{
+        width: 50%;
+        height: 14rem;
+        font-size: 2.3rem;
     }
 
     .mainblocks_responsive{
@@ -301,6 +314,10 @@ header.pressed{
         width: 30%;
         height: 30rem;
         padding-bottom: 8%;
+    }
+
+    .hover_effect:hover{
+        width: 30.5%;
     }
 
 }
