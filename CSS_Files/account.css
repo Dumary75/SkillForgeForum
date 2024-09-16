@@ -168,7 +168,7 @@ a{
     margin: 2rem auto 0px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     width: 60%;
     height: 2.5rem;
     background-color: #00adff;
@@ -276,6 +276,8 @@ header.pressed{
     .acc_login:hover{
          cursor: pointer;
          background-color: #000;
+         font-size: 1.7rem;
+         height: 3rem;
     }
 
     .main_container{
