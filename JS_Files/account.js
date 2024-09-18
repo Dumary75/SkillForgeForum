@@ -1,5 +1,18 @@
 "use strict"
 
+ // > Account_current_state Logic //  
+ let account_state = document.querySelector('.login_state');
+ window.addEventListener('load', () => {
+       let acc_token = JSON.parse(localStorage.getItem("loginToken"))
+       if(acc_token){
+         account_state.style.backgroundColor = '#0cb11a';
+         account_state.innerText = 'eingeloggt';    
+         account_state.style.color = '#FFF';
+         account_state.style.fontSize = '1.5rem';
+         account_state.style.textTransform = 'uppercase';
+       };
+ });
+
 // --- Header Click Event --- //
 
 let header_default = document.querySelector('header');
@@ -19,6 +32,9 @@ header_headline.addEventListener('click', () => {
        main_container.classList.toggle('pressed_blurry_effect');
        footer.classList.toggle('pressed_blurry_effect');
    });
+
+
+
 //-----------------------------------------------------------------------//
 
 // Acc_CREATE site Logic //

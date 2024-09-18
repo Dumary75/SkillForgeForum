@@ -7,7 +7,7 @@ html {
     background-color: #f0f0f0;
 }
 
-/* It's Mobil-First, so i started with the smaller screens first */
+/* It's Mobil-First, so i started with the smaller screens */
 
 /* --- Header Area --- */
 header{
@@ -52,6 +52,11 @@ header{
 
 .desktop_index{
     display: none;
+}
+
+.login_state{
+    padding-top: 0.6rem;
+    background-color: rgb(172, 12, 12);
 }
 
 /* --- Main Area --- */
@@ -198,7 +203,7 @@ footer p{
 
 /* ---- If the Header_Button is pressed ---- */
 header.pressed{
-    height: 22rem;
+    height: 26rem;
 }
 
 .header_headline_pressed{
@@ -219,6 +224,7 @@ header.pressed{
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
 @media (min-width: 768px) {
+    
     .flex_container{
         display: flex;
         justify-content: center;
@@ -238,6 +244,12 @@ header.pressed{
         width: 12rem;
         margin-top: 0px;
         margin-left: 1rem;
+    }
+
+    .login_state_active{
+        position: absolute;
+        right: 5rem;
+        display: block;
     }
 
     .header_blocks_default:hover{
@@ -308,6 +320,11 @@ header.pressed{
 
 @media (min-width: 1920px){
 
+    .login_state{
+        position: absolute;
+        right: 3rem;
+    }
+    
     .main_blocks{
         width: 25%;
     }
