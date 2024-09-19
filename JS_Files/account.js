@@ -48,15 +48,12 @@ let info_checked_button = document.querySelector('.infos_checked_button');
 
 let pw_generator_icon = document.querySelector('.pw_generator');
 let pw_eye_icon = document.querySelector('.pw_auge');
-let acc_create_form_button = document.querySelector('.form_create_button');
 
 acc_create_field.addEventListener('click', () => {
        acc_login_field.style.display = 'none';
        // delete the headline //
        let pElement = acc_create_field.querySelector('p'); 
-       if (pElement) {
-           pElement.textContent = ''; 
-       }
+       pElement.textContent = ''; 
 
        acc_create_form.style.display = 'flex';
        acc_create_form_button.style.display = 'block';
@@ -165,6 +162,7 @@ pw_auge_login.addEventListener('click', () => {
 });
 
 // > Account CREATE Button < //
+let acc_create_form_button = document.querySelector('.form_create_button');
 
 acc_create_form_button.addEventListener('click', (event) => {
 

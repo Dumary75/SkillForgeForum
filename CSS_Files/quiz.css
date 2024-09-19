@@ -73,12 +73,12 @@ a{
     transition: all 0.8s;
 }
 
-.acc_create{
+.quest_create{
     background-color: #066f8b;
     color: #FFF;
 }
 
-.acc_login{
+.quest_answer{
     background-color: #10a2f2;
     color: #FFF;
 }
@@ -95,10 +95,51 @@ a{
     transition: all 0.3s;
 }
 
-/* .mainblocks_responsive{
-    height: 21rem;
+/* > Selection_Area < */
+.quest_selection_list {
+    padding: 0;
+    text-align: center;
+    position: relative;
+    bottom: -60rem;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    transition: all 0.5s;
+}
+
+.selection_active{
+    bottom: 0px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.quest_selection_list li {
+    height: 6.5rem;
+    background-color: #3ab43a;
+    border: 0.1rem #000 solid;
     color: #FFF;
-} */
+    list-style: none;
+    padding-top: 0.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+    font-size: 3rem;
+}
+
+.quest_selection_list li:nth-child(2){
+    background-color: #b66e00;
+}
+
+.quest_selection_list li:nth-child(3){
+    background-color: #066f8b;
+}
+
+.quest_selection_list li:nth-child(4){
+    background-color: #bf955a;
+}
+
+.quest_selection_list li:nth-child(5){
+    background-color: #88c7e5;
+}
 
 /* .form_create_button, .form_login_button{
     display: none;
