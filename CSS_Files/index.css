@@ -55,9 +55,28 @@ header{
 }
 
 .login_state{
-    /* background-color: #0cb11a; */
     padding-top: 0.6rem;
     background-color: rgb(172, 12, 12);
+}
+
+/* ---- If the Header_Button is pressed ---- */
+header.pressed{
+    height: 26rem;
+}
+
+.header_headline_pressed{
+    background-color: rgb(247, 178, 51);
+}
+
+.pressed_header_blocks{
+    height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    margin: 2rem auto 0px;
+}
+
+.pressed_blurry_effect{
+    filter: blur(1rem);
 }
 
 /* --- Main Area --- */
@@ -111,27 +130,6 @@ footer p{
     color: #FFF;
     font-size: 1.5rem;
     margin: 0px;
-}
-
-
-/* ---- If the Header_Button is pressed ---- */
-header.pressed{
-    height: 26rem;
-}
-
-.header_headline_pressed{
-    background-color: rgb(247, 178, 51);
-}
-
-.pressed_header_blocks{
-    height: 3rem;
-    width: 80%;
-    margin-top: 2rem;
-    margin: 2rem auto 0px;
-}
-
-.pressed_blurry_effect{
-    filter: blur(1rem);
 }
 
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */

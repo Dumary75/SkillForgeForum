@@ -68,12 +68,41 @@
         </div>
 
 <!------ QUEST_CREATE ------>
-        <div class="main_blocks quest_create hover_effect">
-            <p>Fragen 📝<br> Erstellen</p>
-            <!-- <a href="quiz_selection.html">
-                <button class="form_create_button">🔐 Erstellen</button> 
-            </a> -->
-        </div>
+<div class="user_input_create_input">    
+    <h1>Fragen erstellen</h1>
+
+    <label for="categorySelect">Kategorie wählen:</label>
+    <select id="categorySelect">
+        <option value="Natur">Natur</option>
+        <option value="Technik">Technik</option>
+        <option value="Mathe">Mathe</option>
+        <option value="Tiere">Tiere</option>
+        <option value="Musik">Musik</option>
+    </select> 
+    
+    <div>
+        <textarea id="questionInput" placeholder="Beispielfrage...?"></textarea>
+    </div>
+
+    <div class="answer-container" id="answerContainer">
+    </div>
+
+    <div class="add-remove-buttons">
+        <button id="addAnswerBtn">+ Antworten</button>
+        <button id="removeAnswerBtn">- Antworten</button>
+    </div>
+
+        <button id="saveQuestionBtn">
+            <a href="quiz_selection.html">Frage Speichern</a>
+        </button>
+
+</div>
+
+<div class="main_blocks quest_create hover_effect">
+    <p>Fragen 📝<br> Erstellen</p>
+    <!-- <a href="quiz_selection.html">
+        <button class="form_create_button">🔐 Erstellen</button> 
+    </a> -->
 </div>
 
 </main>

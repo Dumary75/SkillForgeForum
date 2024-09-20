@@ -59,6 +59,26 @@ header{
     background-color: rgb(172, 12, 12);
 }
 
+/* ---- If the Header_Button is pressed ---- */
+header.pressed{
+    height: 26rem;
+}
+
+.header_headline_pressed{
+    background-color: rgb(247, 178, 51);
+}
+
+.pressed_header_blocks{
+    height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    margin: 2rem auto 0px;
+}
+
+.pressed_blurry_effect{
+    filter: blur(1rem);
+}
+
 /* --- Main Area --- */
 body {
     margin: 0px;
@@ -95,13 +115,99 @@ a{
     transition: all 0.3s;
 }
 
+/* > user_own_quiz_input Area < */
+
+.user_input_create_input{
+    background-color: #066f8b;
+    border: 0.2rem solid #000;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    bottom: -60rem;
+    width: 0px;
+    height: 0px;
+    transition: all 0.5s;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: #FFF;
+}
+
+label{
+    font-size: 1.2rem;
+    color: #FFF
+}
+
+#categorySelect{
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    height: 2rem;
+    width: 6rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+#questionInput{
+    height: 5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border: 0.1rem solid #000;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20%;
+    margin-bottom: 20px;
+}
+
+.answer-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 25rem;
+}
+
+.answer-input {
+    flex: 0.7;
+    padding: 5px;
+    height: 5rem;
+    font-size: 1.1rem;
+    border: 0.1rem solid #000;
+}
+
+.checkbox {
+    width: 2rem;
+    height: 3rem;
+}
+
+button{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 0.2rem solid #000;
+    border-radius: 10%;
+}
+
+button a:visited{
+    color: #000
+}
+
+
 /* > Selection_Area < */
 .quest_selection_list {
     padding: 0;
     text-align: center;
     position: relative;
     bottom: -60rem;
-    z-index: 2;
     width: 0px;
     height: 0px;
     transition: all 0.5s;
@@ -110,6 +216,7 @@ a{
 .selection_active{
     bottom: 0px;
     width: 100%;
+    height: auto;
     margin-top: 2rem;
 }
 
@@ -123,6 +230,7 @@ a{
     margin-bottom: 2rem;
     transition: all 0.3s;
     font-size: 3rem;
+    font-weight: bold;
 }
 
 .quest_selection_list li:nth-child(2){
@@ -141,22 +249,8 @@ a{
     background-color: #88c7e5;
 }
 
-/* .form_create_button, .form_login_button{
-    display: none;
-    margin: 2rem auto 0px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1.1rem;
-    width: 60%;
-    height: 2.5rem;
-    background-color: #00adff;
-    color: #FFF;
-    border-radius: 0.5rem;
-    transition: all 0.3s;
-} */
-
 /* --- Footer Area --- */
-footer{
+/* footer{
     height: 4rem;
     width: 100%;
     background-color: #000000;
@@ -171,24 +265,5 @@ footer p{
     color: #FFF;
     font-size: 1.5rem;
     margin: 0px;
-}
+} */
 
-/* ---- If the Header_Button is pressed ---- */
-header.pressed{
-    height: 26rem;
-}
-
-.header_headline_pressed{
-    background-color: rgb(247, 178, 51);
-}
-
-.pressed_header_blocks{
-    height: 3rem;
-    width: 80%;
-    margin-top: 2rem;
-    margin: 2rem auto 0px;
-}
-
-.pressed_blurry_effect{
-    filter: blur(1rem);
-}
