@@ -142,12 +142,22 @@ saveQuestionBtn.addEventListener('click', (event) => {
     // Antworten sammeln
     const answers = Array.from(document.querySelectorAll('.answer-input')).map(input => input.value);
     
-    // Überprüfung: Mindestens eine richtige Antwort
-    if (correctAnswers.length === 0) {
+    // Überprüfung: Der Frage / Antworten
+    if (newQuestion === '') {
         event.preventDefault();
-        alert('Bitte mindestens eine richtige Antwort auswählen.');
+        alert('Bitte eine Frage eintippen!');
         return;
-    }
+    } 
+    // else if(answers.value === '') {
+    //     event.preventDefault();
+    //     alert('Bitte mindestens 2 Antwortmöglichkeiten eintippen!');
+    //     return;
+    // } 
+    else if (correctAnswers.length === 0 ){
+        event.preventDefault();
+        alert('Bitte mindestens eine richtige Antwort auswählen!');
+        return;
+    };
 
     // Neue Frage als Objekt
     const newQuestionObj = {
