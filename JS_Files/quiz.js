@@ -37,6 +37,7 @@ header_headline.addEventListener('click', () => {
 
 //-----------------------MAIN_CONTENT-------------------------------------------//
 
+//---- QUIZ_SELECTION ----//
 let quest_answer_field = document.querySelector('.quest_answer');
 let quest_create_field = document.querySelector('.quest_create');
 
@@ -44,23 +45,78 @@ let quest_create_field = document.querySelector('.quest_create');
 let quest_selection_list = document.querySelector('.quest_selection_list');
 let quest_user_create_field = document.querySelector('.user_input_create_input');
 
-// QUEST_ANSWER site Logic //
+// --- DEV QUESTIONS --- //
 
-quest_answer_field.addEventListener('click', () => {
-    quest_create_field.style.display = 'none';
-    quest_answer_field.style.display = 'none';
-    quest_user_create_field.style.display = 'none';
-    quest_selection_list.classList.add('selection_active');
-});
+const quizData = [
+    {
+        category: 'Geschichte',
+        questions: [
+            {
+                question: 'Wer war der erste Präsident der USA?',
+                answers: ['George Washington', 'Abraham Lincoln', 'Thomas Jefferson', 'John Adams'],
+                correctAnswer: 'George Washington'
+            },
+            {
+                question: 'In welchem Jahr begann der Zweite Weltkrieg?',
+                answers: ['1914', '1939', '1945', '1929'],
+                correctAnswer: '1939'
+            }
+        ]
+    },
+    {
+        category: 'Wissenschaft',
+        questions: [
+            {
+                question: 'Was ist das chemische Symbol für Wasser?',
+                answers: ['O2', 'H2O', 'CO2', 'NaCl'],
+                correctAnswer: 'H2O'
+            },
+            {
+                question: 'Wer entwickelte die Relativitätstheorie?',
+                answers: ['Isaac Newton', 'Nikola Tesla', 'Albert Einstein', 'Marie Curie'],
+                correctAnswer: 'Albert Einstein'
+            }
+        ]
+    },
+    {
+        category: 'Sport',
+        questions: [
+            {
+                question: 'Wie viele Spieler hat eine Fußballmannschaft?',
+                answers: ['9', '10', '11', '12'],
+                correctAnswer: '11'
+            },
+            {
+                question: 'In welchem Jahr fanden die ersten modernen Olympischen Spiele statt?',
+                answers: ['1896', '1900', '1924', '1936'],
+                correctAnswer: '1896'
+            }
+        ]
+    }
+];
 
-// --- QUEST_USER_CREATE site Logic --- //
+// Pages proof
+window.addEventListener('load', () => {
+    const currentPath = window.location.pathname;
 
+    if(currentPath.includes('quiz_selection.html')){
+
+// Page_Selection
 quest_create_field.addEventListener('click', () => {
     quest_create_field.style.display = 'none';
     quest_answer_field.style.display = 'none';
     quest_selection_list.style.display = 'none';
     quest_user_create_field.classList.add('selection_active');
 });
+
+quest_answer_field.addEventListener('click', () => {
+    quest_create_field.style.display = 'none';
+    quest_answer_field.style.display = 'none';
+    quest_user_create_field.style.display = 'none';
+    quest_selection_list.classList.add('selection_active');
+        });
+
+// --- QUEST_USER_CREATE site Logic --- //
 
 // Maximale Anzahl an Antworten
 const MAX_ANSWERS = 4;
@@ -197,53 +253,14 @@ saveQuestionBtn.addEventListener('click', (event) => {
         createAnswerBox(i);
     }
 });
+    } else {
+// --- QUEST_ANSWER site Logic --- //
 
-// --- DEV QUESTIONS --- //
 
-const quizData = [
-       {
-           category: 'Geschichte',
-           questions: [
-               {
-                   question: 'Wer war der erste Präsident der USA?',
-                   answers: ['George Washington', 'Abraham Lincoln', 'Thomas Jefferson', 'John Adams'],
-                   correctAnswer: 'George Washington'
-               },
-               {
-                   question: 'In welchem Jahr begann der Zweite Weltkrieg?',
-                   answers: ['1914', '1939', '1945', '1929'],
-                   correctAnswer: '1939'
-               }
-           ]
-       },
-       {
-           category: 'Wissenschaft',
-           questions: [
-               {
-                   question: 'Was ist das chemische Symbol für Wasser?',
-                   answers: ['O2', 'H2O', 'CO2', 'NaCl'],
-                   correctAnswer: 'H2O'
-               },
-               {
-                   question: 'Wer entwickelte die Relativitätstheorie?',
-                   answers: ['Isaac Newton', 'Nikola Tesla', 'Albert Einstein', 'Marie Curie'],
-                   correctAnswer: 'Albert Einstein'
-               }
-           ]
-       },
-       {
-           category: 'Sport',
-           questions: [
-               {
-                   question: 'Wie viele Spieler hat eine Fußballmannschaft?',
-                   answers: ['9', '10', '11', '12'],
-                   correctAnswer: '11'
-               },
-               {
-                   question: 'In welchem Jahr fanden die ersten modernen Olympischen Spiele statt?',
-                   answers: ['1896', '1900', '1924', '1936'],
-                   correctAnswer: '1896'
-               }
-           ]
-       }
-   ];
+    };
+});
+
+
+
+
+

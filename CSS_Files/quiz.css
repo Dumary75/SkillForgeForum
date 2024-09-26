@@ -87,12 +87,10 @@ body {
 
 a{
     text-decoration: none;
+    color: #FFF;
 }
 
-.main_container{
-    transition: all 0.8s;
-}
-
+/* --- Question SELECTION / CREATE SITE --- */
 .quest_create{
     background-color: #066f8b;
     color: #FFF;
@@ -248,6 +246,63 @@ button a:visited{
 .quest_selection_list li:nth-child(5){
     background-color: #88c7e5;
 }
+
+
+/* --- Question GAME SITE --- */
+
+#questionCounter {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#questionText {
+    background-color: #F4A460;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: black;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-box_game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.answer-box.selected {
+    filter: brightness(1.2); /* Aufhellung bei Auswahl */
+}
+
+.answer-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+#nextButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#nextButton:hover {
+    background-color: #0056b3;
+}
+
+
 
 /* --- Footer Area --- */
 /* footer{
