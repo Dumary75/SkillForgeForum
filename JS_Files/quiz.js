@@ -49,50 +49,36 @@ let quest_user_create_field = document.querySelector('.user_input_create_input')
 
 const quizData = [
     {
-        category: 'Geschichte',
+        category: 'Natur',
         questions: [
             {
-                question: 'Wer war der erste Präsident der USA?',
-                answers: ['George Washington', 'Abraham Lincoln', 'Thomas Jefferson', 'John Adams'],
-                correctAnswer: 'George Washington'
+                question: 'Was ist die größte Wüste der Welt?',
+                answers: ['Sahara', 'Gobi', 'Antarktis', 'Kalahari'],
+                correctAnswer: 'Antarktis'
             },
             {
-                question: 'In welchem Jahr begann der Zweite Weltkrieg?',
-                answers: ['1914', '1939', '1945', '1929'],
-                correctAnswer: '1939'
+                question: 'Wie viele Planeten unseres Sonnensystems besitzen Ringe?',
+                answers: ['Zwei', 'Drei', 'Vier', 'Fünf'],
+                correctAnswer: 'Vier (Jupiter, Saturn, Uranus, Neptun)'
             }
         ]
     },
-    {
-        category: 'Wissenschaft',
-        questions: [
-            {
-                question: 'Was ist das chemische Symbol für Wasser?',
-                answers: ['O2', 'H2O', 'CO2', 'NaCl'],
-                correctAnswer: 'H2O'
-            },
-            {
-                question: 'Wer entwickelte die Relativitätstheorie?',
-                answers: ['Isaac Newton', 'Nikola Tesla', 'Albert Einstein', 'Marie Curie'],
-                correctAnswer: 'Albert Einstein'
-            }
-        ]
-    },
-    {
-        category: 'Sport',
-        questions: [
-            {
-                question: 'Wie viele Spieler hat eine Fußballmannschaft?',
-                answers: ['9', '10', '11', '12'],
-                correctAnswer: '11'
-            },
-            {
-                question: 'In welchem Jahr fanden die ersten modernen Olympischen Spiele statt?',
-                answers: ['1896', '1900', '1924', '1936'],
-                correctAnswer: '1896'
-            }
-        ]
-    }
+    // {
+    //     category: 'Wissenschaft',
+    //     questions: [
+    //         {
+    //             question: 'Was ist das chemische Symbol für Wasser?',
+    //             answers: ['O2', 'H2O', 'CO2', 'NaCl'],
+    //             correctAnswer: 'H2O'
+    //         },
+    //         {
+    //             question: 'Wer entwickelte die Relativitätstheorie?',
+    //             answers: ['Isaac Newton', 'Nikola Tesla', 'Albert Einstein', 'Marie Curie'],
+    //             correctAnswer: 'Albert Einstein'
+    //         }
+    //     ]
+    // },
+
 ];
 
 // Pages proof
@@ -127,7 +113,6 @@ const answerContainer = document.getElementById('answerContainer');
 const addAnswerBtn = document.getElementById('addAnswerBtn');
 const removeAnswerBtn = document.getElementById('removeAnswerBtn');
 const saveQuestionBtn = document.getElementById('saveQuestionBtn');
-const categorySelect = document.getElementById('categorySelect');
 const questionInput = document.getElementById('questionInput');
 
 // Array, das die richtigen Antworten speichert
@@ -192,7 +177,7 @@ function toggleCorrectAnswer(event, index) {
 
 // Funktion zum Speichern der Frage mit den Antworten
 saveQuestionBtn.addEventListener('click', (event) => {
-    const selectedCategory = categorySelect.value;
+    const selectedCategory = 'user';
     const newQuestion = questionInput.value;
 
     // Antworten sammeln
@@ -253,8 +238,176 @@ saveQuestionBtn.addEventListener('click', (event) => {
         createAnswerBox(i);
     }
 });
+
+// Quiz_Category Select Logic 
+const li_items = quest_selection_list.querySelectorAll('li');
+
+li_items.forEach(function(li, index){
+    li.addEventListener('click', function(){
+        switch(index){
+            case 0:
+                localStorage.setItem('selectedCategory', 'Natur');
+                break;
+            case 1:
+                localStorage.setItem('selectedCategory', 'Technik');
+                break;
+            case 2:
+                localStorage.setItem('selectedCategory', 'Mathe');
+                break;
+            case 3:
+                localStorage.setItem('selectedCategory', 'Tiere');
+                break;
+            case 4:
+                localStorage.setItem('selectedCategory', 'Musik');
+                break;
+            case 5:
+                localStorage.setItem('selectedCategory', 'user');
+                break;
+        };
+    });
+});
     } else {
+
 // --- QUEST_ANSWER site Logic --- //
+const sache = localStorage.getItem('selectedCategory');
+const userQuizData = JSON.parse(localStorage.getItem('userQuizData')) || [];
+const selectedQuiz = quizData.find(quizData => quizData.category === sache);
+const selected_user_quiz = userQuizData.find(userQuizData => userQuizData.category === sache);
+
+if (selectedQuiz) {
+    // Neuen Fragen-Index für die Navigation definieren
+    let currentQuestionIndex = 0;
+
+
+    // TEST AUSSAGE
+    document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selectedQuiz.questions.length}`;
+    // Funktion zum Laden der aktuellen Frage
+    function loadQuestion() {
+        const questionTextElement = document.getElementById('questionText');
+        const answerContainer = document.querySelector('.answer-container');
+        
+        // Fragen und Antworten aus dem aktuellen Quiz
+        const currentQuestion = selectedQuiz.questions[currentQuestionIndex];
+
+        // Fragetext aktualisieren
+        questionTextElement.textContent = currentQuestion.question;
+
+        // Antworten löschen, bevor neue Antworten hinzugefügt werden
+        answerContainer.innerHTML = '';
+
+        // Antworten dynamisch generieren
+        let test = 0;
+        currentQuestion.answers.forEach((answer, index) => {
+            const answerLabel = document.createElement('label');
+            const answerInput = document.createElement('input');
+
+            // Antwortfeld konfigurieren
+            answerInput.type = 'checkbox';
+            answerInput.value = answer;
+            answerInput.classList.add('answer-checkbox');
+
+            answerLabel.classList.add('answer_label');
+            answerLabel.classList.add(`answer_label_box${test}`);
+
+            answerInput.addEventListener('click', () => {
+                answerLabel.classList.toggle('active_answer');
+            });
+
+            answerLabel.appendChild(answerInput);
+            answerLabel.appendChild(document.createTextNode(answer));
+
+            answerContainer.appendChild(answerLabel);
+            answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
+            test++;
+        });
+    }
+
+    // Frage laden
+    loadQuestion();
+
+// Nächste Frage beim Klicken auf den Button laden
+const nextButton = document.getElementById('nextButton');
+nextButton.addEventListener('click', () => {
+    let clicked_answer = document.querySelector('.active_answer');
+
+    if (currentQuestionIndex < selectedQuiz.questions.length - 1) {
+        // Überprüfen, ob eine Antwort ausgewählt wurde
+        if (!clicked_answer) {
+            alert('Bitte mindestens eine Antwort auswählen!');
+            return; 
+        }
+        currentQuestionIndex++;
+        loadQuestion();
+        document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selectedQuiz.questions.length}`;
+    } else if (!clicked_answer) {
+        alert('Bitte mindestens eine Antwort auswählen!');
+    } else {
+        alert('Das war die letzte Frage!');
+        // Hier kannst du die Logik zum Beenden des Quizzes hinzufügen
+    }
+});
+
+} else if(selected_user_quiz){
+    // Neuen Fragen-Index für die Navigation definieren
+    let currentQuestionIndex = 0;
+
+
+    // TEST AUSSAGE
+    document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selected_user_quiz.questions.length}`;
+    // Funktion zum Laden der aktuellen Frage
+    function loadQuestion() {
+        const questionTextElement = document.getElementById('questionText');
+        const answerContainer = document.querySelector('.answer-container');
+        
+        // Fragen und Antworten aus dem aktuellen Quiz
+        const currentQuestion = selected_user_quiz.questions[currentQuestionIndex];
+
+        // Fragetext aktualisieren
+        questionTextElement.textContent = currentQuestion.question;
+
+        // Antworten löschen, bevor neue Antworten hinzugefügt werden
+        answerContainer.innerHTML = '';
+
+        // Antworten dynamisch generieren
+        currentQuestion.answers.forEach((answer, index) => {
+            const answerLabel = document.createElement('label');
+            const answerInput = document.createElement('input');
+
+            answerLabel.classList.add('answer_label');
+
+            // Antwortfeld konfigurieren
+            answerInput.type = 'checkbox';
+            answerInput.name = 'quizAnswer';
+            answerInput.value = answer;
+            answerInput.classList.add('answer-checkbox');
+
+            answerLabel.appendChild(answerInput);
+            answerLabel.appendChild(document.createTextNode(answer));
+
+            answerContainer.appendChild(answerLabel);
+            answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
+        });
+    }
+
+    // Frage laden
+    loadQuestion();
+
+    // Nächste Frage beim Klicken auf den Button laden
+    const nextButton = document.getElementById('nextButton');
+    nextButton.addEventListener('click', () => {
+        if (currentQuestionIndex < selected_user_quiz.questions.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+            document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selected_user_quiz.questions.length}`;
+        } else {
+            alert('Das war die letzte Frage!');
+            // Hier kannst du die Logik zum Beenden des Quizzes hinzufügen
+        }
+    });
+}
+else {
+    console.log("Keine Fragen für diese Kategorie gefunden.");
+}
 
 
     };
