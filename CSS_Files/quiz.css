@@ -59,6 +59,10 @@ header{
     background-color: rgb(172, 12, 12);
 }
 
+/* .login_state_loggedIn {
+    background-color: #0cb11a;
+} */
+
 /* ---- If the Header_Button is pressed ---- */
 header.pressed{
     height: 26rem;

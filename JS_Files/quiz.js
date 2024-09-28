@@ -5,11 +5,8 @@
  window.addEventListener('load', () => {
        let acc_token = JSON.parse(localStorage.getItem("loginToken"))
        if(acc_token){
-         account_state.style.backgroundColor = '#0cb11a';
-         account_state.innerText = 'eingeloggt';    
-         account_state.style.color = '#FFF';
-         account_state.style.fontSize = '1.5rem';
-         account_state.style.textTransform = 'uppercase';
+        account_state.style.backgroundColor = '#0cb11a';
+        account_state.innerText = 'eingeloggt';    
        };
  });
 
@@ -52,34 +49,279 @@ const quizData = [
         category: 'Natur',
         questions: [
             {
-                question: 'Was ist die größte Wüste der Welt?',
-                answers: ['Sahara', 'Gobi', 'Antarktis', 'Kalahari'],
-                correctAnswer: 'Antarktis'
+                question: 'Welcher Baum ist der höchste der Welt?',
+                answers: ['Mammutbaum', 'Eiche', 'Baobab', 'Ahorn'],
+                correctAnswer: 'Mammutbaum'
             },
             {
-                question: 'Wie viele Planeten unseres Sonnensystems besitzen Ringe?',
-                answers: ['Zwei', 'Drei', 'Vier', 'Fünf'],
-                correctAnswer: ['Vier','Zwei']
+                question: 'Welche dieser Pflanzen betreiben Photosynthese?',
+                answers: ['Kaktus', 'Algen', 'Blumen', 'Pilze'],
+                correctAnswer: ['Kaktus', 'Algen', 'Blumen']
+            },
+            {
+                question: 'Welches Tier lebt sowohl an Land als auch im Wasser?',
+                answers: ['Frosch', 'Krokodil', 'Robbe', 'Fledermaus'],
+                correctAnswer: ['Frosch', 'Krokodil']
+            },
+            {
+                question: 'Welche Planeten haben Ringe?',
+                answers: ['Jupiter', 'Saturn', 'Uranus', 'Neptun'],
+                correctAnswer: ['Jupiter', 'Saturn', 'Uranus', 'Neptun'] // Alle richtig
+            },
+            {
+                question: 'Welches dieser Tiere ist ein Säugetier?',
+                answers: ['Wal', 'Hai', 'Delphin', 'Schildkröte'],
+                correctAnswer: ['Wal', 'Delphin']
+            },
+            {
+                question: 'Welche dieser Wüsten befinden sich in Afrika?',
+                answers: ['Sahara', 'Kalahari', 'Gobi', 'Namib'],
+                correctAnswer: ['Sahara', 'Kalahari', 'Namib']
+            },
+            {
+                question: 'Welches ist das giftigste Tier der Welt?',
+                answers: ['Pfeilgiftfrosch', 'Steinfisch', 'Schwarzspitzen-Riffhai', 'Kegelschnecke'],
+                correctAnswer: ['Pfeilgiftfrosch', 'Kegelschnecke']
+            },
+            {
+                question: 'Was ist die häufigste Gasart in der Erdatmosphäre?',
+                answers: ['Sauerstoff', 'Stickstoff', 'Kohlendioxid', 'Wasserstoff'],
+                correctAnswer: 'Stickstoff'
+            },
+            {
+                question: 'Welche dieser Tiere können fliegen?',
+                answers: ['Adler', 'Fledermaus', 'Kolibri', 'Pinguin'],
+                correctAnswer: ['Adler', 'Fledermaus', 'Kolibri']
+            },
+            {
+                question: 'Welche dieser Tiere sind Kaltblüter?',
+                answers: ['Krokodil', 'Eidechse', 'Frosch', 'Schlange'],
+                correctAnswer: ['Krokodil', 'Eidechse']
             }
         ]
     },
-    // {
-    //     category: 'Wissenschaft',
-    //     questions: [
-    //         {
-    //             question: 'Was ist das chemische Symbol für Wasser?',
-    //             answers: ['O2', 'H2O', 'CO2', 'NaCl'],
-    //             correctAnswer: 'H2O'
-    //         },
-    //         {
-    //             question: 'Wer entwickelte die Relativitätstheorie?',
-    //             answers: ['Isaac Newton', 'Nikola Tesla', 'Albert Einstein', 'Marie Curie'],
-    //             correctAnswer: 'Albert Einstein'
-    //         }
-    //     ]
-    // },
-
+    {
+        category: 'Technik',
+        questions: [
+            {
+                question: 'Welche dieser Erfindungen werden Thomas Edison zugeschrieben?',
+                answers: ['Glühbirne', 'Phonograph', 'Filmkamera', 'Automobil'],
+                correctAnswer: ['Glühbirne', 'Phonograph', 'Filmkamera']
+            },
+            {
+                question: 'Welches dieser Unternehmen entwickelte das erste Smartphone?',
+                answers: ['Apple', 'Samsung', 'Nokia', 'Motorola'],
+                correctAnswer: ['Apple', 'Nokia']
+            },
+            {
+                question: 'Welche dieser Programmiersprachen werden für Web-Entwicklung genutzt?',
+                answers: ['JavaScript', 'Python', 'HTML', 'PHP'],
+                correctAnswer: ['JavaScript', 'HTML', 'PHP']
+            },
+            {
+                question: 'Welche dieser Geräte speichern Daten?',
+                answers: ['Festplatte', 'RAM', 'USB-Stick', 'CPU'],
+                correctAnswer: ['Festplatte', 'USB-Stick']
+            },
+            {
+                question: 'Welche Unternehmen entwickeln Elektroautos?',
+                answers: ['Tesla', 'BMW', 'Nissan', 'Ford'],
+                correctAnswer: ['Tesla', 'BMW', 'Nissan']
+            },
+            {
+                question: 'Welche dieser Wissenschaftler haben zur Elektromagnetik beigetragen?',
+                answers: ['James Clerk Maxwell', 'Nikola Tesla', 'Michael Faraday', 'Isaac Newton'],
+                correctAnswer: ['James Clerk Maxwell', 'Michael Faraday']
+            },
+            {
+                question: 'Welches dieser Geräte dient zur Bildschirmanzeige?',
+                answers: ['Monitor', 'Maus', 'Grafikkarte', 'Bildschirm'],
+                correctAnswer: ['Monitor', 'Bildschirm']
+            },
+            {
+                question: 'Welches dieser Symbole repräsentiert elektrische Spannung?',
+                answers: ['Volt', 'Ampere', 'Watt', 'Ohm'],
+                correctAnswer: 'Volt'
+            },
+            {
+                question: 'Welche dieser Teile sind Bestandteile eines Computers?',
+                answers: ['CPU', 'GPU', 'SSD', 'RAM'],
+                correctAnswer: ['CPU', 'GPU', 'SSD', 'RAM'] // Alle richtig
+            },
+            {
+                question: 'Welche dieser Erfindungen sind drahtlose Technologien?',
+                answers: ['WLAN', 'Bluetooth', 'Infrarot', 'Ethernet'],
+                correctAnswer: ['WLAN', 'Bluetooth']
+            }
+        ]
+    },
+    {
+        category: 'Mathe',
+        questions: [
+            {
+                question: 'Welche dieser Zahlen sind Primzahlen?',
+                answers: ['2', '3', '4', '5'],
+                correctAnswer: ['2', '3', '5']
+            },
+            {
+                question: 'Welche dieser Gleichungen sind Quadratische Gleichungen?',
+                answers: ['x² + 2x + 1 = 0', 'y = 3x + 5', 'x² - 4 = 0', 'z + 1 = 0'],
+                correctAnswer: ['x² + 2x + 1 = 0', 'x² - 4 = 0']
+            },
+            {
+                question: 'Welche dieser Brüche sind gleich 0.5?',
+                answers: ['1/2', '2/4', '3/6', '2/5'],
+                correctAnswer: ['1/2', '2/4', '3/6'] // Alle richtig
+            },
+            {
+                question: 'Was ist die Summe von 15 + 16?',
+                answers: ['30', '31', '32', '33'],
+                correctAnswer: '31'
+            },
+            {
+                question: 'Welche dieser Werte sind das Ergebnis von 9 x 7?',
+                answers: ['63', '54', '72', '81'],
+                correctAnswer: '63'
+            },
+            {
+                question: 'Welche dieser Geometrischen Formen haben 4 Seiten?',
+                answers: ['Quadrat', 'Rechteck', 'Dreieck', 'Trapez'],
+                correctAnswer: ['Quadrat', 'Rechteck', 'Trapez']
+            },
+            {
+                question: 'Was ist die Ableitung von x²?',
+                answers: ['2x', 'x', 'x²', '2'],
+                correctAnswer: '2x'
+            },
+            {
+                question: 'Welche dieser Winkel sind kleiner als 90 Grad?',
+                answers: ['30 Grad', '60 Grad', '120 Grad', '150 Grad'],
+                correctAnswer: ['30 Grad', '60 Grad']
+            },
+            {
+                question: 'Welche dieser Zahlen sind durch 5 teilbar?',
+                answers: ['10', '15', '25', '35'],
+                correctAnswer: ['10', '15', '25', '35'] // Alle richtig
+            },
+            {
+                question: 'Welche dieser Aussagen sind immer wahr?',
+                answers: ['1 + 1 = 2', '3 + 3 = 6', '5 + 5 = 11', '2 x 2 = 4'],
+                correctAnswer: ['1 + 1 = 2', '3 + 3 = 6', '2 x 2 = 4']
+            }
+        ]
+    },
+    {
+        category: 'Tiere',
+        questions: [
+            {
+                question: 'Welche dieser Tiere sind Säugetiere?',
+                answers: ['Elefant', 'Hai', 'Delfin', 'Pinguin'],
+                correctAnswer: ['Elefant', 'Delfin']
+            },
+            {
+                question: 'Welche dieser Tiere können fliegen?',
+                answers: ['Adler', 'Fledermaus', 'Kolibri', 'Strauss'],
+                correctAnswer: ['Adler', 'Fledermaus', 'Kolibri']
+            },
+            {
+                question: 'Welche dieser Tiere sind Kaltblüter?',
+                answers: ['Schlange', 'Frosch', 'Schildkröte', 'Löwe'],
+                correctAnswer: ['Schlange', 'Frosch', 'Schildkröte'] // Alle richtig
+            },
+            {
+                question: 'Welche dieser Tiere sind Raubtiere?',
+                answers: ['Löwe', 'Wolf', 'Giraffe', 'Bär'],
+                correctAnswer: ['Löwe', 'Wolf', 'Bär']
+            },
+            {
+                question: 'Welche dieser Tiere sind nachtaktiv?',
+                answers: ['Fledermaus', 'Eule', 'Maus', 'Hund'],
+                correctAnswer: ['Fledermaus', 'Eule']
+            },
+            {
+                question: 'Welches Tier legt Eier, obwohl es ein Säugetier ist?',
+                answers: ['Schnabeltier', 'Känguru', 'Wal', 'Pferd'],
+                correctAnswer: 'Schnabeltier'
+            },
+            {
+                question: 'Welche dieser Tiere können ihren Schwanz abwerfen, um zu entkommen?',
+                answers: ['Eidechse', 'Frosch', 'Schlange', 'Wespe'],
+                correctAnswer: 'Eidechse'
+            },
+            {
+                question: 'Welches Tier ist für seine "Lachlaute" bekannt?',
+                answers: ['Papagei', 'Hyäne', 'Affe', 'Rabe'],
+                correctAnswer: 'Hyäne'
+            },
+            {
+                question: 'Welche dieser Tiere sind Wassersäugetiere?',
+                answers: ['Wal', 'Robbe', 'Delfin', 'Hai'],
+                correctAnswer: ['Wal', 'Robbe', 'Delfin']
+            },
+            {
+                question: 'Welche dieser Tiere haben keine Beine?',
+                answers: ['Schlange', 'Wurm', 'Aal', 'Krabbe'],
+                correctAnswer: ['Schlange', 'Wurm', 'Aal']
+            }
+        ]
+    },
+    {
+        category: 'Musik',
+        questions: [
+            {
+                question: 'Wer sang das Lied "Thriller"?',
+                answers: ['Elvis Presley', 'Michael Jackson', 'Prince', 'Madonna'],
+                correctAnswer: 'Michael Jackson'
+            },
+            {
+                question: 'Welche Instrumentengruppe gehört das Klavier an?',
+                answers: ['Saiteninstrumente', 'Tasteninstrumente', 'Schlaginstrumente', 'Blasinstrumente'],
+                correctAnswer: ['Saiteninstrumente', 'Tasteninstrumente']
+            },
+            {
+                question: 'Wer komponierte die "Mondscheinsonate"?',
+                answers: ['Ludwig van Beethoven', 'Wolfgang Amadeus Mozart', 'Johann Sebastian Bach', 'Franz Schubert'],
+                correctAnswer: 'Ludwig van Beethoven'
+            },
+            {
+                question: 'Welche Musikrichtungen sind stark mit der E-Gitarre verbunden?',
+                answers: ['Klassik', 'Jazz', 'Rock', 'Blues'],
+                correctAnswer: ['Rock', 'Blues']
+            },
+            {
+                question: 'Wie viele Saiten hat eine normale Gitarre?',
+                answers: ['Vier', 'Sechs', 'Acht', 'Zwölf'],
+                correctAnswer: 'Sechs'
+            },
+            {
+                question: 'Welche Musikgruppe sang "Bohemian Rhapsody"?',
+                answers: ['Queen', 'The Beatles', 'Led Zeppelin', 'The Rolling Stones'],
+                correctAnswer: 'Queen'
+            },
+            {
+                question: 'Welches Instrument spielte Louis Armstrong?',
+                answers: ['Klavier', 'Trompete', 'Saxophon', 'Gitarre'],
+                correctAnswer: 'Trompete'
+            },
+            {
+                question: 'Wer gilt als der "King of Rock\'n\'Roll"?',
+                answers: ['Michael Jackson', 'Elvis Presley', 'Chuck Berry', 'James Brown'],
+                correctAnswer: 'Elvis Presley'
+            },
+            {
+                question: 'Welches dieser Instrumente wird typischerweise im Jazz verwendet?',
+                answers: ['Saxophon', 'Klavier', 'Trompete', 'Gitarre'],
+                correctAnswer: ['Saxophon', 'Klavier', 'Trompete'] // Alle richtig
+            },
+            {
+                question: 'Welcher Sänger ist bekannt für das Lied "Shape of You"?',
+                answers: ['Justin Bieber', 'Ed Sheeran', 'Shawn Mendes', 'Sam Smith'],
+                correctAnswer: 'Ed Sheeran'
+            }
+        ]
+    }
 ];
+
 
 // Pages proof
 window.addEventListener('load', () => {
@@ -325,10 +567,10 @@ function loadQuestion(quiz) {
 
 // Funktion für den Next-Button
 function nextButton_fc(quiz) {
-    let clicked_answer = document.querySelector('.active_answer input');
+    let clicked_answer = document.querySelectorAll('.active_answer input');
 
     // Überprüfen, ob eine Antwort ausgewählt wurde
-    if (!clicked_answer) {
+    if (clicked_answer.length === 0) {
         alert('Bitte mindestens eine Antwort auswählen!');
         return;
     }
@@ -337,10 +579,8 @@ function nextButton_fc(quiz) {
     const currentQuestion = quiz.questions[currentQuestionIndex];
 
     // Antwortüberprüfung
-    if (clicked_answer.value === currentQuestion.correctAnswer) {
-        alert('Richtige Antwort!');
-        quiz_punkte++;
-    } else if (clicked_answer.value === currentQuestion.correctAnswer[currentQuestionIndex]) {
+    if (clicked_answer.value === currentQuestion.correctAnswer || 
+        clicked_answer.value === currentQuestion.correctAnswer[currentQuestionIndex]) {
         alert('Richtige Antwort!');
         quiz_punkte++;
     } else {
