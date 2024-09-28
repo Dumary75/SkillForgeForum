@@ -59,7 +59,7 @@ const quizData = [
             {
                 question: 'Wie viele Planeten unseres Sonnensystems besitzen Ringe?',
                 answers: ['Zwei', 'Drei', 'Vier', 'Fünf'],
-                correctAnswer: 'Vier (Jupiter, Saturn, Uranus, Neptun)'
+                correctAnswer: ['Vier','Zwei']
             }
         ]
     },
@@ -83,6 +83,10 @@ const quizData = [
 
 // Pages proof
 window.addEventListener('load', () => {
+
+// Prüfung ob ACC eingeloggt ist FEHLT
+
+
     const currentPath = window.location.pathname;
 
     if(currentPath.includes('quiz_selection.html')){
@@ -274,93 +278,17 @@ const userQuizData = JSON.parse(localStorage.getItem('userQuizData')) || [];
 const selectedQuiz = quizData.find(quizData => quizData.category === sache);
 const selected_user_quiz = userQuizData.find(userQuizData => userQuizData.category === sache);
 
-if (selectedQuiz) {
-    // Neuen Fragen-Index für die Navigation definieren
-    let currentQuestionIndex = 0;
-
-
-    // TEST AUSSAGE
-    document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selectedQuiz.questions.length}`;
-    // Funktion zum Laden der aktuellen Frage
-    function loadQuestion() {
-        const questionTextElement = document.getElementById('questionText');
-        const answerContainer = document.querySelector('.answer-container');
-        
-        // Fragen und Antworten aus dem aktuellen Quiz
-        const currentQuestion = selectedQuiz.questions[currentQuestionIndex];
-
-        // Fragetext aktualisieren
-        questionTextElement.textContent = currentQuestion.question;
-
-        // Antworten löschen, bevor neue Antworten hinzugefügt werden
-        answerContainer.innerHTML = '';
-
-        // Antworten dynamisch generieren
-        let test = 0;
-        currentQuestion.answers.forEach((answer, index) => {
-            const answerLabel = document.createElement('label');
-            const answerInput = document.createElement('input');
-
-            // Antwortfeld konfigurieren
-            answerInput.type = 'checkbox';
-            answerInput.value = answer;
-            answerInput.classList.add('answer-checkbox');
-
-            answerLabel.classList.add('answer_label');
-            answerLabel.classList.add(`answer_label_box${test}`);
-
-            answerInput.addEventListener('click', () => {
-                answerLabel.classList.toggle('active_answer');
-            });
-
-            answerLabel.appendChild(answerInput);
-            answerLabel.appendChild(document.createTextNode(answer));
-
-            answerContainer.appendChild(answerLabel);
-            answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
-            test++;
-        });
-    }
-
-    // Frage laden
-    loadQuestion();
-
-// Nächste Frage beim Klicken auf den Button laden
-const nextButton = document.getElementById('nextButton');
-nextButton.addEventListener('click', () => {
-    let clicked_answer = document.querySelector('.active_answer');
-
-    if (currentQuestionIndex < selectedQuiz.questions.length - 1) {
-        // Überprüfen, ob eine Antwort ausgewählt wurde
-        if (!clicked_answer) {
-            alert('Bitte mindestens eine Antwort auswählen!');
-            return; 
-        }
-        currentQuestionIndex++;
-        loadQuestion();
-        document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selectedQuiz.questions.length}`;
-    } else if (!clicked_answer) {
-        alert('Bitte mindestens eine Antwort auswählen!');
-    } else {
-        alert('Das war die letzte Frage!');
-        // Hier kannst du die Logik zum Beenden des Quizzes hinzufügen
-    }
-});
-
-} else if(selected_user_quiz){
-// Neuen Fragen-Index für die Navigation definieren
 let currentQuestionIndex = 0;
+let currentQuiz = null;  // Variable, die das ausgewählte Quiz speichert
+let quiz_punkte = 0;
 
-
-// TEST AUSSAGE
-document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selected_user_quiz.questions.length}`;
 // Funktion zum Laden der aktuellen Frage
-function loadQuestion() {
+function loadQuestion(quiz) {
     const questionTextElement = document.getElementById('questionText');
     const answerContainer = document.querySelector('.answer-container');
     
     // Fragen und Antworten aus dem aktuellen Quiz
-    const currentQuestion = selected_user_quiz.questions[currentQuestionIndex];
+    const currentQuestion = quiz.questions[currentQuestionIndex];
 
     // Fragetext aktualisieren
     questionTextElement.textContent = currentQuestion.question;
@@ -395,38 +323,77 @@ function loadQuestion() {
     });
 }
 
-// Frage laden
-loadQuestion();
+// Funktion für den Next-Button
+function nextButton_fc(quiz) {
+    let clicked_answer = document.querySelector('.active_answer input');
 
-// Nächste Frage beim Klicken auf den Button laden
-const nextButton = document.getElementById('nextButton');
-nextButton.addEventListener('click', () => {
-let clicked_answer = document.querySelector('.active_answer');
-
-if (currentQuestionIndex < selected_user_quiz.questions.length - 1) {
     // Überprüfen, ob eine Antwort ausgewählt wurde
     if (!clicked_answer) {
         alert('Bitte mindestens eine Antwort auswählen!');
-        return; 
+        return;
     }
-    currentQuestionIndex++;
-    loadQuestion();
-    document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${selected_user_quiz.questions.length}`;
-} else if (!clicked_answer) {
-    alert('Bitte mindestens eine Antwort auswählen!');
+
+    // Aktuelle Frage holen
+    const currentQuestion = quiz.questions[currentQuestionIndex];
+
+    // Antwortüberprüfung
+    if (clicked_answer.value === currentQuestion.correctAnswer) {
+        alert('Richtige Antwort!');
+        quiz_punkte++;
+    } else if (clicked_answer.value === currentQuestion.correctAnswer[currentQuestionIndex]) {
+        alert('Richtige Antwort!');
+        quiz_punkte++;
+    } else {
+        alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
+    }
+
+    // Überprüfen, ob es weitere Fragen gibt + Ende und Abfrage für neues Spiel
+    if (currentQuestionIndex < quiz.questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion(quiz);
+        document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${quiz.questions.length}`;
+    } else {
+        function quiz_ending(){
+            alert(`Das war die letzte Frage! \n Du hast: ${quiz_punkte} von ${quiz.questions.length} \n Richtig beantwortet!`);
+            let again_frage = prompt(`Möchtest du nochmal ein Quiz Spielen? \n Tippe ein: Ja oder Nein`).toLowerCase();
+
+            if(again_frage === 'ja'){
+                window.location.href = "quiz_selection.html"; 
+            } else if(again_frage === 'nein'){
+                window.location.href = "index.html";
+            } else {
+                alert(`Entweder ja oder nein eintippen \n alles andere ist ungültig!`)
+                quiz_ending();
+            }
+        };
+        quiz_ending();
+    };
+};
+
+// Überprüfen, welches Quiz geladen werden soll
+if (selectedQuiz) {
+    currentQuiz = selectedQuiz;
+} else if (selected_user_quiz) {
+    currentQuiz = selected_user_quiz;
 } else {
-    alert('Das war die letzte Frage!');
-    // Hier kannst du die Logik zum Beenden des Quizzes hinzufügen
-}
-});
-}
-else {
     console.log("Keine Fragen für diese Kategorie gefunden.");
 }
 
+// Wenn ein Quiz gefunden wurde, initialisiere die Frage und den Next-Button
+if (currentQuiz) {
+    // Setze den Titel der ersten Frage
+    document.getElementById('questionheadline').textContent = `Frage ${currentQuestionIndex + 1}/${currentQuiz.questions.length}`;
 
-    };
-});
+    // Lade die erste Frage
+    loadQuestion(currentQuiz);
+
+    // Nächste Frage beim Klicken auf den Button laden
+    const nextButton = document.getElementById('nextButton');
+    nextButton.addEventListener('click', () => {
+        nextButton_fc(currentQuiz);
+    });
+}}});
+
 
 
 

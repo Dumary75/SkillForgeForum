@@ -90,6 +90,56 @@ a{
     color: #FFF;
 }
 
+/* > Login_Checker < */
+.login_checker{
+    background-color: #066f8b;
+    border: 0.2rem solid #000;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    bottom: -60rem;
+    width: 0px;
+    height: 0px;
+    transition: all 0.5s;
+    opacity: 0;
+    text-transform: uppercase;
+}
+
+.login_checker div:nth-of-type(1) {
+    background-color: #0fb6e7;
+}
+
+.login_checker div:nth-of-type(2) {
+    background-color: #10a2f2; 
+}
+
+.login_checker div{
+    border: 0.1rem solid #000;
+    height: 8rem;
+    width: 90%;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+}
+
+.login_checker p{
+    font-size: 2.5rem;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.login_checker h1{
+    font-size: 2rem;
+}
+
+.login_checker_active{
+    bottom: 20rem;
+    width: 100%;
+    height: 30rem;
+    opacity: 1;
+}
+
 /* --- Question SELECTION / CREATE SITE --- */
 .quest_create{
     background-color: #066f8b;
@@ -125,6 +175,7 @@ a{
     width: 0px;
     height: 0px;
     transition: all 0.5s;
+    opacity: 0;
 }
 
 h1{
@@ -186,6 +237,7 @@ button a:visited{
 
 /* > Selection_Area < */
 .quest_selection_list {
+    opacity: 0;
     padding: 0;
     text-align: center;
     position: relative;
@@ -200,6 +252,7 @@ button a:visited{
     width: 100%;
     height: auto;
     margin-top: 2rem;
+    opacity: 1;
 }
 
 .quest_selection_list li {
