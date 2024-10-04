@@ -580,38 +580,38 @@ function nextButton_fc(quiz) {
     const currentQuestion = quiz.questions[currentQuestionIndex];
 
     // Antwortüberprüfung
-    if(typeof currentQuestion.correctAnswer === 'string'){
-        if (clicked_answer.value === currentQuestion.correctAnswer) {
-            alert('Richtige Antwort!');
-            quiz_punkte++;
-        } else {
-            alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
-        };
-    } else{
-        // Prüfung bei mehreren richtigen Antworten
-        let multiple_choice_user_answers = [];
-        document.querySelectorAll('.active_answer input').forEach(input => {
-            multiple_choice_user_answers.push(input.value); // Sammle die ausgewählten Antworten
-        });
-        const selected_user_answers_sorted = JSON.stringify(multiple_choice_user_answers.sort());
+ 
+                // Prüfung bei mehreren richtigen Antworten
+                let multiple_choice_user_answers = [];
+                clicked_answer.forEach(input => {
+                    multiple_choice_user_answers.push(input.value); // Sammle die ausgewählten Antworten
+                });
+                const selected_user_answers_sorted = JSON.stringify(multiple_choice_user_answers.sort());
+        
+                // -----------------<<<<<<<<<<<<<<<<<<
+                let multiple_choice_correct_answers = [];
 
-        // -----------------<<<<<<<<<<<<<<<<<<
-        let multiple_choice_correct_answers = [];
+                if(typeof currentQuestion.correctAnswer === 'string'){
+                    let testarray = currentQuestion.correctAnswer.split(' ');
+                    testarray.forEach(test2 => {
+                        multiple_choice_correct_answers.push(test2);
+                    });
+                } else{
+                    currentQuestion.correctAnswer.forEach(test => {
+                        multiple_choice_correct_answers.push(test);
+                    });
+                };
+        
 
-        currentQuestion.correctAnswer.forEach(test => {
-            multiple_choice_correct_answers.push(test);
-            console.log(test);
-        });
-
-        const correct_answers_sorted = JSON.stringify(multiple_choice_correct_answers.sort());
-
-        if (selected_user_answers_sorted === correct_answers_sorted) {
-            alert('Richtige Antwort!');
-            quiz_punkte++;
-        } else {
-            alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
-        }
-    };
+        
+                const correct_answers_sorted = JSON.stringify(multiple_choice_correct_answers.sort());
+        
+                if (selected_user_answers_sorted === correct_answers_sorted) {
+                    alert('Richtige Antwort!');
+                    quiz_punkte++;
+                } else {
+                    alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
+                };
 
     // Überprüfen, ob es weitere Fragen gibt + Ende und Abfrage für neues Spiel
     if (currentQuestionIndex < quiz.questions.length - 1) {
