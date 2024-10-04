@@ -46,7 +46,6 @@ let quest_user_create_field = document.querySelector('.user_input_create_input')
 
 const quizData = [
     {
-        category: 'Natur',
         questions: [
             {
                 question: 'Welcher Baum ist der höchste der Welt?',
@@ -428,29 +427,27 @@ saveQuestionBtn.addEventListener('click', (event) => {
 
     // Antworten sammeln
     const answers = Array.from(document.querySelectorAll('.answer-input')).map(input => input.value);
-    
-    // Überprüfung: Der Frage / Antworten
+
+    // Überprüfung
     if (newQuestion === '') {
         event.preventDefault();
         alert('Bitte eine Frage eintippen!');
         return;
-    } 
-    // else if(answers.value === '') {
+    // } else if (answers.length < MIN_ANSWERS) {
     //     event.preventDefault();
     //     alert('Bitte mindestens 2 Antwortmöglichkeiten eintippen!');
     //     return;
-    // } 
-    else if (correctAnswers.length === 0 ){
+    } else if (correctAnswers.length === 0) {
         event.preventDefault();
         alert('Bitte mindestens eine richtige Antwort auswählen!');
         return;
-    };
+    }
 
     // Neue Frage als Objekt
     const newQuestionObj = {
         question: newQuestion,
         answers: answers,
-        correctAnswers: correctAnswers
+        correctAnswer: correctAnswers.map(index => answers[index]) // Speichern der richtigen Antworten
     };
 
     // User-Quizfragen aus dem LocalStorage laden
@@ -459,6 +456,7 @@ saveQuestionBtn.addEventListener('click', (event) => {
     // Kategorie im User-Quiz-Daten-Array finden
     let selectedUserQuiz = userQuizData.find(quiz => quiz.category === selectedCategory);
 
+    // !!!!---------- Unnötige Prüfung ----------!!!!
     if (selectedUserQuiz) {
         // Neue Frage zur bestehenden Kategorie hinzufügen
         selectedUserQuiz.questions.push(newQuestionObj);
@@ -540,6 +538,7 @@ function loadQuestion(quiz) {
 
     // Antworten dynamisch generieren
     let test = 0;
+
     currentQuestion.answers.forEach((answer, index) => {
         const answerLabel = document.createElement('label');
         const answerInput = document.createElement('input');
@@ -562,6 +561,7 @@ function loadQuestion(quiz) {
         answerContainer.appendChild(answerLabel);
         answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
         test++;
+
     });
 }
 
@@ -579,6 +579,40 @@ function nextButton_fc(quiz) {
     const currentQuestion = quiz.questions[currentQuestionIndex];
 
     // Antwortüberprüfung
+<<<<<<< HEAD
+    if(typeof currentQuestion.correctAnswer === 'string'){
+        if (clicked_answer.value === currentQuestion.correctAnswer) {
+            alert('Richtige Antwort!');
+            quiz_punkte++;
+        } else {
+            alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
+        };
+    } else{
+        // Prüfung bei mehreren richtigen Antworten
+        let multiple_choice_user_answers = [];
+        document.querySelectorAll('.active_answer input').forEach(input => {
+            multiple_choice_user_answers.push(input.value); // Sammle die ausgewählten Antworten
+        });
+        const selected_user_answers_sorted = JSON.stringify(multiple_choice_user_answers.sort());
+
+        // -----------------<<<<<<<<<<<<<<<<<<
+        let multiple_choice_correct_answers = [];
+
+        currentQuestion.correctAnswer.forEach(test => {
+            multiple_choice_correct_answers.push(test);
+            console.log(test);
+        });
+
+        const correct_answers_sorted = JSON.stringify(multiple_choice_correct_answers.sort());
+
+        if (selected_user_answers_sorted === correct_answers_sorted) {
+            alert('Richtige Antwort!');
+            quiz_punkte++;
+        } else {
+            alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
+        }
+    };
+=======
     if (clicked_answer.value === currentQuestion.correctAnswer || 
         clicked_answer.value === currentQuestion.correctAnswer[currentQuestionIndex]) {
         alert('Richtige Antwort!');
@@ -586,6 +620,7 @@ function nextButton_fc(quiz) {
     } else {
         alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
     }
+>>>>>>> 51ddde06474da30df6154e405b89b139d2a0baba
 
     // Überprüfen, ob es weitere Fragen gibt + Ende und Abfrage für neues Spiel
     if (currentQuestionIndex < quiz.questions.length - 1) {
