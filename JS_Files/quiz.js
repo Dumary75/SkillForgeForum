@@ -46,6 +46,7 @@ let quest_user_create_field = document.querySelector('.user_input_create_input')
 
 const quizData = [
     {
+        category: 'Natur',
         questions: [
             {
                 question: 'Welcher Baum ist der höchste der Welt?',
