@@ -579,7 +579,6 @@ function nextButton_fc(quiz) {
     const currentQuestion = quiz.questions[currentQuestionIndex];
 
     // Antwortüberprüfung
-<<<<<<< HEAD
     if(typeof currentQuestion.correctAnswer === 'string'){
         if (clicked_answer.value === currentQuestion.correctAnswer) {
             alert('Richtige Antwort!');
@@ -612,15 +611,6 @@ function nextButton_fc(quiz) {
             alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
         }
     };
-=======
-    if (clicked_answer.value === currentQuestion.correctAnswer || 
-        clicked_answer.value === currentQuestion.correctAnswer[currentQuestionIndex]) {
-        alert('Richtige Antwort!');
-        quiz_punkte++;
-    } else {
-        alert(`Falsche Antwort! Die richtige Antwort wäre gewesen: ${currentQuestion.correctAnswer}`);
-    }
->>>>>>> 51ddde06474da30df6154e405b89b139d2a0baba
 
     // Überprüfen, ob es weitere Fragen gibt + Ende und Abfrage für neues Spiel
     if (currentQuestionIndex < quiz.questions.length - 1) {
