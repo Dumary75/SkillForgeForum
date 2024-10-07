@@ -30,7 +30,7 @@ header_headline.addEventListener('click', () => {
               main_block.classList.toggle('pressed_blurry_effect');
        });
        
-       footer.classList.toggle('pressed_blurry_effect');
+       // footer.classList.toggle('pressed_blurry_effect');
    });
 
 

@@ -61,6 +61,10 @@ header{
 
 .login_state_loggedIn {
     background-color: #0cb11a;
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 /* ---- If the Header_Button is pressed ---- */

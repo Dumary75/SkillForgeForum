@@ -59,9 +59,13 @@ header{
     background-color: rgb(172, 12, 12);
 }
 
-/* .login_state_loggedIn {
+.login_state_loggedIn {
     background-color: #0cb11a;
-} */
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
 /* ---- If the Header_Button is pressed ---- */
 header.pressed{

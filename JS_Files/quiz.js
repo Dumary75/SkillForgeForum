@@ -5,8 +5,8 @@
  window.addEventListener('load', () => {
        let acc_token = JSON.parse(localStorage.getItem("loginToken"))
        if(acc_token){
-        account_state.style.backgroundColor = '#0cb11a';
-        account_state.innerText = 'eingeloggt';    
+        account_state.classList.add('login_state_loggedIn');
+         account_state.innerText = 'eingeloggt';    
        };
  });
 
@@ -321,6 +321,7 @@ const quizData = [
         ]
     }
 ];
+
 
 
 // Pages proof

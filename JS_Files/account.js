@@ -27,7 +27,7 @@ header_headline.addEventListener('click', () => {
        });
 
        main_container.classList.toggle('pressed_blurry_effect');
-       footer.classList.toggle('pressed_blurry_effect');
+       // footer.classList.toggle('pressed_blurry_effect');
    });
 
 
