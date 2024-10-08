@@ -54,9 +54,15 @@ header{
     display: none;
 }
 
+/* ---- Login_State Box and Functions ---- */
+
 .login_state{
     padding-top: 0.6rem;
     background-color: rgb(172, 12, 12);
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .login_state_loggedIn {
@@ -65,6 +71,36 @@ header{
     color: #FFF;
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.login_state_clicked{
+    background-color: rgb(109, 167, 184);
+    height: 0px;
+    width: 0px;
+    position: relative;
+    bottom: 16rem;
+    left: 50rem;
+    transition: all 0.7s;
+}
+
+.login_state_clicked_active{
+    height: 12rem;
+    width: 80%;
+    border: 0.1rem solid #000;
+    color: #FFF;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 2rem auto 0px;
+    bottom: 16rem;
+    left: 0px;
+}
+
+.login_state_clicked_active p:nth-child(1){
+    background-color: rgb(221, 75, 75);
+    border: 0.1rem solid #000;
+    padding: 0.4rem;
 }
 
 /* ---- If the Header_Button is pressed ---- */

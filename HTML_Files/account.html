@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../Favicons/account-32x32.png">
     <title>Account</title>
     <link rel="stylesheet" href="../CSS_Files/account.css">
-    <script type="module" src="../JS_Files/account.js" defer></script>
+    <script src="../JS_Files/account.js" defer></script>
 </head>
 
 <header>
@@ -16,18 +16,15 @@
             <p>Übersicht</p>
         </div>
 
-        <a href="index.html">
-            <div class="header_blocks_default desktop_index">
-                <p>Index</p>
-            </div>
-        </a>
+        <div class="header_blocks_default desktop_index position_website">
+            <p>Index</p>
+        </div>
 
         <a href="account.html">
-            <div class="header_blocks_default position_website">
+            <div class="header_blocks_default">
                 <p>Account 👨‍💻</p>
             </div>
         </a>
-
 
         <a href="quiz_selection.html">
             <div class="header_blocks_default">
@@ -43,8 +40,12 @@
 
         <div class="header_blocks_default login_state">
             <p>Ausgeloggt</p>
-        </div>
+        </div>   
+    </div>
 
+    <div class="login_state_clicked">
+        <p class="ausloggen">ausloggen</p>
+        <p class="abrechen">abrechen</p>
     </div>
 </header>
 
