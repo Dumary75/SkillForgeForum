@@ -512,7 +512,6 @@ saveQuestionBtn.addEventListener('click', (event) => {
     // Kategorie im User-Quiz-Daten-Array finden
     let selectedUserQuiz = userQuizData.find(quiz => quiz.category === selectedCategory);
 
-    // !!!!---------- Unnötige Prüfung ----------!!!!
     if (selectedUserQuiz) {
         // Neue Frage zur bestehenden Kategorie hinzufügen
         selectedUserQuiz.questions.push(newQuestionObj);
@@ -684,7 +683,7 @@ function nextButton_fc(quiz) {
             } else if(again_frage === 'nein'){
                 window.location.href = "index.html";
             } else {
-                alert(`Entweder ja oder nein eintippen \n alles andere ist ungültig!`)
+                alert(`Entweder "ja" oder "nein" eintippen \n alles andere ist ungültig!`)
                 quiz_ending();
             }
         };
@@ -697,9 +696,7 @@ if (selectedQuiz) {
     currentQuiz = selectedQuiz;
 } else if (selected_user_quiz) {
     currentQuiz = selected_user_quiz;
-} else {
-    console.log("Keine Fragen für diese Kategorie gefunden.");
-}
+};
 
 // Wenn ein Quiz gefunden wurde, initialisiere die Frage und den Next-Button
 if (currentQuiz) {
