@@ -1,5 +1,8 @@
 "use strict"
 
+// Check first if User is logged in //
+let acc_token = JSON.parse(localStorage.getItem("loginToken"))
+
 // --- Header Click Event --- //
 
 let header_default = document.querySelector('header');
@@ -8,17 +11,19 @@ let header_blocks = document.querySelectorAll('.header_blocks_default');
 let header_headline = document.querySelector('.header_headline');
 let footer = document.querySelector('footer');
 
-header_headline.addEventListener('click', () => {
-       header_default.classList.toggle('pressed');
-       header_headline.classList.toggle('header_headline_pressed');
-
-       header_blocks.forEach(header_block => {
-              header_block.classList.toggle('pressed_header_blocks');
-       });
-
-       main_container.classList.toggle('pressed_blurry_effect');
-       // footer.classList.toggle('pressed_blurry_effect');
-   });
+if(acc_token){
+    header_headline.addEventListener('click', () => {
+        header_default.classList.toggle('pressed');
+        header_headline.classList.toggle('header_headline_pressed');
+ 
+        header_blocks.forEach(header_block => {
+               header_block.classList.toggle('pressed_header_blocks');
+        });
+ 
+        main_container.classList.toggle('pressed_blurry_effect');
+        // footer.classList.toggle('pressed_blurry_effect');
+    });
+}
 
 // > Account_current_state Logic < //  
 
@@ -26,16 +31,24 @@ let account_state = document.querySelector('.login_state');
 let account_state_clicked = document.querySelector('.login_state_clicked');
 let ausloggen = document.querySelector('.ausloggen');
 let ausloggen_abrechen = document.querySelector('.abrechen');
-let acc_token = JSON.parse(localStorage.getItem("loginToken"))
+
+let logged_site_blocker = document.querySelector('.login_checker');
+let logged_site_blocker_boxes = document.querySelectorAll('.login_checker_boxes');
 
 window.addEventListener('load', () => {
        if(acc_token){
               account_state.classList.add('login_state_loggedIn');
               account_state.innerText = 'eingeloggt';
        } else {
-              ausloggen.innerText = 'einloggen';
-              ausloggen.style.backgroundColor = '#0cb11a';
-       }
+        logged_site_blocker.classList.add('login_checker_active');
+        header_headline.classList.add('pressed_blurry_effect');
+        main_container.classList.add('pressed_blurry_effect');
+        logged_site_blocker_boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                window.location.href = 'account.html';
+            });
+        });
+       };
 });
  
 
@@ -367,9 +380,6 @@ const quizData = [
 // Pages proof
 window.addEventListener('load', () => {
 
-// Prüfung ob ACC eingeloggt ist FEHLT
-
-
     const currentPath = window.location.pathname;
 
     if(currentPath.includes('quiz_selection.html')){
@@ -382,12 +392,15 @@ quest_create_field.addEventListener('click', () => {
     quest_user_create_field.classList.add('selection_active');
 });
 
-quest_answer_field.addEventListener('click', () => {
-    quest_create_field.style.display = 'none';
-    quest_answer_field.style.display = 'none';
-    quest_user_create_field.style.display = 'none';
-    quest_selection_list.classList.add('selection_active');
-        });
+if(acc_token){
+    quest_answer_field.addEventListener('click', () => {
+        quest_create_field.style.display = 'none';
+        quest_answer_field.style.display = 'none';
+        quest_user_create_field.style.display = 'none';
+        quest_selection_list.classList.add('selection_active');
+            });
+};
+
 
 // --- QUEST_USER_CREATE site Logic --- //
 
@@ -469,16 +482,17 @@ saveQuestionBtn.addEventListener('click', (event) => {
 
     // Antworten sammeln
     const answers = Array.from(document.querySelectorAll('.answer-input')).map(input => input.value);
+    const hasEmptyAnswer = answers.some(answer => answer.trim() === '');
 
     // Überprüfung
     if (newQuestion === '') {
         event.preventDefault();
         alert('Bitte eine Frage eintippen!');
         return;
-    // } else if (answers.length < MIN_ANSWERS) {
-    //     event.preventDefault();
-    //     alert('Bitte mindestens 2 Antwortmöglichkeiten eintippen!');
-    //     return;
+    } else if (hasEmptyAnswer) {
+        event.preventDefault();
+        alert('Bitte mindestens 2 Antwortmöglichkeiten eintippen!');
+        return;
     } else if (correctAnswers.length === 0) {
         event.preventDefault();
         alert('Bitte mindestens eine richtige Antwort auswählen!');
@@ -581,31 +595,32 @@ function loadQuestion(quiz) {
     // Antworten dynamisch generieren
     let test = 0;
 
-    currentQuestion.answers.forEach((answer, index) => {
-        const answerLabel = document.createElement('label');
-        const answerInput = document.createElement('input');
-
-        // Antwortfeld konfigurieren
-        answerInput.type = 'checkbox';
-        answerInput.value = answer;
-        answerInput.classList.add('answer-checkbox');
-
-        answerLabel.classList.add('answer_label');
-        answerLabel.classList.add(`answer_label_box${test}`);
-
-        answerInput.addEventListener('click', () => {
-            answerLabel.classList.toggle('active_answer');
+    if(acc_token){
+        currentQuestion.answers.forEach((answer, index) => {
+            const answerLabel = document.createElement('label');
+            const answerInput = document.createElement('input');
+    
+            // Antwortfeld konfigurieren
+            answerInput.type = 'checkbox';
+            answerInput.value = answer;
+            answerInput.classList.add('answer-checkbox');
+    
+            answerLabel.classList.add('answer_label');
+            answerLabel.classList.add(`answer_label_box${test}`);
+    
+            answerInput.addEventListener('click', () => {
+                answerLabel.classList.toggle('active_answer');
+            });
+    
+            answerLabel.appendChild(answerInput);
+            answerLabel.appendChild(document.createTextNode(answer));
+    
+            answerContainer.appendChild(answerLabel);
+            answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
+            test++;
         });
-
-        answerLabel.appendChild(answerInput);
-        answerLabel.appendChild(document.createTextNode(answer));
-
-        answerContainer.appendChild(answerLabel);
-        answerContainer.appendChild(document.createElement('br')); // Zeilenumbruch
-        test++;
-
-    });
-}
+    };
+};
 
 // Funktion für den Next-Button
 function nextButton_fc(quiz) {

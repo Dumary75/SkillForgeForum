@@ -127,14 +127,14 @@ acc_login_field.addEventListener('click', () => {
 
 info_icon.addEventListener('click', () => {
        main_container.classList.toggle('pressed_blurry_effect');
-       footer.classList.toggle('pressed_blurry_effect');
+       // footer.classList.toggle('pressed_blurry_effect');
        header_default.classList.toggle('pressed_blurry_effect');
        info_box.classList.toggle('info_box_active');
 });
 
 info_checked_button.addEventListener('click', () => {
        main_container.classList.toggle('pressed_blurry_effect');
-       footer.classList.toggle('pressed_blurry_effect');
+       // footer.classList.toggle('pressed_blurry_effect');
        header_default.classList.toggle('pressed_blurry_effect');
        info_box.classList.toggle('info_box_active');
 });
