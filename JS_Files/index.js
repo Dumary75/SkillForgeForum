@@ -75,7 +75,4 @@ ausloggen_abrechen.addEventListener('click', () => {
        });        
    
 
-    
 
-
-   
