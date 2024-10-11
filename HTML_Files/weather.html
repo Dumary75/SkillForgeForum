@@ -8,7 +8,6 @@
     <title>Wetter</title>
     <link rel="stylesheet" href="../CSS_Files/weather.css">
     <script src="../JS_Files/weather.js" defer></script>
-    <script src="../JS_Files/weather_icons.js" defer></script>
 </head>
 
 <header>
@@ -56,7 +55,7 @@
 
 <main>
     <section class="search">
-        <div>
+        <div class="main_blocks">
             <p>🔎</p>
             <input type="text" placeholder="Beispielstadt">
             <button>Suchen</button>
@@ -64,19 +63,32 @@
     </section>
 
     <section class="big_box">
-        <div>
+        <div class="main_blocks">
             <span>⛅️</span>
             <p class="big_ceclius">27.8 Cº</p>
             <p class="big_wetter_text">Leicht bewölkt</p> 
 
             <p class="big_city">Tübingen</p>
-            <p class="big_datum">09.10.2024 12:52</p>
+            <p class="big_datum">08.10.2024 09:35</p>
 
         </div>
     </section>
-    
 
 </main>
+
+<!------ LOGIN_Check ------>
+<div class="login_checker">
+    <p>❌</p>
+    <h1>Du bist nicht eingeloggt!</h1>
+    <div class="login_checker_boxes">
+        <p>Einloggen</p>
+    </div>
+    <div class="login_checker_boxes">
+        <p>Erstellen</p>
+    </div>
+</div>
+
+</div>
 
 </body>
 

@@ -123,6 +123,57 @@ header.pressed{
     filter: blur(1rem);
 }
 
+/* > Login_Checker / Site Blocker < */
+.login_checker{
+    background-color: #066f8b;
+    border: 0.2rem solid #000;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    bottom: -60rem;
+    width: 0px;
+    height: 0px;
+    transition: all 0.5s;
+    opacity: 0;
+    text-transform: uppercase;
+}
+
+.login_checker div:nth-of-type(1) {
+    background-color: #0fb6e7;
+}
+
+.login_checker div:nth-of-type(2) {
+    background-color: #10a2f2; 
+}
+
+.login_checker div{
+    border: 0.1rem solid #000;
+    height: 8rem;
+    width: 90%;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+}
+
+.login_checker p{
+    font-size: 2.5rem;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.login_checker h1{
+    font-size: 2rem;
+}
+
+.login_checker_active{
+    bottom: 20rem;
+    width: 100%;
+    height: 30rem;
+    opacity: 1;
+    z-index: 2;
+}
+
 /* --- Main Area --- */
 body {
     margin: 0px;
@@ -182,7 +233,7 @@ a{
 .big_box div{
     margin-top: 5rem;
     width: 100%;
-    height: 20rem;
+    height: auto;
     background-color: #0fb6e7;
     border: 0.1rem solid #000;
     color: #FFF;
@@ -204,11 +255,11 @@ a{
 .big_wetter_text{
     margin: 0.5rem 0px;
     font-size: 2.5rem;
-    display: inline-block;
-    border-bottom: 0.1rem solid #FFF;
 }
 
 .big_city{
+    display: inline-block;
+    border-top: 0.1rem solid #FFF;
     margin-top: 2rem;
     margin-bottom: 0px;
     font-size: 1.3rem;

@@ -8,7 +8,7 @@ let header_default = document.querySelector('header');
 let main_blocks = document.querySelectorAll('.main_blocks');
 let header_blocks = document.querySelectorAll('.header_blocks_default');
 let header_headline = document.querySelector('.header_headline');
-let footer = document.querySelector('footer');
+// let footer = document.querySelector('footer');
 
 header_headline.addEventListener('click', () => {
        header_default.classList.toggle('pressed');
@@ -109,6 +109,97 @@ function check_search_input(){
         get_weather_data();
 };
 
+// Übersetzungsfunktion
+function translateDescription(desc) {
+       let translations = {
+              "803": "Aufgelockerte Bewölkung",
+              "800": "Klarer Himmel",
+              "801": "Leicht bewölkt",
+              "200": "Gewitter mit leichtem Regen",
+              "201": "Gewitter mit Regen",
+              "202": "Gewitter mit starkem Regen",
+              "230": "Gewitter mit leichtem Nieselregen",
+              "231": "Gewitter mit Nieselregen",
+              "232": "Gewitter mit starkem Nieselregen",
+              "233": "Gewitter mit Hagel",
+              "300": "Leichter Nieselregen",
+              "301": "Nieselregen",
+              "302": "Starker Nieselregen",
+              "500": "Leichter Regen",
+              "501": "Mäßiger Regen",
+              "502": "Starker Regen",
+              "511": "Eisregen",
+              "520": "Leichter Regenschauer",
+              "521": "Regenschauer",
+              "522": "Starker Regenschauer",
+              "600": "Leichter Schnee",
+              "601": "Schnee",
+              "602": "Starker Schnee",
+              "610": "Schneeregen",
+              "611": "Schneeregen/Schneematsch",
+              "612": "Starker Schneeregen/Schneematsch",
+              "621": "Schneeschauer",
+              "622": "Starker Schneeschauer",
+              "623": "Schneetreiben",
+              "700": "Nebel",
+              "711": "Rauch",
+              "721": "Dunst",
+              "731": "Sand/Staub",
+              "741": "Nebel",
+              "751": "Gefrierender Nebel",
+              "802": "Verstreute Wolken",
+              "804": "Bedeckter Himmel",
+              "900": "Unbekannte Niederschläge"
+          };
+       return translations[desc] || desc; // Fallback auf das Original, wenn keine Übersetzung existiert
+   }
+
+   // Weather_Icons
+
+   function icon_select(code){
+       let icons = {
+              "200": "⛈️",
+              "201": "⛈️",
+              "202": "⛈️",
+              "230": "⛈️",
+              "231": "⛈️",
+              "232": "⛈️",
+              "233": "⛈️",
+              "300": "🌧️",
+              "301": "🌧️",
+              "302": "🌧️",
+              "500": "🌧️",
+              "501": "🌧️",
+              "502": "🌧️",
+              "511": "🌧️",
+              "520": "🌧️",
+              "521": "🌧️",
+              "522": "🌧️",
+              "600": "🌨️",
+              "601": "🌨️",
+              "602": "🌨️",
+              "610": "🌨️",
+              "611": "🌧️",
+              "612": "🌧️",
+              "621": "🌨️",
+              "622": "❄️",
+              "623": "❄️",
+              "700": "🌫️",
+              "711": "🌫️",
+              "721": "🌫️",
+              "731": "🌫️",
+              "741": "🌫️",
+              "751": "🌫️",
+              "800": "☀️",
+              "801": "🌤️",
+              "802": "⛅️",
+              "803": "🌥️",
+              "804": "☁️",
+              "900": "🌧️"
+       };
+       return icons[code];
+   };
+
 
 function get_weather_data(){
     let current_city = localStorage.getItem('weather_city').replace(/"/g, '');;
@@ -118,9 +209,27 @@ function get_weather_data(){
     fetch(activ_url)
      .then(response => response.json())
      .then(data => {
+
+       big_box_logo.innerText = icon_select(data.data[0].weather.code);
+
         let new_temp = (data.data[0].temp);
         big_box_celcius.innerText = `${new_temp} Cº`
-        big_box_datum.innerText = (data.data[0].datetime);
+
+        big_box_weather_text.innerText = translateDescription(data.data[0].weather.code);
+
+        let date = (data.data[0].ob_time);
+        // Splitte das Datum und die Uhrzeit
+        let [datePart, timePart] = date.split(" ");
+        
+        // Splitte das Datum in Jahr, Monat, Tag
+        let [year, month, day] = datePart.split("-");
+        
+        // Drehe die Reihenfolge und füge Punkte hinzu
+        let formattedDate = `${day}.${month}.${year}`;
+        
+        // Verknüpfe das formatierte Datum mit der Uhrzeit
+        let finalDate = `${formattedDate} ${timePart}`;
+        big_box_datum.innerText = finalDate;
 
      })
      .catch(error => console.error('Fehler!', error));
