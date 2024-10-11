@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="../Favicons/quiz-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../Favicons/quiz-32x32.png">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="../CSS_Files/quiz.css">
-    <script src="../JS_Files/quiz.js" defer></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="../Favicons/weather-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Favicons/weather-32x32.png">
+    <title>Wetter</title>
+    <link rel="stylesheet" href="../CSS_Files/weather.css">
+    <script src="../JS_Files/weather.js" defer></script>
+    <script src="../JS_Files/weather_icons.js" defer></script>
 </head>
 
 <header>
@@ -16,7 +17,7 @@
             <p>Übersicht</p>
         </div>
 
-        <div class="header_blocks_default desktop_index">
+        <div class="header_blocks_default desktop_index position_website">
             <p>Index</p>
         </div>
 
@@ -27,7 +28,7 @@
         </a>
 
         <a href="quiz_selection.html">
-            <div class="header_blocks_default position_website">
+            <div class="header_blocks_default">
                 <p>Quiz 💭</p>
             </div>
         </a>
@@ -49,36 +50,37 @@
     </div>
 </header>
 
+
+
 <body>
+
 <main>
+    <section class="search">
+        <div>
+            <p>🔎</p>
+            <input type="text" placeholder="Beispielstadt">
+            <button>Suchen</button>
+        </div>
+    </section>
 
-    <div class="main_container">
+    <section class="big_box">
+        <div>
+            <span>⛅️</span>
+            <p class="big_ceclius">27.8 Cº</p>
+            <p class="big_wetter_text">Leicht bewölkt</p> 
 
-    <div id="questionheadline">Frage 1/10</div>
-    <div id="questionText">Beispieltext für eine Frage, was ist es?</div>
-    <div class="answer-container">
-        <!-- Answer options are dynamically inserted here -->
-    </div>
-    <button id="nextButton">WEITER</button>
+            <p class="big_city">Tübingen</p>
+            <p class="big_datum">09.10.2024 12:52</p>
 
-    </div>
+        </div>
+    </section>
+    
+
 </main>
 
-<!------ LOGIN_Check ------>
-<div class="login_checker">
-    <p>❌</p>
-    <h1>Du bist nicht eingeloggt!</h1>
-    <div class="login_checker_boxes">
-        <p>Einloggen</p>
-    </div>
-    <div class="login_checker_boxes">
-        <p>Erstellen</p>
-    </div>
-</div>
-
-</div>
-
 </body>
+
+
 
 <!-- <footer>
 <p>Beispieltext und so weiter</p>
