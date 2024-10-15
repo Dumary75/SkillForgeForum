@@ -322,54 +322,54 @@ const quizData = [
         category: 'Musik',
         questions: [
             {
-                question: 'Wer sang das Lied "Thriller"?',
-                answers: ['Elvis Presley', 'Michael Jackson', 'Prince', 'Madonna'],
-                correctAnswer: 'Michael Jackson'
+                question: 'Welches Album von Pink Floyd wurde 1973 veröffentlicht?',
+                answers: ['The Wall', 'Wish You Were Here', 'Animals', 'The Dark Side of the Moon'],
+                correctAnswer: 'The Dark Side of the Moon'
             },
             {
-                question: 'Welche Instrumentengruppe gehört das Klavier an?',
-                answers: ['Saiteninstrumente', 'Tasteninstrumente', 'Schlaginstrumente', 'Blasinstrumente'],
-                correctAnswer: ['Saiteninstrumente', 'Tasteninstrumente']
+                question: 'Welche dieser Musiker sind bekannte Jazz-Legenden?',
+                answers: ['Miles Davis', 'Duke Ellington', 'John Coltrane', 'Elvis Presley'],
+                correctAnswer: ['Miles Davis', 'Duke Ellington', 'John Coltrane']
             },
             {
-                question: 'Wer komponierte die "Mondscheinsonate"?',
-                answers: ['Ludwig van Beethoven', 'Wolfgang Amadeus Mozart', 'Johann Sebastian Bach', 'Franz Schubert'],
-                correctAnswer: 'Ludwig van Beethoven'
+                question: 'Welches Instrument spielt Yo-Yo Ma?',
+                answers: ['Cello', 'Geige', 'Klavier', 'Gitarre'],
+                correctAnswer: 'Cello'
             },
             {
-                question: 'Welche Musikrichtungen sind stark mit der E-Gitarre verbunden?',
-                answers: ['Klassik', 'Jazz', 'Rock', 'Blues'],
-                correctAnswer: ['Rock', 'Blues']
+                question: 'Welche dieser Musikrichtungen haben ihren Ursprung im afrikanischen Kontinent?',
+                answers: ['Blues', 'Hip-Hop', 'Reggae', 'Jazz'],
+                correctAnswer: ['Blues', 'Jazz']
             },
             {
-                question: 'Wie viele Saiten hat eine normale Gitarre?',
-                answers: ['Vier', 'Sechs', 'Acht', 'Zwölf'],
-                correctAnswer: 'Sechs'
+                question: 'Wer ist bekannt für die Gründung von Motown Records?',
+                answers: ['Berry Gordy', 'Quincy Jones', 'Phil Spector', 'James Brown'],
+                correctAnswer: 'Berry Gordy'
             },
             {
-                question: 'Welche Musikgruppe sang "Bohemian Rhapsody"?',
-                answers: ['Queen', 'The Beatles', 'Led Zeppelin', 'The Rolling Stones'],
-                correctAnswer: 'Queen'
+                question: 'Welche dieser Künstlerinnen haben Pop-Musik revolutioniert?',
+                answers: ['Madonna', 'Beyoncé', 'Lady Gaga', 'Whitney Houston'],
+                correctAnswer: ['Madonna', 'Beyoncé', 'Lady Gaga']
             },
             {
-                question: 'Welches Instrument spielte Louis Armstrong?',
-                answers: ['Klavier', 'Trompete', 'Saxophon', 'Gitarre'],
-                correctAnswer: 'Trompete'
+                question: 'Wie viele Streicher sind typischerweise in einem Streichquartett?',
+                answers: ['Zwei', 'Drei', 'Vier', 'Fünf'],
+                correctAnswer: 'Vier'
             },
             {
-                question: 'Wer gilt als der "King of Rock\'n\'Roll"?',
-                answers: ['Michael Jackson', 'Elvis Presley', 'Chuck Berry', 'James Brown'],
-                correctAnswer: 'Elvis Presley'
+                question: 'Welche dieser Komponisten gelten als Teil der Wiener Klassik?',
+                answers: ['Beethoven', 'Mozart', 'Haydn', 'Schubert'],
+                correctAnswer: ['Beethoven', 'Mozart', 'Haydn']
             },
             {
-                question: 'Welches dieser Instrumente wird typischerweise im Jazz verwendet?',
-                answers: ['Saxophon', 'Klavier', 'Trompete', 'Gitarre'],
-                correctAnswer: ['Saxophon', 'Klavier', 'Trompete'] // Alle richtig
+                question: 'Welche dieser Instrumente gehören zu den Holzblasinstrumenten?',
+                answers: ['Flöte', 'Oboe', 'Klarinette', 'Trompete'],
+                correctAnswer: ['Flöte', 'Oboe', 'Klarinette']
             },
             {
-                question: 'Welcher Sänger ist bekannt für das Lied "Shape of You"?',
-                answers: ['Justin Bieber', 'Ed Sheeran', 'Shawn Mendes', 'Sam Smith'],
-                correctAnswer: 'Ed Sheeran'
+                question: 'Wer sang das Lied "Imagine"?',
+                answers: ['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr'],
+                correctAnswer: 'John Lennon'
             }
         ]
     }

@@ -125,6 +125,7 @@ header.pressed{
 
 /* > Login_Checker / Site Blocker < */
 .login_checker{
+    color: #FFF;
     background-color: #066f8b;
     border: 0.2rem solid #000;
     text-align: center;
@@ -157,7 +158,6 @@ header.pressed{
 
 .login_checker p{
     font-size: 2.5rem;
-    color: #FFF;
     font-weight: bold;
     margin: 0px;
 }
@@ -270,10 +270,28 @@ a{
     font-size: 1.3rem;
 }
 
+/* > Small_box < */
 
+.testklasse{
 
+    width: 100%;
+    height: 3rem;
+    background-color: #0caad6;
+    border: 0.1rem solid #000;
 
+    margin: 1rem auto;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
 
+.testklasse span{
+    font-size: 2rem;
+}
 
 /* --- Footer Area --- */
 /* footer{
