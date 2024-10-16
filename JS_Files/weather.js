@@ -329,7 +329,7 @@ function get_weather_data(){
         for(let i=1; i<4; i++){
             // Boxen
             let small_box = document.createElement('div');
-            small_box.classList.add(i, 'testklasse');
+            small_box.classList.add('testklasse');
         
             // Symbol
             let weather_symbol = document.createElement('span');
@@ -363,7 +363,6 @@ function get_weather_data(){
             small_box.appendChild(datum_text);
             small_box.appendChild(WochenTag);
             small_boxes_container.appendChild(small_box);
-                
             };
      })
      .catch(error => console.error('Fehler!', error));

@@ -7,6 +7,7 @@ let acc_token = JSON.parse(localStorage.getItem("loginToken"))
 
 let header_default = document.querySelector('header');
 let main_container = document.querySelector('.main_container');
+let main_container_game = document.querySelector('.main_container_game');
 let header_blocks = document.querySelectorAll('.header_blocks_default');
 let header_headline = document.querySelector('.header_headline');
 let footer = document.querySelector('footer');
@@ -20,7 +21,12 @@ if(acc_token){
                header_block.classList.toggle('pressed_header_blocks');
         });
  
-        main_container.classList.toggle('pressed_blurry_effect');
+        if(main_container_game){
+            main_container_game.classList.toggle('pressed_blurry_effect');
+        } else if(main_container){
+            main_container.classList.toggle('pressed_blurry_effect');
+        };
+
         // footer.classList.toggle('pressed_blurry_effect');
     });
 }
@@ -322,54 +328,54 @@ const quizData = [
         category: 'Musik',
         questions: [
             {
-                question: 'Welches Album von Pink Floyd wurde 1973 veröffentlicht?',
-                answers: ['The Wall', 'Wish You Were Here', 'Animals', 'The Dark Side of the Moon'],
-                correctAnswer: 'The Dark Side of the Moon'
+                question: 'Welches Instrument wird oft als "König der Instrumente" bezeichnet?',
+                answers: ['Klavier', 'Geige', 'Orgel', 'Gitarre'],
+                correctAnswer: 'Orgel'
             },
             {
-                question: 'Welche dieser Musiker sind bekannte Jazz-Legenden?',
-                answers: ['Miles Davis', 'Duke Ellington', 'John Coltrane', 'Elvis Presley'],
-                correctAnswer: ['Miles Davis', 'Duke Ellington', 'John Coltrane']
+                question: 'Welches dieser Musikinstrumente hat 47 Saiten?',
+                answers: ['Harfe', 'Gitarre', 'Klavier', 'Cello'],
+                correctAnswer: 'Harfe'
             },
             {
-                question: 'Welches Instrument spielt Yo-Yo Ma?',
-                answers: ['Cello', 'Geige', 'Klavier', 'Gitarre'],
-                correctAnswer: 'Cello'
-            },
-            {
-                question: 'Welche dieser Musikrichtungen haben ihren Ursprung im afrikanischen Kontinent?',
-                answers: ['Blues', 'Hip-Hop', 'Reggae', 'Jazz'],
-                correctAnswer: ['Blues', 'Jazz']
-            },
-            {
-                question: 'Wer ist bekannt für die Gründung von Motown Records?',
-                answers: ['Berry Gordy', 'Quincy Jones', 'Phil Spector', 'James Brown'],
-                correctAnswer: 'Berry Gordy'
-            },
-            {
-                question: 'Welche dieser Künstlerinnen haben Pop-Musik revolutioniert?',
-                answers: ['Madonna', 'Beyoncé', 'Lady Gaga', 'Whitney Houston'],
-                correctAnswer: ['Madonna', 'Beyoncé', 'Lady Gaga']
-            },
-            {
-                question: 'Wie viele Streicher sind typischerweise in einem Streichquartett?',
-                answers: ['Zwei', 'Drei', 'Vier', 'Fünf'],
-                correctAnswer: 'Vier'
-            },
-            {
-                question: 'Welche dieser Komponisten gelten als Teil der Wiener Klassik?',
-                answers: ['Beethoven', 'Mozart', 'Haydn', 'Schubert'],
-                correctAnswer: ['Beethoven', 'Mozart', 'Haydn']
-            },
-            {
-                question: 'Welche dieser Instrumente gehören zu den Holzblasinstrumenten?',
-                answers: ['Flöte', 'Oboe', 'Klarinette', 'Trompete'],
-                correctAnswer: ['Flöte', 'Oboe', 'Klarinette']
-            },
-            {
-                question: 'Wer sang das Lied "Imagine"?',
+                question: 'Welche zwei Musiker gründeten die Band "The Beatles"?',
                 answers: ['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr'],
-                correctAnswer: 'John Lennon'
+                correctAnswer: ['John Lennon', 'Paul McCartney'] // 2 richtige Antworten
+            },
+            {
+                question: 'Welches dieser Musikgenres entstand in den 1970er Jahren in New York?',
+                answers: ['Hip-Hop', 'Jazz', 'Rock', 'Techno'],
+                correctAnswer: 'Hip-Hop'
+            },
+            {
+                question: 'Welche zwei Sänger sind für das Duett "Under Pressure" bekannt?',
+                answers: ['David Bowie', 'Freddie Mercury', 'Elton John', 'Mick Jagger'],
+                correctAnswer: ['David Bowie', 'Freddie Mercury'] // 2 richtige Antworten
+            },
+            {
+                question: 'Welche drei Künstlerinnen sind Mitglieder der Band "Destiny\'s Child"?',
+                answers: ['Beyoncé', 'Kelly Rowland', 'Michelle Williams', 'Solange Knowles'],
+                correctAnswer: ['Beyoncé', 'Kelly Rowland', 'Michelle Williams'] // 3 richtige Antworten
+            },
+            {
+                question: 'Welche drei Musiker gehören zu den Gründungsmitgliedern von Nirvana?',
+                answers: ['Kurt Cobain', 'Krist Novoselic', 'Dave Grohl', 'Chad Channing'],
+                correctAnswer: ['Kurt Cobain', 'Krist Novoselic', 'Chad Channing'] // 3 richtige Antworten
+            },
+            {
+                question: 'Welche Band war verantwortlich für das Album "Dark Side of the Moon"?',
+                answers: ['Pink Floyd', 'Led Zeppelin', 'The Rolling Stones', 'Queen'],
+                correctAnswer: 'Pink Floyd'
+            },
+            {
+                question: 'Welche vier Mitglieder gehörten zur Originalbesetzung der Band "Queen"?',
+                answers: ['Freddie Mercury', 'Brian May', 'John Deacon', 'Roger Taylor'],
+                correctAnswer: ['Freddie Mercury', 'Brian May', 'John Deacon', 'Roger Taylor'] // Alle 4 richtig
+            },
+            {
+                question: 'Welche zwei Komponisten gelten als die bedeutendsten der Wiener Klassik?',
+                answers: ['Ludwig van Beethoven', 'Wolfgang Amadeus Mozart', 'Johann Sebastian Bach', 'Franz Schubert'],
+                correctAnswer: ['Ludwig van Beethoven', 'Wolfgang Amadeus Mozart'] // 2 richtige Antworten
             }
         ]
     }

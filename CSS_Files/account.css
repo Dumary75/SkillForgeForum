@@ -289,12 +289,6 @@ footer p{
         margin-left: 1rem;
     }
 
-    .login_state_active{
-        position: absolute;
-        right: 5rem;
-        display: block;
-    }
-
     .header_blocks_default:hover{
         height: 3rem;
         width: 13rem;

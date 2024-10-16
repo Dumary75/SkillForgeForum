@@ -295,7 +295,6 @@ button a:visited{
 .selection_active{
     bottom: 0px;
     width: 100%;
-    height: auto;
     margin-top: 2rem;
     opacity: 1;
     padding-bottom: 1rem;
@@ -434,4 +433,145 @@ footer p{
     font-size: 1.5rem;
     margin: 0px;
 } */
+
+/* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
+
+@media (min-width: 768px) {
+    .flex_container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .header_headline{
+        display: none;
+    }
+
+    .desktop_index{
+        display: block;
+        padding-top: 0.5rem;
+    }
+
+    .header_blocks_default{
+        height: 2.8rem;
+        width: 12rem;
+        margin-top: 0px;
+        margin-left: 1rem;
+    }
+
+    .header_blocks_default:hover{
+        height: 3rem;
+        width: 13rem;
+        cursor: pointer;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .position_website{
+        background-color: rgb(0, 0, 0);
+    }
+
+    .login_state{
+        position: absolute;
+        right: 3rem;
+    }
+
+    .main_container{
+        display: flex;
+        justify-content: center;
+        gap: 8rem;
+        margin: 2rem;
+    }
+
+    .main_blocks{
+        width: 40%;
+        padding-top: 3%;
+    }
+
+    .hover_effect:hover{
+        width: 50%;
+        height: 14rem;
+        font-size: 2.3rem;
+        cursor: pointer;
+        background-color: #000;
+    }
+
+    .selection_active{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+}
+
+/* !--- BREAKPOINT FOR BIGGER_SIZE --! */
+
+@media (min-width: 1920px){
+
+    /* Quiz_Category Site */
+    .main_blocks{
+        width: 25%;
+    }
+
+    .hover_effect:hover{
+        width: 30.5%;
+    }
+
+    .selection_active{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .quest_selection_list li { 
+        height: 9rem;
+        width: 100%;
+        padding-top: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .quest_selection_list li:hover{
+        cursor: pointer;
+        background-color: #000;
+    }
+
+    .quest_selection_list li:nth-child(2){
+        font-size: 2.2rem;
+    }
+
+        /* Quiz_Game Site */
+    .main_container_game{
+        width: 50%;
+        margin: 0px auto;
+    }
+
+    .answer-container{
+        flex-direction: row;
+    }
+
+    .answer_label {
+        width: 15rem;
+        height: auto;
+        padding-top: 3rem;
+        margin: 0px;
+    }
+
+    .answer_label:hover{
+        cursor: pointer;
+        background-color: #000;
+        transform: scale(1.3);
+        z-index: 2;
+    }
+
+    #nextButton{
+        margin-left: 40%;
+        transition: all 0.3s;
+    }
+
+    #nextButton:hover{
+        transform: scale(1.3);
+        cursor: pointer;
+        background-color: #000;
+    }
+
+
+}
 
