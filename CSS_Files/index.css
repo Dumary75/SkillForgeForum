@@ -2,9 +2,12 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     height: 100%;
     background-color: #f0f0f0;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 /* It's Mobil-First, so i started with the smaller screens */
@@ -124,10 +127,6 @@ header.pressed{
 }
 
 /* --- Main Area --- */
-body {
-    margin: 0px;
-    padding: 0px;
-}
 
 a{
     text-decoration: none;
@@ -160,12 +159,11 @@ a{
 
 
 /* --- Footer Area --- */
-/* footer{
-    height: 4rem;
-    width: 100%;
+footer{
+    height: auto;
     background-color: #000000;
     margin-top: 3rem;
-    padding-top: 0.7rem;
+    padding: 1rem;
     text-align: center;
     border-top: 0.5rem #2e2e2e solid;
 }
@@ -173,8 +171,7 @@ a{
 footer p{
     color: #FFF;
     font-size: 1.5rem;
-    margin: 0px;
-} */
+}
 
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
@@ -250,6 +247,12 @@ footer p{
     .block_3:hover{
         width: 35%;
     }
+
+    footer {
+        position: sticky;
+        bottom: 0;
+    }
+
 }
 
 /* !--- BREAKPOINT FOR BIGGER_SIZE --! */
@@ -259,6 +262,25 @@ footer p{
     .login_state{
         position: absolute;
         right: 3rem;
+    }
+
+    .login_state_clicked_active{
+        width: 20%;
+        bottom: 0;
+        top: 12rem;
+        z-index: 2;
+    }
+
+    .login_state_clicked_active:hover{
+        cursor: pointer;
+    }
+
+    .login_state_clicked_active p{
+        transition: all 0.3s;
+    }
+
+    .login_state_clicked_active p:hover{
+        background-color: #000;
     }
 
     .main_blocks{

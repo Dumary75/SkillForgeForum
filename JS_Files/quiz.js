@@ -27,7 +27,7 @@ if(acc_token){
             main_container.classList.toggle('pressed_blurry_effect');
         };
 
-        // footer.classList.toggle('pressed_blurry_effect');
+        footer.classList.toggle('pressed_blurry_effect');
     });
 }
 
@@ -62,7 +62,14 @@ account_state.addEventListener('click', () => {
               account_state_clicked.classList.toggle('login_state_clicked_active');
               header_headline.classList.toggle('pressed_blurry_effect');
               header_blocks.forEach(header_block => {
-              header_block.classList.toggle('pressed_blurry_effect'); });                                       
+              header_block.classList.toggle('pressed_blurry_effect'); });     
+              if(main_container_game){
+                main_container_game.classList.toggle('pressed_blurry_effect');
+            } else if(main_container){
+                main_container.classList.toggle('pressed_blurry_effect');
+            };
+            footer.classList.toggle('pressed_blurry_effect');
+                                    
        });
 
 ausloggen.addEventListener('click', () => {
@@ -89,6 +96,12 @@ ausloggen_abrechen.addEventListener('click', () => {
               header_blocks.forEach(header_block => {
               header_block.classList.remove('pressed_blurry_effect');
                                                  });
+                                                 if(main_container_game){
+                                                    main_container_game.classList.toggle('pressed_blurry_effect');
+                                                } else if(main_container){
+                                                    main_container.classList.toggle('pressed_blurry_effect');
+                                                };
+                                        
        });        
 
 //-----------------------MAIN_CONTENT-------------------------------------------//

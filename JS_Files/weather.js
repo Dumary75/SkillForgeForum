@@ -6,9 +6,10 @@ let acc_token = JSON.parse(localStorage.getItem("loginToken"))
 // --- Header Click Event --- //
 
 let header_default = document.querySelector('header');
+let main_container = document.querySelector('.main_container');
+let main_container_game = document.querySelector('.main_container_game');
 let header_blocks = document.querySelectorAll('.header_blocks_default');
 let header_headline = document.querySelector('.header_headline');
-let main_blocks = document.querySelectorAll('.main_blocks');
 let footer = document.querySelector('footer');
 
 if(acc_token){
@@ -19,12 +20,14 @@ if(acc_token){
         header_blocks.forEach(header_block => {
                header_block.classList.toggle('pressed_header_blocks');
         });
+ 
+        if(main_container_game){
+            main_container_game.classList.toggle('pressed_blurry_effect');
+        } else if(main_container){
+            main_container.classList.toggle('pressed_blurry_effect');
+        };
 
-        main_blocks.forEach(main_block => {
-              main_block.classList.toggle('pressed_blurry_effect');
-        });
-
-        // footer.classList.toggle('pressed_blurry_effect');
+        footer.classList.toggle('pressed_blurry_effect');
     });
 }
 
@@ -45,9 +48,7 @@ window.addEventListener('load', () => {
        } else {
         logged_site_blocker.classList.add('login_checker_active');
         header_headline.classList.add('pressed_blurry_effect');
-        main_blocks.forEach(main_block => {
-              main_block.classList.toggle('pressed_blurry_effect');
-        });
+        main_container.classList.add('pressed_blurry_effect');
         logged_site_blocker_boxes.forEach(box => {
             box.addEventListener('click', () => {
                 window.location.href = 'account.html';
@@ -61,7 +62,14 @@ account_state.addEventListener('click', () => {
               account_state_clicked.classList.toggle('login_state_clicked_active');
               header_headline.classList.toggle('pressed_blurry_effect');
               header_blocks.forEach(header_block => {
-              header_block.classList.toggle('pressed_blurry_effect'); });                                       
+              header_block.classList.toggle('pressed_blurry_effect'); });     
+              if(main_container_game){
+                main_container_game.classList.toggle('pressed_blurry_effect');
+            } else if(main_container){
+                main_container.classList.toggle('pressed_blurry_effect');
+            };
+            footer.classList.toggle('pressed_blurry_effect');
+                                    
        });
 
 ausloggen.addEventListener('click', () => {
@@ -88,7 +96,14 @@ ausloggen_abrechen.addEventListener('click', () => {
               header_blocks.forEach(header_block => {
               header_block.classList.remove('pressed_blurry_effect');
                                                  });
-       });        
+                                                 if(main_container_game){
+                                                    main_container_game.classList.toggle('pressed_blurry_effect');
+                                                } else if(main_container){
+                                                    main_container.classList.toggle('pressed_blurry_effect');
+                                                };
+              footer.classList.toggle('pressed_blurry_effect');
+                                        
+       });    
 
 //-----------------------MAIN_CONTENT-------------------------------------------//
 
@@ -259,7 +274,9 @@ function translateDescription(desc) {
 };
 
 function switch_day_dynamic(days){
-    switch(days){
+    let wochenTag = days % 7;
+
+    switch(wochenTag){
         case 1:
         return "MO"
     
@@ -283,7 +300,7 @@ function switch_day_dynamic(days){
     };
 };
 
-
+let aufruf = 0;
 function get_weather_data(){
     let current_city = localStorage.getItem('weather_city').replace(/"/g, '');
 
@@ -326,6 +343,7 @@ function get_weather_data(){
      fetch(active_forecast_url)
      .then(response => response.json())
      .then(data => {
+        small_boxes_container.innerHTML = '';
         for(let i=1; i<4; i++){
             // Boxen
             let small_box = document.createElement('div');
@@ -363,6 +381,7 @@ function get_weather_data(){
             small_box.appendChild(datum_text);
             small_box.appendChild(WochenTag);
             small_boxes_container.appendChild(small_box);
+            aufruf++;
             };
      })
      .catch(error => console.error('Fehler!', error));

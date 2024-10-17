@@ -2,9 +2,12 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     height: 100%;
     background-color: #f0f0f0;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 /* It's Mobil-First, so i started with the smaller screens */
@@ -131,7 +134,7 @@ header.pressed{
     text-align: center;
     font-weight: bold;
     position: relative;
-    bottom: -60rem;
+    left: -60rem;
     width: 0px;
     height: 0px;
     transition: all 0.5s;
@@ -167,6 +170,7 @@ header.pressed{
 }
 
 .login_checker_active{
+    left: 0rem;
     bottom: 20rem;
     width: 100%;
     height: 30rem;
@@ -175,10 +179,6 @@ header.pressed{
 }
 
 /* --- Main Area --- */
-body {
-    margin: 0px;
-    padding: 0px;
-}
 
 a{
     text-decoration: none;
@@ -225,6 +225,7 @@ a{
     font-weight: bold;
     background-color: #479be0;
     border-radius: 15px;
+    transition: all 0.3s;
 }
 
 
@@ -272,7 +273,7 @@ a{
 
 /* > Small_box < */
 
-.testklasse{
+.testklasse, .placeholder_klasse{
     width: 100%;
     height: 3rem;
     background-color: #0caad6;
@@ -291,14 +292,16 @@ a{
     font-size: 2rem;
 }
 
-/* --- Footer Area --- */
-/* footer{
+main{
+    min-height: calc(2vh); /* 100vh minus die Höhe des Headers und Footers */
+}
 
-    height: 4rem;
-    width: 100%;
+/* --- Footer Area --- */
+footer{
+    height: auto;
     background-color: #000000;
     margin-top: 3rem;
-    padding-top: 0.7rem;
+    padding: 1rem;
     text-align: center;
     border-top: 0.5rem #2e2e2e solid;
 }
@@ -306,8 +309,8 @@ a{
 footer p{
     color: #FFF;
     font-size: 1.5rem;
-    margin: 0px;
-} */
+}
+
 
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
@@ -353,6 +356,54 @@ footer p{
     .login_state{
         position: absolute;
         right: 3rem;
+    }
+
+    /* Login_State_Button */
+    .login_state_clicked_active{
+        width: 20%;
+        bottom: 0;
+        top: 12rem;
+        z-index: 2;
+    }
+
+    .login_state_clicked_active:hover{
+        cursor: pointer;
+    }
+
+    .login_state_clicked_active p{
+        transition: all 0.3s;
+    }
+
+    .login_state_clicked_active p:hover{
+        background-color: #000;
+    }
+
+    .login_checker{
+        top: -34rem;
+    }
+
+    /*----------------*/
+
+    .main_container{
+        position: relative;
+        top: 10rem;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .search div, .big_box div, .small_box_container{
+        width: 25rem;
+        margin-top: 0px;
+    }
+
+    .search button:hover{
+        cursor: pointer;
+        background-color: #000;
+    }
+
+    footer{
+        margin-top: 32rem;
     }
 
 }

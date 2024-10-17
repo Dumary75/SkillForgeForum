@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" sizes="16x16" href="../Favicons/weather-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../Favicons/weather-32x32.png">
     <title>Wetter</title>
@@ -56,33 +56,36 @@
 <body>
 
 <main>
-    <section class="search">
-        <div class="main_blocks">
-            <p>🔎</p>
-            <input type="text" placeholder="Beispielstadt">
-            <button>Suchen</button>
-        </div>
-    </section>
+    <div class="main_container">
 
-    <section class="big_box">
-        <div class="main_blocks">
-            <span>⛅️</span>
-            <p class="big_ceclius">27.8 Cº</p>
-            <p class="big_wetter_text">Leicht bewölkt</p> 
-
-            <p class="big_city">Stuttgart</p>
-            <p class="big_datum">08.10.2024 09:35</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="main_blocks small_box_container">
-            <!-- Neue Boxen werden hier dynamisch kreiert -->
-             <div class="testklasse">⛅️ 10.4 / 19.3 17 Oktober DO</div>
-             <div class="testklasse">🌨️ 11 / 16.5 18 Oktober FR</div>
-             <div class="testklasse">🌨️ 9.1 / 14.8 19 Oktober SA</div>
-    </section>
-
+        <section class="search">
+            <div class="main_blocks">
+                <p>🔎</p>
+                <input type="text" placeholder="Beispielstadt">
+                <button>Suchen</button>
+            </div>
+        </section>
+    
+        <section class="big_box">
+            <div class="main_blocks">
+                <span>⛅️</span>
+                <p class="big_ceclius">22.8 Cº</p>
+                <p class="big_wetter_text">Leicht bewölkt</p> 
+    
+                <p class="big_city">Stuttgart</p>
+                <p class="big_datum">11.10.2024 09:35</p>
+            </div>
+        </section>
+    
+        <section>
+            <div class="main_blocks small_box_container">
+                <!-- Neue Boxen werden hier dynamisch kreiert -->
+                 <div class="testklasse">⛅️ 17.4 / 19.3 12 Oktober DO</div>
+                 <div class="testklasse">🌨️ 11.2 / 16.5 13 Oktober FR</div>
+                 <div class="testklasse">🌨️ 10.1 / 14.8 14 Oktober SA</div>
+        </section>
+        
+    </div>
 </main>
 
 <!------ LOGIN_Check ------>
@@ -103,8 +106,8 @@
 
 
 
-<!-- <footer>
+<footer>
 <p>Beispieltext und so weiter</p>
-</footer> -->
+</footer>
 
 </html>
