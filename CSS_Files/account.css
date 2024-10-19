@@ -10,6 +10,11 @@ html, body {
     overflow-x: hidden;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 /* It's Mobil-First, so i started with the smaller screens */
 
 /* --- Header Area --- */
@@ -132,8 +137,8 @@ a{
     text-decoration: none;
 }
 
-.main_container{
-    min-height: calc(70vh); /* 100vh minus die Höhe des Headers und Footers */
+main{
+    flex: 1;
 }
 
 /* Infobox_event */
@@ -377,10 +382,6 @@ footer p{
 
     .login_state_clicked_active p:hover{
         background-color: #000;
-    }
-
-    .main_container{
-        min-height: calc(74vh); /* 100vh minus die Höhe des Headers und Footers */
     }
     
     .main_blocks{

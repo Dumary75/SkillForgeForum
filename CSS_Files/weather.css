@@ -20,6 +20,9 @@ header{
     border-bottom: 0.3rem #000 solid;
     padding-top: 0.3rem;
     transition: all 0.8s;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .header_headline{
@@ -188,6 +191,10 @@ a{
     text-decoration: none;
 }
 
+main{
+    flex: 1;
+}
+
 /* > Search_box < */
 
 .search div{
@@ -296,10 +303,6 @@ a{
     font-size: 2rem;
 }
 
-main{
-    min-height: calc(2vh); /* 100vh minus die Höhe des Headers und Footers */
-}
-
 /* --- Footer Area --- */
 footer{
     height: auto;
@@ -320,6 +323,11 @@ footer p{
 
  @media (min-width: 576px){
 
+    html,body{
+        display: flex;
+        flex-direction: column;
+    }
+
         /* Login_State_Button */
     .login_state_clicked_active{
             width: 50%;
@@ -334,10 +342,6 @@ footer p{
     
     .login_checker{
             top: -34rem;
-    }
-
-    footer{
-        margin-top: 5.3rem;
     }
 
         /*----------------*/
@@ -417,10 +421,6 @@ footer p{
         background-color: #000;
     }
 
-    footer{
-        margin-top: 5.2rem;
-    }
-
 }
 
 /* !--- BREAKPOINT FOR NORM-LAPTOP ---! */
@@ -471,9 +471,14 @@ footer p{
         width: 16%;
     }
 
+    .login_state_clicked{
+        left: -20rem;
+    }
+
     .login_state_clicked_active {
-        top: 10rem;
-        width: 40%;
+        top: -4rem;
+        left: 20rem;
+        width: 25%;
     }
 
 
@@ -522,9 +527,6 @@ footer p{
         left: 3rem;
     }
 
-    footer{
-        margin-top: 18.2rem;
-    }
 }
 
 
@@ -543,6 +545,11 @@ footer p{
         right: 3rem;
         width: 14%;
         font-size: 1.3rem;
+    }
+
+    .login_state_clicked_active{
+        width: 20%;
+        left: 28rem;
     }
 
     .login_state:hover{
@@ -568,9 +575,6 @@ footer p{
         left: 6rem;
     }
 
-    footer{
-        margin-top: 30rem;
-    }
 }
 
 /* !--- BREAKPOINT FOR BIG_DESKTOP ---! */
@@ -582,8 +586,13 @@ footer p{
         width: 10%;
     }
 
+    .login_state_clicked{
+        left: -46rem;
+    }
+
     .login_state_clicked_active {
-        width: 25%;
+        width: 15%;
+        left: 46rem;
     }
 
     /*----------------*/
@@ -608,10 +617,6 @@ footer p{
 
     .search button{
         left: 9rem;
-    }
-
-    footer{
-        margin-top: 36rem;
     }
 
 }

@@ -10,6 +10,11 @@ html, body {
     overflow-x: hidden;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 /* It's Mobil-First, so i started with the smaller screens */
 
 /* --- Header Area --- */
@@ -131,6 +136,10 @@ header.pressed{
 a{
     text-decoration: none;
     color: #FFF;
+}
+
+main{
+    flex: 1;
 }
 
 /* > Login_Checker / Site Blocker < */
@@ -424,10 +433,6 @@ button a:visited{
     margin-left: 25%;
 }
 
-
-
-
-
 /* --- Footer Area --- */
 footer{
     height: auto;
@@ -602,15 +607,6 @@ footer p{
         cursor: pointer;
         background-color: #000;
     }
-
-    .footer_quiz_selection{
-        margin-top: 3rem;
-    }
-
-    .footer_quiz_game{
-        margin-top: 21rem;
-    }
-
 
 }
 

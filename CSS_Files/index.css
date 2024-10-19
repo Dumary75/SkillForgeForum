@@ -20,6 +20,9 @@ header{
     border-bottom: 0.3rem #000 solid;
     padding-top: 0.3rem;
     transition: all 0.8s;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .header_headline{
@@ -176,6 +179,7 @@ footer p{
 /* !--- BREAKPOINT FOR MEDIUM_SIZE --! */
 
 @media (min-width: 768px) {
+    
     .flex_container{
         display: flex;
         justify-content: center;
@@ -249,7 +253,6 @@ footer p{
     }
 
     footer {
-        position: sticky;
         bottom: 0;
     }
 
