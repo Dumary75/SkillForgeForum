@@ -56,10 +56,6 @@ header{
     text-transform: uppercase;
 }
 
-.position_website{
-    background-color: rgb(0, 0, 0);
-}
-
 .desktop_index{
     display: none;
 }
@@ -307,8 +303,8 @@ main{
 footer{
     height: auto;
     background-color: #000000;
-    margin-top: 3rem;
-    padding: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
     text-align: center;
     border-top: 0.5rem #2e2e2e solid;
 }
@@ -472,7 +468,7 @@ footer p{
     }
 
     .login_state_clicked{
-        left: -20rem;
+        left: 80rem;
     }
 
     .login_state_clicked_active {
@@ -481,12 +477,11 @@ footer p{
         width: 25%;
     }
 
-
-    /* -- MAIN -- */
+    /*----------------*/
     
     .main_container{
         position: relative;
-        top: 10rem;
+        top: 5rem;
         flex-direction: row;
         justify-content: center;
         gap: 3rem;
@@ -556,6 +551,8 @@ footer p{
         width: 16%;
     }
 
+        /*----------------*/
+
     .search div, .big_box div, .small_box_container{
         width: 21rem;
     }
@@ -586,14 +583,18 @@ footer p{
         width: 10%;
     }
 
+    .login_state:hover{
+        width: 12%;
+    }
+
     .login_state_clicked{
-        left: -46rem;
+        left: 130rem;
+        width: 15%;
     }
 
     .login_state_clicked_active {
-        width: 15%;
-        left: 46rem;
-    }
+        left: 50rem;
+    } */
 
     /*----------------*/
 
