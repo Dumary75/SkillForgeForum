@@ -17,7 +17,8 @@ let ausloggen = document.querySelector('.ausloggen');
 let ausloggen_abrechen = document.querySelector('.abrechen');
 
 let logged_site_blocker = document.querySelector('.login_checker');
-let logged_site_blocker_boxes = document.querySelectorAll('.login_checker_boxes');
+let side_blocker_login = document.querySelector('.acc_login');
+let side_blocker_create = document.querySelector('.acc_create');
 
 window.addEventListener('load', () => {
     if(acc_token){
@@ -37,11 +38,16 @@ window.addEventListener('load', () => {
 
     } else {
      logged_site_blocker.classList.add('login_checker_active');
-     logged_site_blocker_boxes.forEach(box => {
-         box.addEventListener('click', () => {
-             window.location.href = 'account.html';
-         });
-     });
+     side_blocker_login.addEventListener('click', () => {
+        localStorage.setItem('loginCheckerToken', 'acc_login');
+        window.location.href = 'account.html';
+      });
+
+      side_blocker_create.addEventListener('click', () => {
+        localStorage.setItem('loginCheckerToken', 'acc_create');
+        window.location.href = 'account.html';
+      });
+
      header_blurr_effect();
      main_blurry_effect();
     };
@@ -114,7 +120,7 @@ function check_search_input(){
             let input_edited = search_input_value.toLowerCase().trim();
             let saved_weather = localStorage.getItem('weather_city') || [];
             if (saved_weather){
-                localStorage.setItem('weather_city', JSON.stringify(input_edited));
+                localStorage.setItem('weather_city', input_edited);
             }
         };
 
@@ -168,7 +174,6 @@ function translateDescription(desc) {
    }
 
    // Weather_Icons
-
    function icon_select(code){
        let icons = {
               "200": "⛈️",
@@ -283,7 +288,7 @@ function switch_day_dynamic(days){
 
 let aufruf = 0;
 function get_weather_data(){
-    let current_city = localStorage.getItem('weather_city').replace(/"/g, '');
+    let current_city = localStorage.getItem('weather_city');
 
     let activ_url = `${url}?city=${current_city}&country=DE&key=${api_key}`
     let active_forecast_url = `${url_forecast}?city=${current_city}&country=DE&key=${api_key}`

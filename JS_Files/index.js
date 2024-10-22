@@ -68,8 +68,9 @@ ausloggen.addEventListener('click', () => {
                      alert('Erfolgreich ausgeloggt!');
                      window.location.reload()
               } else {
-                     alert('Sie werden zur Login Seite weitergeleitet!')
-                     window.location.href = 'account.html';
+                alert('Ab gehts zur Login Seite!');
+                localStorage.setItem('loginCheckerToken', 'acc_login');
+                window.location.href = 'account.html';
               };
    });       
 

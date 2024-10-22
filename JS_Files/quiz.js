@@ -18,7 +18,9 @@ let ausloggen = document.querySelector('.ausloggen');
 let ausloggen_abrechen = document.querySelector('.abrechen');
 
 let logged_site_blocker = document.querySelector('.login_checker');
-let logged_site_blocker_boxes = document.querySelectorAll('.login_checker_boxes');
+let side_blocker_login = document.querySelector('.acc_login');
+let side_blocker_create = document.querySelector('.acc_create');
+
 
 window.addEventListener('load', () => {
     if(acc_token){
@@ -38,17 +40,22 @@ window.addEventListener('load', () => {
 
     } else {
      logged_site_blocker.classList.add('login_checker_active');
-     logged_site_blocker_boxes.forEach(box => {
-         box.addEventListener('click', () => {
-             window.location.href = 'account.html';
-         });
-     });
+     side_blocker_login.addEventListener('click', () => {
+        localStorage.setItem('loginCheckerToken', 'acc_login');
+        window.location.href = 'account.html';
+      });
+
+      side_blocker_create.addEventListener('click', () => {
+        localStorage.setItem('loginCheckerToken', 'acc_create');
+        window.location.href = 'account.html';
+      });
+
      header_blurr_effect();
      main_blurry_effect();
     };
 });
 
-// Blurry_Effects
+// Blurry_Effects 
 function main_blurry_effect(){
         if(main_container_game){
             main_container_game.classList.toggle('pressed_blurry_effect');
@@ -384,29 +391,25 @@ const quizData = [
 
 
 // Pages proof
-window.addEventListener('load', () => {
-
     const currentPath = window.location.pathname;
 
     if(currentPath.includes('quiz_selection.html')){
 
 // Page_Selection
 quest_create_field.addEventListener('click', () => {
-    quest_create_field.style.display = 'none';
-    quest_answer_field.style.display = 'none';
-    quest_selection_list.style.display = 'none';
-    quest_user_create_field.classList.add('selection_active');
+    quiz_selection_field_logic(quest_create_field,quest_answer_field,quest_selection_list,quest_user_create_field);
 });
 
-if(acc_token){
-    quest_answer_field.addEventListener('click', () => {
-        quest_create_field.style.display = 'none';
-        quest_answer_field.style.display = 'none';
-        quest_user_create_field.style.display = 'none';
-        quest_selection_list.classList.add('selection_active');
-            });
-};
+quest_answer_field.addEventListener('click', () => {
+    quiz_selection_field_logic(quest_create_field,quest_answer_field,quest_user_create_field,quest_selection_list);
+});
 
+function quiz_selection_field_logic(big_box_create,big_box_answer,disabelt_page,selected_page){
+    big_box_create.style.display = 'none';
+    big_box_answer.style.display = 'none';
+    disabelt_page.style.display = 'none';
+    selected_page.classList.add('selection_active');
+};
 
 // --- QUEST_USER_CREATE site Logic --- //
 
@@ -717,7 +720,7 @@ if (currentQuiz) {
     nextButton.addEventListener('click', () => {
         nextButton_fc(currentQuiz);
     });
-}}});
+}};
 
 
 

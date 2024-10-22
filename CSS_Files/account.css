@@ -190,17 +190,16 @@ main{
 
 .acc_create{
     background-color: #066f8b;
-    color: #FFF;
 }
 
 .acc_login{
     background-color: #10a2f2;
-    color: #FFF;
 }
 
 .main_blocks{
-    height: 12rem;
+    height: auto;
     border: 0.1rem #000 solid;
+    color: #FFF;
     margin-top: 2rem;
     text-align: center;
     padding-top: 5%;
@@ -211,7 +210,7 @@ main{
 }
 
 .mainblocks_responsive{
-    height: 21rem;
+    height: auto;
     color: #FFF;
 }
 
