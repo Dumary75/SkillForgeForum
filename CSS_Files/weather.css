@@ -603,21 +603,16 @@ footer p{
         margin-top: 0px;
     }
 
-    .big_box{ 
-        top: -1rem;
-    }
-
     .search p{
         font-size: 3rem;
-        margin-left: 1rem;
     }
 
     .search input{
-        left: 8rem;
+        left: 5.5rem;
     }
 
     .search button{
-        left: 9rem;
+        left: 6rem;
     }
 
 }
