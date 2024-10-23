@@ -37,19 +37,25 @@ window.addEventListener('load', () => {
         });
 
     } else {
-     logged_site_blocker.classList.add('login_checker_active');
-     side_blocker_login.addEventListener('click', () => {
+        main_blurry_effect();
+        // Manual blur effect is required! 
+        header_blocks.forEach(header_block => {
+            header_block.classList.toggle('pressed_blurry_effect'); });
+            if(window.innerWidth <= 991){
+                header_headline.classList.toggle('pressed_blurry_effect');
+            };
+
+        logged_site_blocker.classList.add('login_checker_active');
+
+        side_blocker_login.addEventListener('click', () => {
         localStorage.setItem('loginCheckerToken', 'acc_login');
         window.location.href = 'account.html';
       });
 
-      side_blocker_create.addEventListener('click', () => {
+        side_blocker_create.addEventListener('click', () => {
         localStorage.setItem('loginCheckerToken', 'acc_create');
         window.location.href = 'account.html';
       });
-
-     header_blurr_effect();
-     main_blurry_effect();
     };
 });
 
