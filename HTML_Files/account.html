@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Favicons/account-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Favicons/account-32x32.png">
+    <title>Account</title>
+    <link rel="stylesheet" href="../CSS_Files/account.css">
+    <script src="../JS_Files/account.js" defer></script>
+</head>
+
+<header>
+    <div class="flex_container">
+        <div class="header_headline">
+            <p>Übersicht</p>
+        </div>
+
+        <a href="index.html">
+            <div class="header_blocks_default desktop_index">
+                <p>Startseite</p>
+            </div>
+        </a>
+
+        <a href="account.html">
+            <div class="header_blocks_default position_website">
+                <p>Account 👨‍💻</p>
+            </div>
+        </a>
+
+        <a href="quiz_selection.html">
+            <div class="header_blocks_default">
+                <p>Quiz 💭</p>
+            </div>
+        </a>
+
+        <a href="weather.html">
+            <div class="header_blocks_default">
+                <p>Wetter 🌦️</p>
+            </div>
+        </a>
+
+        <div class="header_blocks_default login_state">
+            <p>Ausgeloggt</p>
+        </div>   
+    </div>
+
+    <div class="login_state_clicked">
+        <p class="ausloggen">ausloggen</p>
+        <p class="abrechen">abrechen</p>
+    </div>
+</header>
+
+<body>
+
+<main>
+
+<!------ CREATE AREA ------>
+<div class="info_box">
+    <h4>Informationen zu den Buttons</h4> <br>
+    <span>🎰 = Ein Passwortgenerator</span> <br>
+    <span>👁‍🗨 = Sichtbarkeit ein und ausschalten</span> <br>
+    <button class="infos_checked_button">Verstanden!</button>
+</div>
+
+<div class="main_container">
+        <div class="main_blocks acc_create hover_effect">
+            <p>Account <br> erstellen</p>
+            <!-- ACC CREATE FORM --> 
+            <form action="#" class="acc_create_form" autocomplete="off">
+                <label for="name">Name</label>
+                <input type="text" id="name" required> 
+
+                <label for="password">passwort</label>
+                <input type="password"  id="password" required />
+
+                <div class="pw_icon_container">
+                    <span class="pw_infos pw_icons">Info 📜</span>
+                    <span class="pw_generator pw_icons">🎰</span>
+                    <span class="pw_auge pw_icons">👁‍🗨</span>
+                </div>
+            </form>
+
+            <a href="account.html">
+                <button class="form_create_button">🔐 Erstellen</button> 
+            </a>
+
+        </div>
+
+
+<!------ LOGIN AREA ------>
+        <div class="main_blocks acc_login hover_effect">
+            <p>Account <br> login</p>
+            <!-- ACC LOGIN FORM -->
+            <form action="#" class="acc_login_form" autocomplete="off">
+                <label for="name_login">Name</label>
+                <input type="text" id="name_login" required> 
+
+
+                <label for="password_login">passwort</label>
+                <input type="password"  id="password_login" required />
+
+                <span class="pw_auge_login">👁‍🗨</span>
+            </form>
+
+            <a href="account.html">
+                <button class="form_login_button">🔑 Login</button> 
+            </a>
+        </div>
+</div>
+
+</main>
+
+</body>
+
+<footer>
+    <p>Beispieltext und so weiter <br> © Samir</p>
+</footer>
+
+</html>

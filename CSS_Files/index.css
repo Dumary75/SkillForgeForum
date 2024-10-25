@@ -1,0 +1,428 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #f0f0f0;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+/* MOBIL_FIRST VERSION */ 
+
+/* --- Header Area --- */
+header{
+    background-color: #6ed7f3;
+    width: 100%;
+    height: 4rem;
+    border-bottom: 0.3rem #000 solid;
+    padding-top: 0.3rem;
+    transition: all 0.8s;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.header_headline{
+    height: 3rem;
+    width: 80%;
+    background-color: #0088f6;
+    border: 0.1rem #FFF solid;
+    text-align: center;
+    padding-top: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.8s;
+}
+
+.header_blocks_default{
+    height: 0px;
+    width: 0%;
+    background-color: #0088f6;
+    border: 0.1rem #FFF solid;
+    text-align: center;
+    padding-top: 0.3rem;
+    margin-top: -8rem;
+    transition: all 0.7s;
+}
+
+.header_blocks_default p, .header_headline p{
+    margin: 0px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.desktop_index{
+    display: none;
+}
+
+/* ---- Login_State Box and Functions ---- */
+
+.login_state{
+    padding-top: 0.6rem;
+    background-color: rgb(172, 12, 12);
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.login_state_loggedIn {
+    background-color: #0cb11a;
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.login_state_clicked{
+    background-color: rgb(109, 167, 184);
+    height: 0px;
+    width: 0px;
+    position: relative;
+    bottom: 16rem;
+    left: 50rem;
+    transition: all 0.7s;
+}
+
+.login_state_clicked_active{
+    height: 12rem;
+    width: 80%;
+    border: 0.1rem solid #000;
+    color: #FFF;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 2rem auto 0px;
+    bottom: 16rem;
+    left: 0px;
+}
+
+.login_state_clicked_active p:nth-child(1){
+    background-color: rgb(221, 75, 75);
+    border: 0.1rem solid #000;
+    padding: 0.4rem;
+}
+
+/* ---- If the Header_Button is pressed ---- */
+header.pressed{
+    height: 26rem;
+}
+
+.header_headline_pressed{
+    background-color: rgb(247, 178, 51);
+}
+
+.pressed_header_blocks{
+    height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    margin: 2rem auto 0px;
+}
+
+.pressed_blurry_effect{
+    filter: blur(1rem);
+}
+
+/* --- Main Area --- */
+
+a{
+    text-decoration: none;
+}
+
+main{
+    flex: 1;
+}
+
+.main_blocks{
+    height: 12rem;
+    width: 90%;
+    background-color: #fff;
+    border: 0.1rem #000 solid;
+    margin: 2rem auto 0px;
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.main_blocks p{
+    margin-bottom: 1rem;
+    margin-top: 0px;
+    color: #000;
+    transition: all 0.3s;
+}
+
+.block_logo{
+    font-size: 3rem;
+}
+
+
+/* --- Footer Area --- */
+footer{
+    height: auto;
+    background-color: #000000;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    border-top: 0.5rem #2e2e2e solid;
+}
+
+footer p{
+    color: #FFF;
+    font-size: 1.5rem;
+}
+
+/* !--- BREAKPOINT FOR TABLETT ---! */
+
+@media (min-width: 576px) {
+
+    html,body{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Login_State_Button */
+    .login_state_clicked_active{
+            width: 50%;
+            bottom: 0;
+            top: -16rem;
+            z-index: 2;
+    }
+    
+    .login_state_clicked_active p{
+            transition: all 0.3s;
+    }
+    
+    .login_checker{
+            top: -34rem;
+    }
+
+}
+
+/* !--- BREAKPOINT FOR SMALL-LAPTOP ---! */
+
+@media (min-width: 768px) {
+    .header_headline:hover{
+        cursor: pointer;
+        background-color: #000;
+    }
+
+    .header_blocks_default:hover{
+        cursor: pointer;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .login_state_clicked_active p{
+        transition: all 0.3s;
+    }
+
+    .login_state_clicked_active p:hover{
+        cursor: pointer;
+        background-color: #000;
+    }
+
+    /*----------------*/
+
+    .main_blocks{
+        width: 75%;
+    }
+
+    .main_blocks:hover{
+        height: 13rem;
+        width: 80%;
+        background-color: #979797; 
+        cursor: pointer;
+    }
+}
+
+/* !--- BREAKPOINT FOR NORM-LAPTOP ---! */
+@media (min-width: 992px){
+
+    .flex_container{
+        display: flex;
+        justify-content: left;
+    }
+
+    .header_blocks_default{
+        height: 2.8rem;
+        width: 12rem;
+        margin-top: 0px;
+        margin-left: 1rem;
+    }
+
+    .header_blocks_default:hover{
+        cursor: pointer;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .header_headline{
+        display: none;
+    }
+
+    .desktop_index{
+        display: block;
+        padding-top: 0.5rem;
+    }
+
+    .header_blocks_default{
+        width: 11rem;
+    }
+
+    .header_blocks_default p{
+        font-size: 1.4rem;
+    }
+
+    .position_website{
+        background-color: rgb(0, 0, 0);
+    }
+
+    .login_state{
+        position: absolute;
+        right: 2rem;
+        width: 14%;
+        font-size: 1rem;
+    }
+
+    .login_state:hover{
+        width: 16%;
+    }
+
+    .login_state_clicked{
+        left: 80rem;
+    }
+
+    .login_state_clicked_active {
+        top: -4rem;
+        left: 20rem;
+        width: 25%;
+    }
+
+    /*----------------*/
+
+    .main_blocks{
+        width: 60%;
+    }
+
+    .main_blocks:hover{
+        height: 13rem;
+        width: 65%;
+    }
+
+    footer{
+        margin-top: 10rem;
+    }
+
+}
+
+/* !--- BREAKPOINT FOR DESKTOP ---! */
+@media (min-width: 1200px){
+
+    .header_blocks_default{
+        width: 12.5rem;
+    }
+
+    .header_blocks_default:hover{
+        width: 14rem;
+    }
+
+    .login_state{
+        right: 3rem;
+        width: 14%;
+        font-size: 1.3rem;
+    }
+
+    .login_state_clicked_active{
+        width: 20%;
+        left: 28rem;
+    }
+
+    .login_state:hover{
+        width: 16%;
+    }
+    
+        /*----------------*/
+         /* GRIDSYSTEM */
+    .grid-container{
+        margin-top: 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "block_1 block_2"
+        "block_3 block_3"
+        ;
+    }
+
+    .main_blocks{
+        width: 50%;
+        height: 13rem;
+    }
+
+    .main_blocks:hover{
+        width: 55%;
+        height: 14rem;
+    }
+
+    .block_1{
+        grid-area: block_1;
+    }
+
+    .block_2{
+        grid-area: block_2;
+    }
+
+    .block_3{
+        grid-area: block_3;
+        width: 25%;
+    }
+
+    .block_3:hover{
+        width: 30%;
+    }
+}
+
+/* !--- BREAKPOINT FOR BIGGER_SIZE --! */
+
+@media (min-width: 1680px){
+
+     .login_state{
+        font-size: 1.5rem;
+        right: 3rem;
+        width: 10%;
+    }
+
+    .login_state:hover{
+        width: 12%;
+    }
+
+    .login_state_clicked{
+        left: 130rem;
+        width: 15%;
+    }
+
+    .login_state_clicked_active {
+        left: 50rem;
+    } */
+
+    /*----------------*/
+
+    .main_blocks:hover{
+        width: 60%;
+    }
+
+    .block_3{
+        width: 20%;
+    }
+
+    .block_3:hover{
+        width: 20%;
+    }
+}
