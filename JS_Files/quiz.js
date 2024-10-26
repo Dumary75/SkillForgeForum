@@ -38,22 +38,26 @@ window.addEventListener('load', () => {
             main_blurry_effect();
         });
 
-    } else {
-     logged_site_blocker.classList.add('login_checker_active');
-     side_blocker_login.addEventListener('click', () => {
-        localStorage.setItem('loginCheckerToken', 'acc_login');
-        window.location.href = 'account.html';
-      });
+    } else {main_blurry_effect();
+    // Manual blur effect is required! 
+    header_blocks.forEach(header_block => {
+        header_block.classList.toggle('pressed_blurry_effect'); });
+        if(window.innerWidth <= 991){
+            header_headline.classList.toggle('pressed_blurry_effect');
+        };
 
-      side_blocker_create.addEventListener('click', () => {
-        localStorage.setItem('loginCheckerToken', 'acc_create');
-        window.location.href = 'account.html';
-      });
+    logged_site_blocker.classList.add('login_checker_active');
 
-     header_blurr_effect();
-     main_blurry_effect();
-    };
-});
+    side_blocker_login.addEventListener('click', () => {
+    localStorage.setItem('loginCheckerToken', 'acc_login');
+    window.location.href = 'account.html';
+  });
+
+    side_blocker_create.addEventListener('click', () => {
+    localStorage.setItem('loginCheckerToken', 'acc_create');
+    window.location.href = 'account.html';
+  });
+}});
 
 // Blurry_Effects 
 function main_blurry_effect(){
@@ -409,6 +413,7 @@ function quiz_selection_field_logic(big_box_create,big_box_answer,disabelt_page,
     big_box_answer.style.display = 'none';
     disabelt_page.style.display = 'none';
     selected_page.classList.add('selection_active');
+    main_container.style.top = '0';
 };
 
 // --- QUEST_USER_CREATE site Logic --- //

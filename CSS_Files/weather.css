@@ -630,6 +630,10 @@ footer p{
         margin-top: 0px;
     }
 
+    .big_box{
+        top: 0;
+    }
+
     .search p{
         font-size: 3rem;
     }

@@ -175,7 +175,7 @@ header.pressed{
 
 .login_checker_active{
     left: 0rem;
-    bottom: 45rem;
+    bottom: 30rem;
     width: 100%;
     height: 30rem;
     opacity: 1;
@@ -468,6 +468,11 @@ footer p{
             
     /*----------------*/
 
+    .main_container{
+        position: relative;
+        top: 8rem;
+    }
+
     /* > Selection_Area < */
     footer{
         margin-top: 3rem;
@@ -535,6 +540,10 @@ footer p{
 
     /*----------------*/
 
+    .main_container{
+        top: 10rem;
+    }
+
     .main_blocks{
         margin-top: 5rem;
         width: 80%;
@@ -543,7 +552,8 @@ footer p{
         margin-right: auto;
     }
 
-    .main_blocks:hover{
+    .hover_effect:hover{
+        transform: scale(1.2);
         background-color: #000;
         cursor: pointer;
     }
@@ -555,6 +565,11 @@ footer p{
     }
 
     /* > user_own_quiz_input Area < */
+
+    .selection_active{
+        top: 10rem;
+    }
+
     #questionInput{
         height: 7rem;
         width: 50%;
@@ -695,15 +710,14 @@ footer p{
     /*----------------*/
 
     .main_blocks{
-        width: 40%;
+        width: 70%;
         padding-top: 3%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .hover_effect:hover{
-        width: 45%;
-    }
+        /* > user_own_quiz_input Area < */
+
 
         /* --- Question GAME SITE --- */
         .answer-container{
