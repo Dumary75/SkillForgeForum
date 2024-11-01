@@ -39,19 +39,25 @@ window.addEventListener('load', () => {
         });
 
     } else {
-     logged_site_blocker.classList.add('login_checker_active');
-     side_blocker_login.addEventListener('click', () => {
+        main_blurry_effect();
+        // Manual blur effect is required! 
+        header_blocks.forEach(header_block => {
+            header_block.classList.toggle('pressed_blurry_effect'); });
+            if(window.innerWidth <= 991){
+                header_headline.classList.toggle('pressed_blurry_effect');
+            };
+
+        logged_site_blocker.classList.add('login_checker_active');
+
+        side_blocker_login.addEventListener('click', () => {
         localStorage.setItem('loginCheckerToken', 'acc_login');
         window.location.href = 'account.html';
       });
 
-      side_blocker_create.addEventListener('click', () => {
+        side_blocker_create.addEventListener('click', () => {
         localStorage.setItem('loginCheckerToken', 'acc_create');
         window.location.href = 'account.html';
       });
-
-     header_blurr_effect();
-     main_blurry_effect();
     };
 });
 
@@ -103,6 +109,7 @@ ausloggen_abrechen.addEventListener('click', () => {
 //---- QUIZ_SELECTION ----//
 let quest_answer_field = document.querySelector('.quest_answer');
 let quest_create_field = document.querySelector('.quest_create');
+let quiz_selection_clicked = document.querySelector('.selection_list_clicked');
 
 // Questcreate and section blogs 
 let quest_selection_list = document.querySelector('.quest_selection_list');
@@ -402,6 +409,7 @@ quest_create_field.addEventListener('click', () => {
 
 quest_answer_field.addEventListener('click', () => {
     quiz_selection_field_logic(quest_create_field,quest_answer_field,quest_user_create_field,quest_selection_list);
+    quest_selection_list.classList.add('quiz_selection_clicked');
 });
 
 function quiz_selection_field_logic(big_box_create,big_box_answer,disabelt_page,selected_page){

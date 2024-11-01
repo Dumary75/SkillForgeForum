@@ -48,7 +48,8 @@ header{
     transition: all 0.7s;
 }
 
-.header_blocks_default p, .header_headline p{
+.header_blocks_default p, 
+.header_headline p{
     margin: 0px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -369,28 +370,17 @@ footer p{
 
 @media (min-width: 768px) {
 
-    .header_headline:hover{
+    .header_headline:hover,
+    .header_blocks_default:hover,
+    .login_state_clicked_active p:hover,
+    .login_checker div:hover,
+    .search button:hover{
         cursor: pointer;
         background-color: #000;
-    }
-
-    .header_blocks_default:hover{
-        cursor: pointer;
-        background-color: rgb(0, 0, 0);
     }
 
     .login_state_clicked_active p{
         transition: all 0.3s;
-    }
-
-    .login_state_clicked_active p:hover{
-        cursor: pointer;
-        background-color: #000;
-    }
-
-    .login_checker div:hover{
-        cursor: pointer;
-        background-color: #000;
     }
 
     /*----------------*/
@@ -418,12 +408,6 @@ footer p{
         left: 16rem;
     }
 
-    
-    .search button:hover{
-        cursor: pointer;
-        background-color: #000;
-    }
-
 }
 
 /* !--- BREAKPOINT FOR NORM-LAPTOP ---! */
@@ -439,11 +423,6 @@ footer p{
         width: 12rem;
         margin-top: 0px;
         margin-left: 1rem;
-    }
-
-    .header_blocks_default:hover{
-        cursor: pointer;
-        background-color: rgb(0, 0, 0);
     }
 
     .header_headline{
@@ -493,7 +472,7 @@ footer p{
         width: 70%;
         margin-left: auto;
         margin-right: auto;
-}
+    }
 
     /*----------------*/
     
@@ -505,7 +484,8 @@ footer p{
         gap: 3rem;
     }
 
-    .search div, .big_box div{
+    .search div, 
+    .big_box div{
         width: 17rem;
     }
 
@@ -576,7 +556,9 @@ footer p{
 
         /*----------------*/
 
-    .search div, .big_box div, .small_box_container{
+    .search div, 
+    .big_box div, 
+    .small_box_container{
         width: 21rem;
     }
 
@@ -625,9 +607,10 @@ footer p{
 
     /*----------------*/
 
-    .search div, .big_box div, .small_box_container{
+    .search div, 
+    .big_box div, 
+    .small_box_container{
         width: 25rem;
-        margin-top: 0px;
     }
 
     .search p{
