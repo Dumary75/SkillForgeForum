@@ -175,7 +175,7 @@ header.pressed{
 
 .login_checker_active{
     left: 0rem;
-    bottom: 45rem;
+    bottom: 25rem;
     width: 100%;
     height: 30rem;
     opacity: 1;
@@ -467,11 +467,6 @@ footer p{
             
     /*----------------*/
 
-    .main_container{
-        position: relative;
-        top: 8rem;
-    }
-
     /* > Selection_Area < */
 
     .main_blocks{
@@ -534,6 +529,10 @@ footer p{
 
     /*----------------*/
 
+    .main_container{
+        margin-top: 8rem;
+    }
+
     .main_blocks{
         width: 80%;
         padding-top: 3%;
@@ -541,9 +540,8 @@ footer p{
         margin-right: auto;
     }
 
-    .main_blocks:hover{
-        background-color: #000;
-        cursor: pointer;
+    .hover_effect{
+        transition: all 0.5s;
     }
 
     .hover_effect:hover{
@@ -554,11 +552,6 @@ footer p{
     }
 
     /* > user_own_quiz_input Area < */
-
-    .selection_active{
-        top: 10rem;
-    }
-
     #questionInput{
         height: 7rem;
         width: 50%;
@@ -687,14 +680,39 @@ footer p{
     /*----------------*/
 
     .main_blocks{
-        width: 40%;
-        padding-top: 3%;
-        margin-left: auto;
-        margin-right: auto;
+        width: 60%;
     }
 
-    .hover_effect:hover{
-        width: 45%;
+    /* > user_own_quiz_input Area < */
+    .user_input_create_input{
+        flex-direction: column;
+    }
+
+    #questionInput{
+        width: 40%;
+    }
+
+    #saveQuestionBtn{
+        margin-left: 45%;
+    }
+
+    /* --- Question SELECTION SITE --- */
+    .selection_active{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+        
+    .quest_selection_list li { 
+        height: 9rem;
+        padding-top: 3rem;
+        font-size: 3rem;
+        width: 80%;
+    }
+    
+    footer{
+        margin-top: 5rem;
     }
 
     /* --- Question GAME SITE --- */
